@@ -1,0 +1,27 @@
+/*  INTERNET EXPLORER 7 FIXES  */
+
+.metric th.arrow img {
+	position: relative;
+	top: 4px;
+	}
+
+.metric td.cal-metric a {	
+	padding: 8% 5%;
+	width: 90%;
+	height: 84%;
+	}	
+
+.metric td.unit {
+	width: 15px;
+	padding: 0 0 0 1px;
+	}
+	
+#filters select {
+	top: 0;
+	}	
+	
+/*  INTERNET EXPLORER 8 FIXES  */
+
+#filters input {
+	width: 65px;
+	}	

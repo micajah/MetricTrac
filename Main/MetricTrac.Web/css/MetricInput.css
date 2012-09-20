@@ -1,0 +1,278 @@
+/*
+//  #     #                              #######                      
+//  ##   ## ###### ##### #####  #  ####     #    #####    ##    ####  
+//  # # # # #        #   #    # # #    #    #    #    #  #  #  #    # 
+//  #  #  # #####    #   #    # # #         #    #    # #    # #      
+//  #     # #        #   #####  # #         #    #####  ###### #      
+//  #     # #        #   #   #  # #    #    #    #   #  #    # #    # 
+//  #     # ######   #   #    # #  ####     #    #    # #    #  ####  
+                                                                      
+//	###########################################
+//  # Author: Martin Parets			          #
+//	# Date: 10/19/2009					      #
+//	# URL: http://www.asowebdesign.com		  #
+//  ###########################################
+*/
+
+/*  MAIN  */
+
+body {
+	font: small Arial, Helvetica sans-serif;
+	/*text-align: center;*/
+	margin: 0 auto;
+	color: #111;
+	background: #fff;
+	/*line-height: 1.3em;*/
+	font-size:16px !important;
+	}
+	
+.cursor {
+	cursor: hand;
+	cursor: pointer;
+	}	
+	
+/*  FLAG  */
+	
+.flag {
+	clear: both;
+	float: left;
+	display: inline-block;
+	padding: 0 16px;
+	margin: 15px 0 0;
+	height: 16px;
+	font-size: 10px;
+	font-weight: bold;
+	color: #fff;
+	background: #c7c6c6 url('../images/backgrounds/flag-right.png') right top no-repeat;
+	text-transform: uppercase;
+	line-height: 16px;
+	}
+
+/*  FILTERS  */
+	
+.filters {
+	float: left;
+	display: inline-table;
+	background: #eaeaea;
+	font-size: 90%;
+	height:28;
+	}
+		
+	.filters a	{
+		color: #428b19;
+		text-decoration: none;
+		}
+		
+		.filters a:hover {
+			color: #67c035;
+			text-decoration: underline;
+			}
+			
+
+	
+	
+/*  TABLE  */
+
+.metric {
+	clear: both;
+	width: 100%;
+	
+	/*move from body*/
+	text-align: center;
+	line-height: 1.3em;
+	}	
+	
+.metric table {
+	width: 100%;
+	border: 0;
+	border-collapse: collapse;
+	}
+
+	.metric th {
+		padding: 6px 8px;
+		border-bottom: 1px solid #b9b9b9;
+		vertical-align: bottom;		
+		}
+		
+		.metric th.button {
+			text-align: right;			
+			border-bottom-style:none;
+			padding-right:0px;
+			}		
+		
+		.metric th.empty {
+			text-align: left;
+			width:9px;
+			border-bottom-style:none;
+			}
+			
+		.metric th.flagcell {
+			border-bottom-style:none;
+			padding:0px;
+			height:5px;
+			}
+	
+		.metric th.title {
+			font-size: 100%;
+			font-weight: bold;
+			text-align: left;			
+			}	
+			
+			.metric th.title a {
+			    font-size: 70%;
+			    font-weight: normal;			    
+			    }
+			.metric th.title img {
+				margin-left: 2px;
+				}
+		
+        a.quickedit:link {color: #666666;}        
+        a.quickedit:hover {color: #666666;}
+        a.quickedit:active {color: #666666;}
+        a.quickedit:visited {color: #666666;} 
+			
+		.metric th.arrow {
+			padding: 6px 0 4px;
+			width: 16px;
+			text-align: center;
+			}
+			
+		.metric th.cal-head {
+			padding: 6px 0 4px;
+			width: 10%;
+			font-size: 75%;
+			font-weight: normal;
+			text-align: center;
+			white-space: nowrap;
+			}
+			
+		.metric th.for-head {
+			padding: 6px 0 4px;
+			width: 10%;
+			font-size: 75%;
+			font-weight: bolder;
+			text-align: center;
+			white-space: nowrap;			
+			border-left: 1px solid #b9b9b9;
+			border-right: 1px solid #b9b9b9;
+			border-bottom: none;
+			border-collapse:collapse;
+		}
+		
+	
+	.metric td {
+		padding: 8px;
+		border-bottom: 1px solid #d8d8d8;
+		border-right: 1px solid #d8d8d8;
+		vertical-align: middle;		
+		}
+		
+		.metric td.select {
+		    padding: 8px 0px 8px 0px;
+		    border-bottom-style:none;		    
+		    vertical-align: top;
+		    text-align:left;
+		    font-size:80%;	
+		    background-color:#cccccc;	
+		    }
+		    .metric td.select a {
+			    font-size: 100%;
+			    font-weight: normal;
+			    color:#2A5DB0;
+			}
+		
+		.metric td.title {
+			font-size: 90%;
+			font-weight: bolder;
+			text-align: left;			
+			border-right: 0px;
+			}
+		
+		.metric td.location {
+			color: #898989;
+			font-size: 70%;
+			}
+			
+			.metric td.location a {
+			    font-size: 90%;
+			    font-weight: normal;
+			}		
+			
+			.metric td.location span {
+				color: #111;
+				font-size: 115%;
+				}
+								
+		.metric td.unit {
+			width: 16px;
+			padding: 0;
+			font-size: 65%;
+			color: #979797;
+			background: #ededed;
+			border-bottom: 1px solid #b9b9b9 !important;
+			text-transform: uppercase;
+			line-height: 1.2em;
+			text-align: center;
+			}
+			
+		.metric td.cal-metric {
+			padding: 0;
+			text-align: center;
+			white-space: nowrap;
+			}
+			
+			.metric td.cal-metric a {
+				display: block;
+				padding: 9px 8px;
+				text-decoration: none;
+				color: #111;
+				}
+
+				.metric td.cal-metric a:hover,
+				.metric td.cal-metric a:focus,
+				.metric td.empty a:hover,
+				.metric td.empty a:focus {
+					background-color: #f9ffcd !important;
+					}
+				
+				.metric td.empty {
+					background: transparent url('../images/backgrounds/td-empty.png') left top repeat !important;
+					}
+				.metric td.empty-disabled {
+					background-color: #F3F3F3 !important;
+					}
+				.metric td.absent {				    
+					background-color:#cccccc !important;
+					}				
+					
+			.metric td.cal-metric big {
+				font-size: 175%;
+				font-weight: bold;
+				}		
+				
+				.metric td.cal-metric big.tick,
+				.metric td.cal-metric big.clip,
+				.metric td.cal-metric big.tick-clip,
+				.metric td.cal-metric big.rick,
+				.metric td.cal-metric big.rick-clip,
+				.metric td.cal-metric big.rick-up,
+				.metric td.cal-metric big.rick-up-clip
+				{
+					padding-right: 12px;
+				}
+				
+				.metric td.cal-metric big.tick { background: transparent url('../images/icons/tick.png') right 50% no-repeat; }	
+				.metric td.cal-metric big.clip { background: transparent url('../images/icons/clip.png') right 50% no-repeat; }	
+				.metric td.cal-metric big.tick-clip { background: transparent url('../images/icons/tick-clip.png') right 50% no-repeat; }	
+				
+				.metric td.cal-metric big.rick { background: transparent url('../images/icons/rick.png') right 50% no-repeat; }					
+				.metric td.cal-metric big.rick-clip { background: transparent url('../images/icons/rick-clip.png') right 50% no-repeat; }	
+				
+				.metric td.cal-metric big.rick-up { background: transparent url('../images/icons/rick-up.png') right 50% no-repeat; }	
+				.metric td.cal-metric big.rick-up-clip { background: transparent url('../images/icons/rick-up-clip.png') right 50% no-repeat; }	
+				
+				.metric td.cal-metric big.empty-css { padding-right:11px; }	
+				
+	.metric tr.last td {
+		border-bottom: 1px solid #b9b9b9 !important;
+		}			

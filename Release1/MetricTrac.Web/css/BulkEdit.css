@@ -1,0 +1,46 @@
+﻿.metric td.cal-metric a 
+{
+    display: inline;
+    padding: 0px;    
+    border:none 0px;
+    padding-right:0px;
+}
+
+.metric td.cal-metric a:link,
+.metric td.cal-metric a:visited,
+.metric td.cal-metric a:active
+{
+	text-decoration:none;
+}
+
+.metric td.cal-metric a:link	
+{   
+	color: #333333;
+}
+	
+.metric td.cal-metric a:visited
+{
+	color: #898989;
+}
+
+.metric td.cal-metric a:active
+{
+	color: #333333;
+}
+
+.metric td.cal-metric a:hover,
+.metric td.cal-metric a:focus,
+.metric td.empty a:hover,
+.metric td.empty a:focus
+{
+    background-color:Transparent;
+}					
+					
+.metric th.cal-head {
+    padding: 6px 0 4px;			
+    width: 6%;
+    font-size: 75%;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+}

@@ -1,0 +1,785 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MetricTrac.Bll.Frequency" BaseTypeListCollapsed="true">
+    <Position X="1" Y="13.25" Width="2" />
+    <Members>
+      <Field Name="_FrequencyID" Hidden="true" />
+      <Field Name="_Metric" Hidden="true" />
+      <Field Name="_MetricValue" Hidden="true" />
+      <Field Name="_Name" Hidden="true" />
+      <Method Name="attach_Metric" Hidden="true" />
+      <Method Name="attach_MetricValue" Hidden="true" />
+      <Method Name="detach_Metric" Hidden="true" />
+      <Method Name="detach_MetricValue" Hidden="true" />
+      <Method Name="Frequency" Hidden="true" />
+      <Property Name="Metric" Hidden="true" />
+      <Method Name="OnCreated" Hidden="true" />
+      <Method Name="OnFrequencyIDChanged" Hidden="true" />
+      <Method Name="OnFrequencyIDChanging" Hidden="true" />
+      <Method Name="OnLoaded" Hidden="true" />
+      <Method Name="OnNameChanged" Hidden="true" />
+      <Method Name="OnNameChanging" Hidden="true" />
+      <Method Name="OnValidate" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Enum Name="MetricTrac.Bll.Frequency.FrequencyName" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Frequency.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>BACSQgKAAAYAAAAAQCEAIAZAACBAQAACABAEAAA4EAA=</HashCode>
+      <FileName>DataContext\LinqDB.cs</FileName>
+      <NewMemberFileName>Frequency.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetricTrac.Bll.Sector" BaseTypeListCollapsed="true">
+    <Position X="1" Y="3.75" Width="2" />
+    <Members>
+      <Field Name="_Name" Hidden="true" />
+      <Field Name="_PerformanceIndicator" Hidden="true" />
+      <Field Name="_SectorID" Hidden="true" />
+      <Method Name="attach_PerformanceIndicator" Hidden="true" />
+      <Method Name="detach_PerformanceIndicator" Hidden="true" />
+      <Method Name="OnCreated" Hidden="true" />
+      <Method Name="OnLoaded" Hidden="true" />
+      <Method Name="OnNameChanged" Hidden="true" />
+      <Method Name="OnNameChanging" Hidden="true" />
+      <Method Name="OnSectorIDChanged" Hidden="true" />
+      <Method Name="OnSectorIDChanging" Hidden="true" />
+      <Method Name="OnValidate" Hidden="true" />
+      <Property Name="PerformanceIndicator" Hidden="true" />
+      <Method Name="Sector" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAACAAQAAIAAACABRAEAIAQAACAEQgAAIAAAAAAAAAA=</HashCode>
+      <FileName>DataContext\LinqDB.cs</FileName>
+      <NewMemberFileName>Sector.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetricTrac.Bll.GroupCategoryAspect" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="6.25" Width="2" />
+    <Members>
+      <Field Name="_Created" Hidden="true" />
+      <Field Name="_GroupCategoryAspect_GroupCategoryAspect" Hidden="true" />
+      <Field Name="_GroupCategoryAspect_GroupCategoryAspect1" Hidden="true" />
+      <Field Name="_GroupCategoryAspectID" Hidden="true" />
+      <Field Name="_InstanceId" Hidden="true" />
+      <Field Name="_Mc_Instance" Hidden="true" />
+      <Field Name="_Name" Hidden="true" />
+      <Field Name="_ParentId" Hidden="true" />
+      <Field Name="_PerformanceIndicator" Hidden="true" />
+      <Field Name="_Status" Hidden="true" />
+      <Field Name="_Updated" Hidden="true" />
+      <Method Name="attach_GroupCategoryAspect_GroupCategoryAspect1" Hidden="true" />
+      <Method Name="attach_PerformanceIndicator" Hidden="true" />
+      <Method Name="detach_GroupCategoryAspect_GroupCategoryAspect1" Hidden="true" />
+      <Method Name="detach_PerformanceIndicator" Hidden="true" />
+      <Method Name="GroupCategoryAspect" Hidden="true" />
+      <Property Name="GroupCategoryAspect_GroupCategoryAspect1" Hidden="true" />
+      <Method Name="OnCreated" Hidden="true" />
+      <Method Name="OnCreatedChanged" Hidden="true" />
+      <Method Name="OnCreatedChanging" Hidden="true" />
+      <Method Name="OnGroupCategoryAspectIDChanged" Hidden="true" />
+      <Method Name="OnGroupCategoryAspectIDChanging" Hidden="true" />
+      <Method Name="OnInstanceIdChanged" Hidden="true" />
+      <Method Name="OnInstanceIdChanging" Hidden="true" />
+      <Method Name="OnLoaded" Hidden="true" />
+      <Method Name="OnNameChanged" Hidden="true" />
+      <Method Name="OnNameChanging" Hidden="true" />
+      <Method Name="OnParentIdChanged" Hidden="true" />
+      <Method Name="OnParentIdChanging" Hidden="true" />
+      <Method Name="OnStatusChanged" Hidden="true" />
+      <Method Name="OnStatusChanging" Hidden="true" />
+      <Method Name="OnUpdatedChanged" Hidden="true" />
+      <Method Name="OnUpdatedChanging" Hidden="true" />
+      <Method Name="OnValidate" Hidden="true" />
+      <Property Name="PerformanceIndicator" Hidden="true" />
+    </Members>
+    <AssociationLine Name="GroupCategoryAspect_GroupCategoryAspect" Type="MetricTrac.Bll.GroupCategoryAspect" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.812" Y="9.439" />
+        <Point X="5.812" Y="9.689" />
+        <Point X="7.125" Y="9.689" />
+        <Point X="7.125" Y="9.439" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.869" Y="0.341" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQKAEQEAiIAQiRRSAGAMATBACNDQAQAYgEoAoAIwAA=</HashCode>
+      <FileName>DataContext\LinqDB.cs</FileName>
+      <NewMemberFileName>GroupCategoryAspect.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GroupCategoryAspect_GroupCategoryAspect" />
+      <Property Name="Mc_Instance" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MetricTrac.Bll.Mc_Instance" BaseTypeListCollapsed="true">
+    <Position X="1" Y="7.5" Width="2" />
+    <Members>
+      <Field Name="_Deleted" Hidden="true" />
+      <Field Name="_Description" Hidden="true" />
+      <Field Name="_EnableSignUpUser" Hidden="true" />
+      <Field Name="_GroupCategoryAspect" Hidden="true" />
+      <Field Name="_InstanceId" Hidden="true" />
+      <Field Name="_Metric" Hidden="true" />
+      <Field Name="_MetricValue" Hidden="true" />
+      <Field Name="_Name" Hidden="true" />
+      <Field Name="_OrganizationId" Hidden="true" />
+      <Field Name="_PerformanceIndicator" Hidden="true" />
+      <Field Name="_PerformanceIndicatorForm" Hidden="true" />
+      <Field Name="_PerformanceIndicatorFormPerformanceIndicatorJunc" Hidden="true" />
+      <Field Name="_PerformanceIndicatorMetricJunc" Hidden="true" />
+      <Method Name="attach_GroupCategoryAspect" Hidden="true" />
+      <Method Name="attach_Metric" Hidden="true" />
+      <Method Name="attach_MetricValue" Hidden="true" />
+      <Method Name="attach_PerformanceIndicator" Hidden="true" />
+      <Method Name="attach_PerformanceIndicatorForm" Hidden="true" />
+      <Method Name="attach_PerformanceIndicatorFormPerformanceIndicatorJunc" Hidden="true" />
+      <Method Name="attach_PerformanceIndicatorMetricJunc" Hidden="true" />
+      <Method Name="detach_GroupCategoryAspect" Hidden="true" />
+      <Method Name="detach_Metric" Hidden="true" />
+      <Method Name="detach_MetricValue" Hidden="true" />
+      <Method Name="detach_PerformanceIndicator" Hidden="true" />
+      <Method Name="detach_PerformanceIndicatorForm" Hidden="true" />
+      <Method Name="detach_PerformanceIndicatorFormPerformanceIndicatorJunc" Hidden="true" />
+      <Method Name="detach_PerformanceIndicatorMetricJunc" Hidden="true" />
+      <Property Name="GroupCategoryAspect" Hidden="true" />
+      <Method Name="Mc_Instance" Hidden="true" />
+      <Property Name="Metric" Hidden="true" />
+      <Property Name="MetricValue" Hidden="true" />
+      <Method Name="OnCreated" Hidden="true" />
+      <Method Name="OnDeletedChanged" Hidden="true" />
+      <Method Name="OnDeletedChanging" Hidden="true" />
+      <Method Name="OnDescriptionChanged" Hidden="true" />
+      <Method Name="OnDescriptionChanging" Hidden="true" />
+      <Method Name="OnEnableSignUpUserChanged" Hidden="true" />
+      <Method Name="OnEnableSignUpUserChanging" Hidden="true" />
+      <Method Name="OnInstanceIdChanged" Hidden="true" />
+      <Method Name="OnInstanceIdChanging" Hidden="true" />
+      <Method Name="OnLoaded" Hidden="true" />
+      <Method Name="OnNameChanged" Hidden="true" />
+      <Method Name="OnNameChanging" Hidden="true" />
+      <Method Name="OnOrganizationIdChanged" Hidden="true" />
+      <Method Name="OnOrganizationIdChanging" Hidden="true" />
+      <Method Name="OnValidate" Hidden="true" />
+      <Property Name="PerformanceIndicator" Hidden="true" />
+      <Property Name="PerformanceIndicatorForm" Hidden="true" />
+      <Property Name="PerformanceIndicatorFormPerformanceIndicatorJunc" Hidden="true" />
+      <Property Name="PerformanceIndicatorMetricJunc" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AEACQkaAAAEwAGCRQCEAMUwACSJQQBgOIRQMAAEJyAA=</HashCode>
+      <FileName>DataContext\LinqDB.cs</FileName>
+      <NewMemberFileName>Mc_Instance.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetricTrac.Bll.Mc_UnitsOfMeasure" BaseTypeListCollapsed="true">
+    <Position X="1" Y="22.5" Width="2" />
+    <Members>
+      <Field Name="_GroupName" Hidden="true" />
+      <Field Name="_Metric" Hidden="true" />
+      <Field Name="_MetricValue" Hidden="true" />
+      <Field Name="_OrganizationId" Hidden="true" />
+      <Field Name="_PluralAbbrv" Hidden="true" />
+      <Field Name="_PluralName" Hidden="true" />
+      <Field Name="_SingularAbbrv" Hidden="true" />
+      <Field Name="_SingularName" Hidden="true" />
+      <Field Name="_UnitsOfMeasureId" Hidden="true" />
+      <Method Name="attach_Metric" Hidden="true" />
+      <Method Name="attach_MetricValue" Hidden="true" />
+      <Method Name="detach_Metric" Hidden="true" />
+      <Method Name="detach_MetricValue" Hidden="true" />
+      <Method Name="Mc_UnitsOfMeasure" Hidden="true" />
+      <Property Name="Metric" Hidden="true" />
+      <Method Name="OnCreated" Hidden="true" />
+      <Method Name="OnGroupNameChanged" Hidden="true" />
+      <Method Name="OnGroupNameChanging" Hidden="true" />
+      <Method Name="OnLoaded" Hidden="true" />
+      <Method Name="OnOrganizationIdChanged" Hidden="true" />
+      <Method Name="OnOrganizationIdChanging" Hidden="true" />
+      <Method Name="OnPluralAbbrvChanged" Hidden="true" />
+      <Method Name="OnPluralAbbrvChanging" Hidden="true" />
+      <Method Name="OnPluralNameChanged" Hidden="true" />
+      <Method Name="OnPluralNameChanging" Hidden="true" />
+      <Method Name="OnSingularAbbrvChanged" Hidden="true" />
+      <Method Name="OnSingularAbbrvChanging" Hidden="true" />
+      <Method Name="OnSingularNameChanged" Hidden="true" />
+      <Method Name="OnSingularNameChanging" Hidden="true" />
+      <Method Name="OnUnitsOfMeasureIdChanged" Hidden="true" />
+      <Method Name="OnUnitsOfMeasureIdChanging" Hidden="true" />
+      <Method Name="OnValidate" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAIQwKAEoAgAAIQQhEBAEkAASRAAEAKAFAEABMBEIE=</HashCode>
+      <FileName>DataContext\LinqDB.cs</FileName>
+      <NewMemberFileName>Mc_UnitsOfMeasure.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetricTrac.Bll.Metric" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="14.5" Width="2.25" />
+    <Members>
+      <Field Name="_Created" Hidden="true" />
+      <Field Name="_Definition" Hidden="true" />
+      <Field Name="_Documentation" Hidden="true" />
+      <Field Name="_Frequency" Hidden="true" />
+      <Field Name="_FrequencyID" Hidden="true" />
+      <Field Name="_InstanceId" Hidden="true" />
+      <Field Name="_Mc_Instance" Hidden="true" />
+      <Field Name="_Mc_UnitsOfMeasure" Hidden="true" />
+      <Field Name="_MetricCategory" Hidden="true" />
+      <Field Name="_MetricCategoryID" Hidden="true" />
+      <Field Name="_MetricDataType" Hidden="true" />
+      <Field Name="_MetricDataTypeID" Hidden="true" />
+      <Field Name="_MetricID" Hidden="true" />
+      <Field Name="_MetricReferences" Hidden="true" />
+      <Field Name="_MetricValue" Hidden="true" />
+      <Field Name="_Name" Hidden="true" />
+      <Field Name="_NODecPlaces" Hidden="true" />
+      <Field Name="_NOMaxValue" Hidden="true" />
+      <Field Name="_NOMinValue" Hidden="true" />
+      <Field Name="_Notes" Hidden="true" />
+      <Field Name="_PerformanceIndicatorMetricJunc" Hidden="true" />
+      <Field Name="_Status" Hidden="true" />
+      <Field Name="_UnitOfMeasureID" Hidden="true" />
+      <Field Name="_Updated" Hidden="true" />
+      <Method Name="attach_MetricValue" Hidden="true" />
+      <Method Name="attach_PerformanceIndicatorMetricJunc" Hidden="true" />
+      <Method Name="detach_MetricValue" Hidden="true" />
+      <Method Name="detach_PerformanceIndicatorMetricJunc" Hidden="true" />
+      <Method Name="OnCreated" Hidden="true" />
+      <Method Name="OnCreatedChanged" Hidden="true" />
+      <Method Name="OnCreatedChanging" Hidden="true" />
+      <Method Name="OnDefinitionChanged" Hidden="true" />
+      <Method Name="OnDefinitionChanging" Hidden="true" />
+      <Method Name="OnDocumentationChanged" Hidden="true" />
+      <Method Name="OnDocumentationChanging" Hidden="true" />
+      <Method Name="OnFrequencyIDChanged" Hidden="true" />
+      <Method Name="OnFrequencyIDChanging" Hidden="true" />
+      <Method Name="OnInstanceIdChanged" Hidden="true" />
+      <Method Name="OnInstanceIdChanging" Hidden="true" />
+      <Method Name="OnLoaded" Hidden="true" />
+      <Method Name="OnMetricCategoryIDChanged" Hidden="true" />
+      <Method Name="OnMetricCategoryIDChanging" Hidden="true" />
+      <Method Name="OnMetricDataTypeIDChanged" Hidden="true" />
+      <Method Name="OnMetricDataTypeIDChanging" Hidden="true" />
+      <Method Name="OnMetricIDChanged" Hidden="true" />
+      <Method Name="OnMetricIDChanging" Hidden="true" />
+      <Method Name="OnMetricReferencesChanged" Hidden="true" />
+      <Method Name="OnMetricReferencesChanging" Hidden="true" />
+      <Method Name="OnNameChanged" Hidden="true" />
+      <Method Name="OnNameChanging" Hidden="true" />
+      <Method Name="OnNODecPlacesChanged" Hidden="true" />
+      <Method Name="OnNODecPlacesChanging" Hidden="true" />
+      <Method Name="OnNOMaxValueChanged" Hidden="true" />
+      <Method Name="OnNOMaxValueChanging" Hidden="true" />
+      <Method Name="OnNOMinValueChanged" Hidden="true" />
+      <Method Name="OnNOMinValueChanging" Hidden="true" />
+      <Method Name="OnNotesChanged" Hidden="true" />
+      <Method Name="OnNotesChanging" Hidden="true" />
+      <Method Name="OnStatusChanged" Hidden="true" />
+      <Method Name="OnStatusChanging" Hidden="true" />
+      <Method Name="OnUnitOfMeasureIDChanged" Hidden="true" />
+      <Method Name="OnUnitOfMeasureIDChanging" Hidden="true" />
+      <Method Name="OnUpdatedChanged" Hidden="true" />
+      <Method Name="OnUpdatedChanging" Hidden="true" />
+      <Method Name="OnValidate" Hidden="true" />
+      <Property Name="PerformanceIndicatorMetricJunc" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="MetricTrac.Bll.Metric.Extend">
+        <TypeIdentifier>
+          <NewMemberFileName>Metric.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <AssociationLine Name="Frequency" Type="MetricTrac.Bll.Frequency" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="5.5" Y="15.75" />
+        <Point X="5.125" Y="15.75" />
+        <Point X="5.125" Y="15.75" />
+        <Point X="4.906" Y="15.75" Type="JumpStart" />
+        <Point X="4.74" Y="15.75" Type="JumpEnd" />
+        <Point X="3" Y="15.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Mc_Instance" Type="MetricTrac.Bll.Mc_Instance" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.5" Y="15.013" />
+        <Point X="4.906" Y="15.013" Type="JumpStart" />
+        <Point X="4.74" Y="15.013" Type="JumpEnd" />
+        <Point X="4.289" Y="15.013" />
+        <Point X="4.289" Y="11.953" />
+        <Point X="1.25" Y="11.953" />
+        <Point X="1.25" Y="9.462" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Mc_UnitsOfMeasure" Type="MetricTrac.Bll.Mc_UnitsOfMeasure" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.5" Y="18.264" />
+        <Point X="4.537" Y="18.264" />
+        <Point X="4.537" Y="23.254" />
+        <Point X="3" Y="23.254" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="MetricCategory" Type="MetricTrac.Bll.MetricCategory" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.5" Y="17.634" />
+        <Point X="4.271" Y="17.634" />
+        <Point X="4.271" Y="20.011" />
+        <Point X="3" Y="20.011" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="MetricDataType" Type="MetricTrac.Bll.MetricDataType" FixedToPoint="true">
+      <Path>
+        <Point X="5.5" Y="17.438" />
+        <Point X="3" Y="17.438" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>IQCnUgIkEQFRWi/IQgGwMKZGELNFRDQhYgksBJCZxAI=</HashCode>
+      <FileName>DataContext\LinqDB.cs</FileName>
+      <NewMemberFileName>Metric.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Frequency" />
+      <Property Name="Mc_Instance" />
+      <Property Name="Mc_UnitsOfMeasure" />
+      <Property Name="MetricCategory" />
+      <Property Name="MetricDataType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MetricTrac.Bll.MetricCategory" BaseTypeListCollapsed="true">
+    <Position X="1" Y="18.5" Width="2" />
+    <Members>
+      <Field Name="_Created" Hidden="true" />
+      <Field Name="_Metric" Hidden="true" />
+      <Field Name="_MetricCategory_MetricCategory" Hidden="true" />
+      <Field Name="_MetricCategoryID" Hidden="true" />
+      <Field Name="_Name" Hidden="true" />
+      <Field Name="_Parent" Hidden="true" />
+      <Field Name="_ParentId" Hidden="true" />
+      <Field Name="_Status" Hidden="true" />
+      <Field Name="_Updated" Hidden="true" />
+      <Method Name="attach_Metric" Hidden="true" />
+      <Method Name="attach_MetricCategory_MetricCategory" Hidden="true" />
+      <Method Name="detach_Metric" Hidden="true" />
+      <Method Name="detach_MetricCategory_MetricCategory" Hidden="true" />
+      <Property Name="Metric" Hidden="true" />
+      <Method Name="MetricCategory" Hidden="true" />
+      <Property Name="MetricCategory_MetricCategory" Hidden="true" />
+      <Method Name="OnCreated" Hidden="true" />
+      <Method Name="OnCreatedChanged" Hidden="true" />
+      <Method Name="OnCreatedChanging" Hidden="true" />
+      <Method Name="OnLoaded" Hidden="true" />
+      <Method Name="OnMetricCategoryIDChanged" Hidden="true" />
+      <Method Name="OnMetricCategoryIDChanging" Hidden="true" />
+      <Method Name="OnNameChanged" Hidden="true" />
+      <Method Name="OnNameChanging" Hidden="true" />
+      <Method Name="OnParentIdChanged" Hidden="true" />
+      <Method Name="OnParentIdChanging" Hidden="true" />
+      <Method Name="OnStatusChanged" Hidden="true" />
+      <Method Name="OnStatusChanging" Hidden="true" />
+      <Method Name="OnUpdatedChanged" Hidden="true" />
+      <Method Name="OnUpdatedChanging" Hidden="true" />
+      <Method Name="OnValidate" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AgQCAECEAiMAAgRASAGAcAQAACEBQCQCQhEkAoCRAAA=</HashCode>
+      <FileName>DataContext\LinqDB.cs</FileName>
+      <NewMemberFileName>MetricCategory.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Parent" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MetricTrac.Bll.MetricDataType" BaseTypeListCollapsed="true">
+    <Position X="1" Y="16.75" Width="2" />
+    <Members>
+      <Field Name="_Metric" Hidden="true" />
+      <Field Name="_MetricDataTypeID" Hidden="true" />
+      <Field Name="_MetricValue" Hidden="true" />
+      <Field Name="_Name" Hidden="true" />
+      <Method Name="attach_Metric" Hidden="true" />
+      <Method Name="attach_MetricValue" Hidden="true" />
+      <Method Name="detach_Metric" Hidden="true" />
+      <Method Name="detach_MetricValue" Hidden="true" />
+      <Property Name="Metric" Hidden="true" />
+      <Method Name="MetricDataType" Hidden="true" />
+      <Property Name="MetricValue" Hidden="true" />
+      <Method Name="OnCreated" Hidden="true" />
+      <Method Name="OnLoaded" Hidden="true" />
+      <Method Name="OnMetricDataTypeIDChanged" Hidden="true" />
+      <Method Name="OnMetricDataTypeIDChanging" Hidden="true" />
+      <Method Name="OnNameChanged" Hidden="true" />
+      <Method Name="OnNameChanging" Hidden="true" />
+      <Method Name="OnValidate" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Enum Name="MetricTrac.Bll.MetricDataType.MetricDataTypeName" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MetricDataType.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQAGQgKAAAAAAAAAQAEAICQAACBAQAACABAEAAABAAA=</HashCode>
+      <FileName>DataContext\LinqDB.cs</FileName>
+      <NewMemberFileName>MetricDataType.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetricTrac.Bll.PerformanceIndicator" BaseTypeListCollapsed="true">
+    <Position X="9" Y="5.5" Width="2.5" />
+    <Members>
+      <Field Name="_Created" Hidden="true" />
+      <Field Name="_Description" Hidden="true" />
+      <Field Name="_GroupCategoryAspect" Hidden="true" />
+      <Field Name="_GroupCategoryAspectID" Hidden="true" />
+      <Field Name="_Help" Hidden="true" />
+      <Field Name="_InstanceId" Hidden="true" />
+      <Field Name="_Mc_Instance" Hidden="true" />
+      <Field Name="_Name" Hidden="true" />
+      <Field Name="_PerformanceIndicatorFormPerformanceIndicatorJunc" Hidden="true" />
+      <Field Name="_PerformanceIndicatorID" Hidden="true" />
+      <Field Name="_PerformanceIndicatorMetricJunc" Hidden="true" />
+      <Field Name="_Requirement" Hidden="true" />
+      <Field Name="_RequirementID" Hidden="true" />
+      <Field Name="_Sector" Hidden="true" />
+      <Field Name="_SectorID" Hidden="true" />
+      <Field Name="_Status" Hidden="true" />
+      <Field Name="_Updated" Hidden="true" />
+      <Method Name="attach_PerformanceIndicatorFormPerformanceIndicatorJunc" Hidden="true" />
+      <Method Name="attach_PerformanceIndicatorMetricJunc" Hidden="true" />
+      <Method Name="detach_PerformanceIndicatorFormPerformanceIndicatorJunc" Hidden="true" />
+      <Method Name="detach_PerformanceIndicatorMetricJunc" Hidden="true" />
+      <Method Name="OnCreated" Hidden="true" />
+      <Method Name="OnCreatedChanged" Hidden="true" />
+      <Method Name="OnCreatedChanging" Hidden="true" />
+      <Method Name="OnDescriptionChanged" Hidden="true" />
+      <Method Name="OnDescriptionChanging" Hidden="true" />
+      <Method Name="OnGroupCategoryAspectIDChanged" Hidden="true" />
+      <Method Name="OnGroupCategoryAspectIDChanging" Hidden="true" />
+      <Method Name="OnHelpChanged" Hidden="true" />
+      <Method Name="OnHelpChanging" Hidden="true" />
+      <Method Name="OnInstanceIdChanged" Hidden="true" />
+      <Method Name="OnInstanceIdChanging" Hidden="true" />
+      <Method Name="OnLoaded" Hidden="true" />
+      <Method Name="OnNameChanged" Hidden="true" />
+      <Method Name="OnNameChanging" Hidden="true" />
+      <Method Name="OnPerformanceIndicatorIDChanged" Hidden="true" />
+      <Method Name="OnPerformanceIndicatorIDChanging" Hidden="true" />
+      <Method Name="OnRequirementIDChanged" Hidden="true" />
+      <Method Name="OnRequirementIDChanging" Hidden="true" />
+      <Method Name="OnSectorIDChanged" Hidden="true" />
+      <Method Name="OnSectorIDChanging" Hidden="true" />
+      <Method Name="OnStatusChanged" Hidden="true" />
+      <Method Name="OnStatusChanging" Hidden="true" />
+      <Method Name="OnUpdatedChanged" Hidden="true" />
+      <Method Name="OnUpdatedChanging" Hidden="true" />
+      <Method Name="OnValidate" Hidden="true" />
+      <Method Name="PerformanceIndicator" Hidden="true" />
+      <Property Name="PerformanceIndicatorFormPerformanceIndicatorJunc" Hidden="true" />
+      <Property Name="PerformanceIndicatorMetricJunc" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="MetricTrac.Bll.PerformanceIndicator.Extend">
+        <TypeIdentifier>
+          <NewMemberFileName>PerformanceIndicator.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <AssociationLine Name="Mc_Instance" Type="MetricTrac.Bll.Mc_Instance" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9" Y="10.063" />
+        <Point X="4.717" Y="10.063" />
+        <Point X="4.717" Y="8.312" />
+        <Point X="3" Y="8.312" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>CEADAMAECIE4QgTARAGAMATAICJXRhwEwQeoAIAIyAM=</HashCode>
+      <FileName>DataContext\LinqDB.cs</FileName>
+      <NewMemberFileName>PerformanceIndicator.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GroupCategoryAspect" />
+      <Property Name="Mc_Instance" />
+      <Property Name="Requirement" />
+      <Property Name="Sector" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MetricTrac.Bll.PerformanceIndicatorForm" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="10.5" Width="2.25" />
+    <Members>
+      <Field Name="_Created" Hidden="true" />
+      <Field Name="_InstanceId" Hidden="true" />
+      <Field Name="_Mc_Instance" Hidden="true" />
+      <Field Name="_Name" Hidden="true" />
+      <Field Name="_PerformanceIndicatorFormID" Hidden="true" />
+      <Field Name="_PerformanceIndicatorFormPerformanceIndicatorJunc" Hidden="true" />
+      <Field Name="_Status" Hidden="true" />
+      <Field Name="_Updated" Hidden="true" />
+      <Method Name="attach_PerformanceIndicatorFormPerformanceIndicatorJunc" Hidden="true" />
+      <Method Name="detach_PerformanceIndicatorFormPerformanceIndicatorJunc" Hidden="true" />
+      <Method Name="OnCreated" Hidden="true" />
+      <Method Name="OnCreatedChanged" Hidden="true" />
+      <Method Name="OnCreatedChanging" Hidden="true" />
+      <Method Name="OnInstanceIdChanged" Hidden="true" />
+      <Method Name="OnInstanceIdChanging" Hidden="true" />
+      <Method Name="OnLoaded" Hidden="true" />
+      <Method Name="OnNameChanged" Hidden="true" />
+      <Method Name="OnNameChanging" Hidden="true" />
+      <Method Name="OnPerformanceIndicatorFormIDChanged" Hidden="true" />
+      <Method Name="OnPerformanceIndicatorFormIDChanging" Hidden="true" />
+      <Method Name="OnStatusChanged" Hidden="true" />
+      <Method Name="OnStatusChanging" Hidden="true" />
+      <Method Name="OnUpdatedChanged" Hidden="true" />
+      <Method Name="OnUpdatedChanging" Hidden="true" />
+      <Method Name="OnValidate" Hidden="true" />
+      <Method Name="PerformanceIndicatorForm" Hidden="true" />
+      <Property Name="PerformanceIndicatorFormPerformanceIndicatorJunc" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Mc_Instance" Type="MetricTrac.Bll.Mc_Instance" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.5" Y="10.75" />
+        <Point X="4.279" Y="10.75" />
+        <Point X="4.279" Y="8.75" />
+        <Point X="3" Y="8.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAFDAEAEAAA4QgRAQAGAcAUACCJFSAwAQQEgAIAAwAI=</HashCode>
+      <FileName>DataContext\LinqDB.cs</FileName>
+      <NewMemberFileName>PerformanceIndicatorForm.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Mc_Instance" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MetricTrac.Bll.PerformanceIndicatorFormPerformanceIndicatorJunc" BaseTypeListCollapsed="true">
+    <Position X="13" Y="3.5" Width="3.75" />
+    <Members>
+      <Field Name="_Created" Hidden="true" />
+      <Field Name="_InstanceId" Hidden="true" />
+      <Field Name="_Mc_Instance" Hidden="true" />
+      <Field Name="_PerformanceIndicator" Hidden="true" />
+      <Field Name="_PerformanceIndicatorForm" Hidden="true" />
+      <Field Name="_PerformanceIndicatorFormID" Hidden="true" />
+      <Field Name="_PerformanceIndicatorID" Hidden="true" />
+      <Field Name="_Status" Hidden="true" />
+      <Field Name="_Updated" Hidden="true" />
+      <Method Name="OnCreated" Hidden="true" />
+      <Method Name="OnCreatedChanged" Hidden="true" />
+      <Method Name="OnCreatedChanging" Hidden="true" />
+      <Method Name="OnInstanceIdChanged" Hidden="true" />
+      <Method Name="OnInstanceIdChanging" Hidden="true" />
+      <Method Name="OnLoaded" Hidden="true" />
+      <Method Name="OnPerformanceIndicatorFormIDChanged" Hidden="true" />
+      <Method Name="OnPerformanceIndicatorFormIDChanging" Hidden="true" />
+      <Method Name="OnPerformanceIndicatorIDChanged" Hidden="true" />
+      <Method Name="OnPerformanceIndicatorIDChanging" Hidden="true" />
+      <Method Name="OnStatusChanged" Hidden="true" />
+      <Method Name="OnStatusChanging" Hidden="true" />
+      <Method Name="OnUpdatedChanged" Hidden="true" />
+      <Method Name="OnUpdatedChanging" Hidden="true" />
+      <Method Name="OnValidate" Hidden="true" />
+      <Method Name="PerformanceIndicatorFormPerformanceIndicatorJunc" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAFBAAAECAAAQiRAQAGAEAEAACJBCAQI4QEgAIAAwAA=</HashCode>
+      <FileName>DataContext\LinqDB.cs</FileName>
+      <NewMemberFileName>PerformanceIndicatorFormPerformanceIndicatorJunc.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Mc_Instance" />
+      <Property Name="PerformanceIndicator" />
+      <Property Name="PerformanceIndicatorForm" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MetricTrac.Bll.PerformanceIndicatorMetricJunc" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="6.5" Width="2.5" />
+    <Members>
+      <Field Name="_Created" Hidden="true" />
+      <Field Name="_InstanceId" Hidden="true" />
+      <Field Name="_Mc_Instance" Hidden="true" />
+      <Field Name="_Metric" Hidden="true" />
+      <Field Name="_MetricID" Hidden="true" />
+      <Field Name="_PerformanceIndicator" Hidden="true" />
+      <Field Name="_PerformanceIndicatorID" Hidden="true" />
+      <Field Name="_Status" Hidden="true" />
+      <Field Name="_Updated" Hidden="true" />
+      <Method Name="OnCreated" Hidden="true" />
+      <Method Name="OnCreatedChanged" Hidden="true" />
+      <Method Name="OnCreatedChanging" Hidden="true" />
+      <Method Name="OnInstanceIdChanged" Hidden="true" />
+      <Method Name="OnInstanceIdChanging" Hidden="true" />
+      <Method Name="OnLoaded" Hidden="true" />
+      <Method Name="OnMetricIDChanged" Hidden="true" />
+      <Method Name="OnMetricIDChanging" Hidden="true" />
+      <Method Name="OnPerformanceIndicatorIDChanged" Hidden="true" />
+      <Method Name="OnPerformanceIndicatorIDChanging" Hidden="true" />
+      <Method Name="OnStatusChanged" Hidden="true" />
+      <Method Name="OnStatusChanging" Hidden="true" />
+      <Method Name="OnUpdatedChanged" Hidden="true" />
+      <Method Name="OnUpdatedChanging" Hidden="true" />
+      <Method Name="OnValidate" Hidden="true" />
+      <Method Name="PerformanceIndicatorMetricJunc" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAABAECEGAAAQiZIQAGAEAAAECNBAAQC4QEgAIAAwAA=</HashCode>
+      <FileName>DataContext\LinqDB.cs</FileName>
+      <NewMemberFileName>PerformanceIndicatorMetricJunc.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Mc_Instance" />
+      <Property Name="Metric" />
+      <Property Name="PerformanceIndicator" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MetricTrac.Bll.Requirement" BaseTypeListCollapsed="true">
+    <Position X="1" Y="1.75" Width="2" />
+    <Members>
+      <Field Name="_Name" Hidden="true" />
+      <Field Name="_PerformanceIndicator" Hidden="true" />
+      <Field Name="_RequirementID" Hidden="true" />
+      <Method Name="attach_PerformanceIndicator" Hidden="true" />
+      <Method Name="detach_PerformanceIndicator" Hidden="true" />
+      <Method Name="OnCreated" Hidden="true" />
+      <Method Name="OnLoaded" Hidden="true" />
+      <Method Name="OnNameChanged" Hidden="true" />
+      <Method Name="OnNameChanging" Hidden="true" />
+      <Method Name="OnRequirementIDChanged" Hidden="true" />
+      <Method Name="OnRequirementIDChanging" Hidden="true" />
+      <Method Name="OnValidate" Hidden="true" />
+      <Property Name="PerformanceIndicator" Hidden="true" />
+      <Method Name="Requirement" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>CAACAAQAAAAAACABQAEAIAQAACAARAgAIAAAAAAAAAE=</HashCode>
+      <FileName>DataContext\LinqDB.cs</FileName>
+      <NewMemberFileName>Requirement.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetricTrac.Bll.MetricValue">
+    <Position X="9.5" Y="12.75" Width="2.25" />
+    <Members>
+      <Field Name="_Approved" Hidden="true" />
+      <Field Name="_Created" Hidden="true" />
+      <Field Name="_Date" Hidden="true" />
+      <Field Name="_FilesAttached" Hidden="true" />
+      <Field Name="_Frequency" Hidden="true" />
+      <Field Name="_FrequencyID" Hidden="true" />
+      <Field Name="_InstanceId" Hidden="true" />
+      <Field Name="_Mc_Instance" Hidden="true" />
+      <Field Name="_Mc_UnitsOfMeasure" Hidden="true" />
+      <Field Name="_Metric" Hidden="true" />
+      <Field Name="_MetricDataType" Hidden="true" />
+      <Field Name="_MetricDataTypeID" Hidden="true" />
+      <Field Name="_MetricID" Hidden="true" />
+      <Field Name="_MetricValueID" Hidden="true" />
+      <Field Name="_Notes" Hidden="true" />
+      <Field Name="_Status" Hidden="true" />
+      <Field Name="_UnitOfMeasureID" Hidden="true" />
+      <Field Name="_Updated" Hidden="true" />
+      <Field Name="_Value" Hidden="true" />
+      <Field Name="_Verified" Hidden="true" />
+      <Method Name="AddMetricValue" Hidden="true" />
+      <Field Name="FailureDate" Hidden="true" />
+      <Method Name="GetDateHeader" Hidden="true" />
+      <Method Name="OnApprovedChanged" Hidden="true" />
+      <Method Name="OnApprovedChanging" Hidden="true" />
+      <Method Name="OnCreated" Hidden="true" />
+      <Method Name="OnCreatedChanged" Hidden="true" />
+      <Method Name="OnCreatedChanging" Hidden="true" />
+      <Method Name="OnDateChanged" Hidden="true" />
+      <Method Name="OnDateChanging" Hidden="true" />
+      <Method Name="OnFilesAttachedChanged" Hidden="true" />
+      <Method Name="OnFilesAttachedChanging" Hidden="true" />
+      <Method Name="OnFrequencyIDChanged" Hidden="true" />
+      <Method Name="OnFrequencyIDChanging" Hidden="true" />
+      <Method Name="OnInstanceIdChanged" Hidden="true" />
+      <Method Name="OnInstanceIdChanging" Hidden="true" />
+      <Method Name="OnLoaded" Hidden="true" />
+      <Method Name="OnMetricDataTypeIDChanged" Hidden="true" />
+      <Method Name="OnMetricDataTypeIDChanging" Hidden="true" />
+      <Method Name="OnMetricIDChanged" Hidden="true" />
+      <Method Name="OnMetricIDChanging" Hidden="true" />
+      <Method Name="OnMetricValueIDChanged" Hidden="true" />
+      <Method Name="OnMetricValueIDChanging" Hidden="true" />
+      <Method Name="OnNotesChanged" Hidden="true" />
+      <Method Name="OnNotesChanging" Hidden="true" />
+      <Method Name="OnStatusChanged" Hidden="true" />
+      <Method Name="OnStatusChanging" Hidden="true" />
+      <Method Name="OnUnitOfMeasureIDChanged" Hidden="true" />
+      <Method Name="OnUnitOfMeasureIDChanging" Hidden="true" />
+      <Method Name="OnUpdatedChanged" Hidden="true" />
+      <Method Name="OnUpdatedChanging" Hidden="true" />
+      <Method Name="OnValidate" Hidden="true" />
+      <Method Name="OnValueChanged" Hidden="true" />
+      <Method Name="OnValueChanging" Hidden="true" />
+      <Method Name="OnVerifiedChanged" Hidden="true" />
+      <Method Name="OnVerifiedChanging" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="MetricTrac.Bll.MetricValue.Extend">
+        <TypeIdentifier>
+          <NewMemberFileName>MetricValue.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <AssociationLine Name="Frequency" Type="MetricTrac.Bll.Frequency" FixedFromPoint="true">
+      <Path>
+        <Point X="9.5" Y="14.125" />
+        <Point X="4.372" Y="14.125" Type="JumpStart" />
+        <Point X="4.206" Y="14.125" Type="JumpEnd" />
+        <Point X="3" Y="14.125" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Mc_Instance" Type="MetricTrac.Bll.Mc_Instance" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.5" Y="13.931" />
+        <Point X="4.881" Y="13.931" />
+        <Point X="4.881" Y="11.572" />
+        <Point X="3.899" Y="11.572" />
+        <Point X="3.899" Y="9.188" />
+        <Point X="3" Y="9.188" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.085" Y="0.098" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="MetricDataType" Type="MetricTrac.Bll.MetricDataType" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.5" Y="14.312" />
+        <Point X="4.823" Y="14.312" />
+        <Point X="4.823" Y="16.938" />
+        <Point X="3" Y="16.938" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>wwClECCWEIABQjdYQgGQEKBAEKpRBBVjRgFgGICbwBI=</HashCode>
+      <FileName>DataContext\LinqDB.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Frequency" />
+      <Property Name="Mc_Instance" />
+      <Property Name="Metric" />
+      <Property Name="Mc_UnitsOfMeasure" />
+      <Property Name="MetricDataType" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

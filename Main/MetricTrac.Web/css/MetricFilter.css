@@ -1,0 +1,29 @@
+﻿body {
+	font: small Arial, Helvetica sans-serif;
+	/*text-align: center;*/
+	margin: 0 auto;
+	color: #111;
+	background: #fff;
+	line-height: 1.3em;	
+	}
+
+/*  FILTERS  */
+	
+.filters {
+	float: left;
+	display: inline-table;
+	background: #eaeaea;
+	font-size: 90%;
+	height:28;
+	}
+		
+	.filters a	{
+		color: #428b19;
+		text-decoration: none;
+		}
+		
+		.filters a:hover {
+			color: #67c035;
+			text-decoration: underline;
+			}
+			

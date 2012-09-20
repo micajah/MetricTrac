@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <tools name="MainToolbar" dockable="true" enabled="true">
+    <tool name="Indent"/>
+	<tool name="Outdent"/>
+    <tool separator="true"/>
+    <tool name="InsertUnorderedList"/>
+    <tool name="InsertOrderedList"/>
+  </tools>
+  <tools name="Formatting" enabled="true" dockable="true">
+    <tool name="Bold"/>
+    <tool name="Italic"/>
+    <tool name="Underline"/>
+    <tool separator="true"/>
+    <tool separator="true"/>
+    <tool name="FontName"/>
+    <tool name="RealFontSize"/>
+  </tools>
+  <tools name="Links" enabled="true" dockable="true">
+    <tool name="LinkManager"/>
+    <tool name="Unlink"/>
+  </tools>
+</root>

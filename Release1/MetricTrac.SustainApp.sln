@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetricTrac.Web", "MetricTrac.Web\MetricTrac.Web.csproj", "{E4ED2B9A-30D3-4793-97BD-FBB620F98CC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetricTrac.Bll", "MetricTrac.Bll\MetricTrac.Bll.csproj", "{E646FA64-0C5A-4BE7-A0E4-1EFA187A9A65}"
+EndProject
+Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "MetricTrac.Db", "MetricTrac.Db\MetricTrac.Db.dbproj", "{BB5B5CA4-F9C2-4725-B51A-AE3D89CAF7C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bin", "bin", "{E071EE58-E822-48F8-9DA2-BE6A37678CA3}"
+	ProjectSection(SolutionItems) = preProject
+		bin\DundasWebGauge.dll = bin\DundasWebGauge.dll
+		bin\info.lundin.Math.dll = bin\info.lundin.Math.dll
+		bin\Micajah.Common3.dll = bin\Micajah.Common3.dll
+		bin\Micajah.FileService.dll = bin\Micajah.FileService.dll
+		bin\Syncfusion.Compression.Base.dll = bin\Syncfusion.Compression.Base.dll
+		bin\Syncfusion.Core.dll = bin\Syncfusion.Core.dll
+		bin\Syncfusion.XlsIO.Base.dll = bin\Syncfusion.XlsIO.Base.dll
+		bin\Telerik.Web.Design.dll = bin\Telerik.Web.Design.dll
+		bin\Telerik.Web.UI.dll = bin\Telerik.Web.UI.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micajah.Math.Parser", "Micajah.Math.Parser\Micajah.Math.Parser.csproj", "{A1B7671F-FF1C-4C8E-9C10-4D86CA5E3A27}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.kc.micajah.com:444/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MetricTrac.Db\\MetricTrac.Db.dbproj
+		SccProjectName1 = MetricTrac.Db
+		SccLocalPath1 = MetricTrac.Db
+		SccProjectUniqueName2 = MetricTrac.Bll\\MetricTrac.Bll.csproj
+		SccProjectName2 = MetricTrac.Bll
+		SccLocalPath2 = MetricTrac.Bll
+		SccProjectUniqueName3 = MetricTrac.Web\\MetricTrac.Web.csproj
+		SccProjectName3 = MetricTrac.Web
+		SccLocalPath3 = MetricTrac.Web
+		SccProjectUniqueName4 = Micajah.Math.Parser\\Micajah.Math.Parser.csproj
+		SccProjectName4 = Micajah.Math.Parser
+		SccLocalPath4 = Micajah.Math.Parser
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Default|Any CPU = Default|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4ED2B9A-30D3-4793-97BD-FBB620F98CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4ED2B9A-30D3-4793-97BD-FBB620F98CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4ED2B9A-30D3-4793-97BD-FBB620F98CC4}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4ED2B9A-30D3-4793-97BD-FBB620F98CC4}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{E4ED2B9A-30D3-4793-97BD-FBB620F98CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4ED2B9A-30D3-4793-97BD-FBB620F98CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E646FA64-0C5A-4BE7-A0E4-1EFA187A9A65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E646FA64-0C5A-4BE7-A0E4-1EFA187A9A65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E646FA64-0C5A-4BE7-A0E4-1EFA187A9A65}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{E646FA64-0C5A-4BE7-A0E4-1EFA187A9A65}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{E646FA64-0C5A-4BE7-A0E4-1EFA187A9A65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E646FA64-0C5A-4BE7-A0E4-1EFA187A9A65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB5B5CA4-F9C2-4725-B51A-AE3D89CAF7C6}.Debug|Any CPU.ActiveCfg = Default|Any CPU
+		{BB5B5CA4-F9C2-4725-B51A-AE3D89CAF7C6}.Default|Any CPU.ActiveCfg = Default|Any CPU
+		{BB5B5CA4-F9C2-4725-B51A-AE3D89CAF7C6}.Default|Any CPU.Build.0 = Default|Any CPU
+		{BB5B5CA4-F9C2-4725-B51A-AE3D89CAF7C6}.Default|Any CPU.Deploy.0 = Default|Any CPU
+		{BB5B5CA4-F9C2-4725-B51A-AE3D89CAF7C6}.Release|Any CPU.ActiveCfg = Default|Any CPU
+		{BB5B5CA4-F9C2-4725-B51A-AE3D89CAF7C6}.Release|Any CPU.Build.0 = Default|Any CPU
+		{BB5B5CA4-F9C2-4725-B51A-AE3D89CAF7C6}.Release|Any CPU.Deploy.0 = Default|Any CPU
+		{A1B7671F-FF1C-4C8E-9C10-4D86CA5E3A27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B7671F-FF1C-4C8E-9C10-4D86CA5E3A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B7671F-FF1C-4C8E-9C10-4D86CA5E3A27}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B7671F-FF1C-4C8E-9C10-4D86CA5E3A27}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{A1B7671F-FF1C-4C8E-9C10-4D86CA5E3A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B7671F-FF1C-4C8E-9C10-4D86CA5E3A27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

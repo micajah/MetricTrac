@@ -1,0 +1,85 @@
+﻿body {
+	font: small Arial, Helvetica sans-serif;
+	/*text-align: center;*/
+	margin: 0 auto;
+	color: #111;
+	background: #fff;
+	/*line-height: 1.3em;*/
+	font-size:16px !important;	
+	}
+	
+.cursor {
+	cursor: hand;
+	cursor: pointer;
+	}	
+	
+/*  FLAG  */
+	
+.flag {
+	clear: both;
+	float: left;
+	display: inline-block;
+	padding: 0 16px;
+	margin: 15px 0 0;
+	height: 16px;
+	font-size: 10px;
+	font-weight: bold;
+	color: #fff;
+	background: #c7c6c6 url('../images/backgrounds/flag-right.png') right top no-repeat;
+	text-transform: uppercase;
+	line-height: 16px;
+	}
+
+	
+/*  TABLE  */
+
+.metric {
+	clear: both;
+	width: 100%;
+	
+	/*move from body*/
+	/*text-align: center;*/
+	/*line-height: 1.3em;*/
+	}	
+	
+.metric table {
+	width: 100%;	
+	border-collapse: collapse;
+	}
+
+	.metric th {
+		padding: 0px 0px;	
+		vertical-align: bottom;		
+		}
+		
+		.metric th.empty {
+			text-align: left;
+			width:9px;			
+			}
+			
+		.metric th.flagcell {			
+			padding:0px;
+			height:5px;
+			}
+	
+		.metric th.title {
+			font-size: 100%;
+			font-weight: bold;
+			text-align: left;			
+			}	
+			
+			.metric th.title a {
+			    font-size: 70%;
+			    font-weight: normal;			    
+			    }		
+		
+        a.quickedit:link {color: #666666;}        
+        a.quickedit:hover {color: #666666;}
+        a.quickedit:active {color: #666666;}
+        a.quickedit:visited {color: #666666;} 			
+			
+	
+	.metric td {
+		padding: 2px 0px 2px 0px;		
+		vertical-align: middle;		
+		}

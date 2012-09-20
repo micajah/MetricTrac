@@ -1,0 +1,900 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E4ED2B9A-30D3-4793-97BD-FBB620F98CC4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetricTrac</RootNamespace>
+    <AssemblyName>MetricTrac.Web</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DundasWebGauge, Version=2.5.2.200, Culture=neutral, PublicKeyToken=2cc0651e6e907aa2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\DundasWebGauge.dll</HintPath>
+    </Reference>
+    <Reference Include="info.lundin.Math, Version=0.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\info.lundin.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Micajah.Common3, Version=3.0.3803.27055, Culture=neutral, PublicKeyToken=045979187a9f4eec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Micajah.Common3.dll</HintPath>
+    </Reference>
+    <Reference Include="Micajah.FileService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=db54874c27934326, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Micajah.FileService.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.JScript" />
+    <Reference Include="Syncfusion.Compression.Base, Version=7.303.0.20, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Core, Version=7.303.0.20, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Syncfusion.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Base, Version=7.303.0.20, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Syncfusion.XlsIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="Telerik.Web.Design, Version=2009.1.527.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Telerik.Web.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI, Version=2009.1.527.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\DataViewConfig.cs" />
+    <Compile Include="Classes\MetricCache.cs" />
+    <Compile Include="Classes\MetricUtils.cs" />
+    <Compile Include="Classes\MetricValuesCalc.cs" />
+    <Compile Include="Classes\MTComboBoxField.cs" />
+    <Compile Include="Classes\MTDatePickerField.cs" />
+    <Compile Include="Classes\MTDetailsView.cs" />
+    <Compile Include="Classes\MTDialogField.cs" />
+    <Compile Include="Classes\MTDropDownListField.cs" />
+    <Compile Include="Classes\MTGridField.cs" />
+    <Compile Include="Classes\MTGridView.cs" />
+    <Compile Include="Classes\MTHtmlEditorField.cs" />
+    <Compile Include="Classes\ScoreCardCache.cs" />
+    <Compile Include="Control\DataRuleEdit.ascx.cs">
+      <DependentUpon>DataRuleEdit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\DataRuleEdit.ascx.designer.cs">
+      <DependentUpon>DataRuleEdit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DataRuleList.ascx.cs">
+      <DependentUpon>DataRuleList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\DataRuleList.ascx.designer.cs">
+      <DependentUpon>DataRuleList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DataValueChart.ascx.cs">
+      <DependentUpon>DataValueChart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\DataValueChart.ascx.designer.cs">
+      <DependentUpon>DataValueChart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DataView\ColumnListSelect.ascx.cs">
+      <DependentUpon>ColumnListSelect.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\DataView\ColumnListSelect.ascx.designer.cs">
+      <DependentUpon>ColumnListSelect.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DataView\ColumnSelect.ascx.cs">
+      <DependentUpon>ColumnSelect.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\DataView\ColumnSelect.ascx.designer.cs">
+      <DependentUpon>ColumnSelect.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DataView\ConditionSelect.ascx.cs">
+      <DependentUpon>ConditionSelect.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\DataView\ConditionSelect.ascx.designer.cs">
+      <DependentUpon>ConditionSelect.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DataView\DataViewEdit.ascx.cs">
+      <DependentUpon>DataViewEdit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\DataView\DataViewEdit.ascx.designer.cs">
+      <DependentUpon>DataViewEdit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DataView\DataViewList.ascx.cs">
+      <DependentUpon>DataViewList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\DataView\DataViewList.ascx.designer.cs">
+      <DependentUpon>DataViewList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DataView\DataViewQuery.ascx.cs">
+      <DependentUpon>DataViewQuery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\DataView\DataViewQuery.ascx.designer.cs">
+      <DependentUpon>DataViewQuery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DataView\DataViewSelect.ascx.cs">
+      <DependentUpon>DataViewSelect.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\DataView\DataViewSelect.ascx.designer.cs">
+      <DependentUpon>DataViewSelect.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DataView\ListManager.ascx.cs">
+      <DependentUpon>ListManager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\DataView\ListManager.ascx.designer.cs">
+      <DependentUpon>ListManager.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DataView\WhereListSelect.ascx.cs">
+      <DependentUpon>WhereListSelect.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\DataView\WhereListSelect.ascx.designer.cs">
+      <DependentUpon>WhereListSelect.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\FormulaBuilder.ascx.cs">
+      <DependentUpon>FormulaBuilder.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\FormulaBuilder.ascx.designer.cs">
+      <DependentUpon>FormulaBuilder.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\GCASelect.ascx.cs">
+      <DependentUpon>GCASelect.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\GCASelect.ascx.designer.cs">
+      <DependentUpon>GCASelect.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\MetricBulkInput.ascx.cs">
+      <DependentUpon>MetricBulkInput.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\MetricBulkInput.ascx.designer.cs">
+      <DependentUpon>MetricBulkInput.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\MetricCategorySelect.ascx.cs">
+      <DependentUpon>MetricCategorySelect.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\MetricCategorySelect.ascx.designer.cs">
+      <DependentUpon>MetricCategorySelect.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\MetricFilter.ascx.cs">
+      <DependentUpon>MetricFilter.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\MetricFilter.ascx.designer.cs">
+      <DependentUpon>MetricFilter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\MetricInputList.ascx.cs">
+      <DependentUpon>MetricInputList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\MetricInputList.ascx.designer.cs">
+      <DependentUpon>MetricInputList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\MetricList.ascx.cs">
+      <DependentUpon>MetricList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\MetricList.ascx.designer.cs">
+      <DependentUpon>MetricList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\MetricValueHistoryLog.ascx.cs">
+      <DependentUpon>MetricValueHistoryLog.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\MetricValueHistoryLog.ascx.designer.cs">
+      <DependentUpon>MetricValueHistoryLog.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\MissedInputValues.ascx.cs">
+      <DependentUpon>MissedInputValues.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\MissedInputValues.ascx.designer.cs">
+      <DependentUpon>MissedInputValues.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\OrglocationMultipick.ascx.cs">
+      <DependentUpon>OrglocationMultipick.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\OrglocationMultipick.ascx.designer.cs">
+      <DependentUpon>OrglocationMultipick.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\OrgLocationSelect.ascx.cs">
+      <DependentUpon>OrgLocationSelect.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\OrgLocationSelect.ascx.designer.cs">
+      <DependentUpon>OrgLocationSelect.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\PerformanceIndicatorList.ascx.cs">
+      <DependentUpon>PerformanceIndicatorList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\PerformanceIndicatorList.ascx.designer.cs">
+      <DependentUpon>PerformanceIndicatorList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\PIFList.ascx.cs">
+      <DependentUpon>PIFList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\PIFList.ascx.designer.cs">
+      <DependentUpon>PIFList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\RelatedInputValues.ascx.cs">
+      <DependentUpon>RelatedInputValues.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\RelatedInputValues.ascx.designer.cs">
+      <DependentUpon>RelatedInputValues.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ScoreCardEdit.ascx.cs">
+      <DependentUpon>ScoreCardEdit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\ScoreCardEdit.ascx.designer.cs">
+      <DependentUpon>ScoreCardEdit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ScoreCardList.ascx.cs">
+      <DependentUpon>ScoreCardList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\ScoreCardList.ascx.designer.cs">
+      <DependentUpon>ScoreCardList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Select\SelectMonth.ascx.cs">
+      <DependentUpon>SelectMonth.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\Select\SelectMonth.ascx.designer.cs">
+      <DependentUpon>SelectMonth.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Select\SelectQuarter.ascx.cs">
+      <DependentUpon>SelectQuarter.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\Select\SelectQuarter.ascx.designer.cs">
+      <DependentUpon>SelectQuarter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Select\SelectSemiYear.ascx.cs">
+      <DependentUpon>SelectSemiYear.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\Select\SelectSemiYear.ascx.designer.cs">
+      <DependentUpon>SelectSemiYear.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Select\SelectWeek.ascx.cs">
+      <DependentUpon>SelectWeek.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\Select\SelectWeek.ascx.designer.cs">
+      <DependentUpon>SelectWeek.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Select\SelectYear.ascx.cs">
+      <DependentUpon>SelectYear.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\Select\SelectYear.ascx.designer.cs">
+      <DependentUpon>SelectYear.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\UnderReviewQueue.ascx.cs">
+      <DependentUpon>UnderReviewQueue.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\UnderReviewQueue.ascx.designer.cs">
+      <DependentUpon>UnderReviewQueue.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="home\ApproveDataList.aspx.cs">
+      <DependentUpon>ApproveDataList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\ApproveDataList.aspx.designer.cs">
+      <DependentUpon>ApproveDataList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\ApproveWorkList.aspx.cs">
+      <DependentUpon>ApproveWorkList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\ApproveWorkList.aspx.designer.cs">
+      <DependentUpon>ApproveWorkList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\CalculateMetric.aspx.cs">
+      <DependentUpon>CalculateMetric.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\CalculateMetric.aspx.designer.cs">
+      <DependentUpon>CalculateMetric.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\DashboardEdit.aspx.cs">
+      <DependentUpon>DashboardEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\DashboardEdit.aspx.designer.cs">
+      <DependentUpon>DashboardEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\DataApproverEdit.aspx.cs">
+      <DependentUpon>DataApproverEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\DataApproverEdit.aspx.designer.cs">
+      <DependentUpon>DataApproverEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\DataApproverList.aspx.cs">
+      <DependentUpon>DataApproverList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\DataApproverList.aspx.designer.cs">
+      <DependentUpon>DataApproverList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\DataCollectorEdit.aspx.cs">
+      <DependentUpon>DataCollectorEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\DataCollectorEdit.aspx.designer.cs">
+      <DependentUpon>DataCollectorEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\DataCollectorList.aspx.cs">
+      <DependentUpon>DataCollectorList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\DataCollectorList.aspx.designer.cs">
+      <DependentUpon>DataCollectorList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\DataCollectOutPutRule.aspx.cs">
+      <DependentUpon>DataCollectOutPutRule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\DataCollectOutPutRule.aspx.designer.cs">
+      <DependentUpon>DataCollectOutPutRule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\DataMinerEdit.aspx.cs">
+      <DependentUpon>DataMinerEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\DataMinerEdit.aspx.designer.cs">
+      <DependentUpon>DataMinerEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\DataMinerList.aspx.cs">
+      <DependentUpon>DataMinerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\DataMinerList.aspx.designer.cs">
+      <DependentUpon>DataMinerList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\DataMinerView.aspx.cs">
+      <DependentUpon>DataMinerView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\DataMinerView.aspx.designer.cs">
+      <DependentUpon>DataMinerView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\DataValueChart.aspx.cs">
+      <DependentUpon>DataValueChart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\DataValueChart.aspx.designer.cs">
+      <DependentUpon>DataValueChart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\ExportExcel.aspx.cs">
+      <DependentUpon>ExportExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\ExportExcel.aspx.designer.cs">
+      <DependentUpon>ExportExcel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\MasterDataTree.aspx.cs">
+      <DependentUpon>MasterDataTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\MasterDataTree.aspx.designer.cs">
+      <DependentUpon>MasterDataTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\MetricBulkApprove.aspx.cs">
+      <DependentUpon>MetricBulkApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\MetricBulkApprove.aspx.designer.cs">
+      <DependentUpon>MetricBulkApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\MetricBulkInput.aspx.cs">
+      <DependentUpon>MetricBulkInput.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\MetricBulkInput.aspx.designer.cs">
+      <DependentUpon>MetricBulkInput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\MetricDataList.aspx.cs">
+      <DependentUpon>MetricDataList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\MetricDataList.aspx.designer.cs">
+      <DependentUpon>MetricDataList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\MetricFormulaEdit.aspx.cs">
+      <DependentUpon>MetricFormulaEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\MetricFormulaEdit.aspx.designer.cs">
+      <DependentUpon>MetricFormulaEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\MetricInfo.aspx.cs">
+      <DependentUpon>MetricInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\MetricInfo.aspx.designer.cs">
+      <DependentUpon>MetricInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\MetricInputList.aspx.cs">
+      <DependentUpon>MetricInputList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\MetricInputList.aspx.designer.cs">
+      <DependentUpon>MetricInputList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\MetricInputEdit.aspx.cs">
+      <DependentUpon>MetricInputEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\MetricInputEdit.aspx.designer.cs">
+      <DependentUpon>MetricInputEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\MetricMissedValuesList.aspx.cs">
+      <DependentUpon>MetricMissedValuesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\MetricMissedValuesList.aspx.designer.cs">
+      <DependentUpon>MetricMissedValuesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\OrgMetricRulesResultList.aspx.cs">
+      <DependentUpon>OrgMetricRulesResultList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\OrgMetricRulesResultList.aspx.designer.cs">
+      <DependentUpon>OrgMetricRulesResultList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\OrgPIFList.aspx.cs">
+      <DependentUpon>OrgPIFList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\OrgPIFList.aspx.designer.cs">
+      <DependentUpon>OrgPIFList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\PerformanceIndicatorInfo.aspx.cs">
+      <DependentUpon>PerformanceIndicatorInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\PerformanceIndicatorInfo.aspx.designer.cs">
+      <DependentUpon>PerformanceIndicatorInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\PIFEdit.aspx.cs">
+      <DependentUpon>PIFEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\PIFEdit.aspx.designer.cs">
+      <DependentUpon>PIFEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\PIFList.aspx.cs">
+      <DependentUpon>PIFList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\PIFList.aspx.designer.cs">
+      <DependentUpon>PIFList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\PIFOrgLocationJunc.aspx.cs">
+      <DependentUpon>PIFOrgLocationJunc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\PIFOrgLocationJunc.aspx.designer.cs">
+      <DependentUpon>PIFOrgLocationJunc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\PIFPIJunc.aspx.cs">
+      <DependentUpon>PIFPIJunc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\PIFPIJunc.aspx.designer.cs">
+      <DependentUpon>PIFPIJunc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\GCATree.aspx.cs">
+      <DependentUpon>GCATree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\GCATree.aspx.designer.cs">
+      <DependentUpon>GCATree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\MetricEdit.aspx.cs">
+      <DependentUpon>MetricEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\MetricEdit.aspx.designer.cs">
+      <DependentUpon>MetricEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\MetricList.aspx.cs">
+      <DependentUpon>MetricList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\MetricList.aspx.designer.cs">
+      <DependentUpon>MetricList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\MetricCategoryTree.aspx.cs">
+      <DependentUpon>MetricCategoryTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\MetricCategoryTree.aspx.designer.cs">
+      <DependentUpon>MetricCategoryTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\PerformanceIndicatorEdit.aspx.cs">
+      <DependentUpon>PerformanceIndicatorEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\PerformanceIndicatorEdit.aspx.designer.cs">
+      <DependentUpon>PerformanceIndicatorEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\PerformanceIndicatorList.aspx.cs">
+      <DependentUpon>PerformanceIndicatorList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\PerformanceIndicatorList.aspx.designer.cs">
+      <DependentUpon>PerformanceIndicatorList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\RelatedInputValues.aspx.cs">
+      <DependentUpon>RelatedInputValues.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\RelatedInputValues.aspx.designer.cs">
+      <DependentUpon>RelatedInputValues.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\RelatedInputValuesA.aspx.cs">
+      <DependentUpon>RelatedInputValuesA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\RelatedInputValuesA.aspx.designer.cs">
+      <DependentUpon>RelatedInputValuesA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\SaveFilter.aspx.cs">
+      <DependentUpon>SaveFilter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\SaveFilter.aspx.designer.cs">
+      <DependentUpon>SaveFilter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\ScoreCardDashboardEdit.aspx.cs">
+      <DependentUpon>ScoreCardDashboardEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\ScoreCardDashboardEdit.aspx.designer.cs">
+      <DependentUpon>ScoreCardDashboardEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\ScoreCardEdit.aspx.cs">
+      <DependentUpon>ScoreCardEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\ScoreCardEdit.aspx.designer.cs">
+      <DependentUpon>ScoreCardEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\ScoreCardList.aspx.cs">
+      <DependentUpon>ScoreCardList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\ScoreCardList.aspx.designer.cs">
+      <DependentUpon>ScoreCardList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\ScoreCardMetricEdit.aspx.cs">
+      <DependentUpon>ScoreCardMetricEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\ScoreCardMetricEdit.aspx.designer.cs">
+      <DependentUpon>ScoreCardMetricEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="report\PerformanceIndicatorXLSReport.aspx.cs">
+      <DependentUpon>PerformanceIndicatorXLSReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="report\PerformanceIndicatorXLSReport.aspx.designer.cs">
+      <DependentUpon>PerformanceIndicatorXLSReport.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Control\GCASelect.ascx" />
+    <Content Include="Control\MetricCategorySelect.ascx" />
+    <Content Include="Control\MetricList.ascx" />
+    <Content Include="Control\PerformanceIndicatorList.ascx" />
+    <Content Include="Global.asax" />
+    <Content Include="css\global.css" />
+    <Content Include="home\MetricInputList.aspx" />
+    <Content Include="home\MetricInputEdit.aspx" />
+    <Content Include="home\PIFEdit.aspx" />
+    <Content Include="home\PIFList.aspx" />
+    <Content Include="home\PIFPIJunc.aspx" />
+    <Content Include="home\GCATree.aspx" />
+    <Content Include="home\MetricEdit.aspx" />
+    <Content Include="home\MetricList.aspx" />
+    <Content Include="home\MetricCategoryTree.aspx" />
+    <Content Include="home\PerformanceIndicatorEdit.aspx" />
+    <Content Include="home\PerformanceIndicatorList.aspx" />
+    <Content Include="images\AddRecord.gif" />
+    <Content Include="images\Delete.gif" />
+    <Content Include="images\GCATree\aspect16.gif" />
+    <Content Include="images\GCATree\category16.gif" />
+    <Content Include="images\GCATree\group16.gif" />
+    <Content Include="images\loading6.gif" />
+    <Content Include="images\Navigation\left0.gif" />
+    <Content Include="images\Navigation\d_left0.gif" />
+    <Content Include="images\Navigation\d_left1.gif" />
+    <Content Include="images\Navigation\d_left2.gif" />
+    <Content Include="images\Navigation\d_left3.gif" />
+    <Content Include="images\Navigation\d_right1.gif" />
+    <Content Include="images\Navigation\d_right2.gif" />
+    <Content Include="images\Navigation\d_right3.gif" />
+    <Content Include="images\Navigation\left1.gif" />
+    <Content Include="images\Navigation\left2.gif" />
+    <Content Include="images\Navigation\left3.gif" />
+    <Content Include="images\Navigation\right1.gif" />
+    <Content Include="images\Navigation\right2.gif" />
+    <Content Include="images\Navigation\right3.gif" />
+    <Content Include="images\Update.gif" />
+    <Content Include="includes\ToolsFiles\BasicTools.xml" />
+    <Content Include="MasterPage.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MetricTrac.Bll\MetricTrac.Bll.csproj">
+      <Project>{E646FA64-0C5A-4BE7-A0E4-1EFA187A9A65}</Project>
+      <Name>MetricTrac.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Micajah.Math.Parser\Micajah.Math.Parser.csproj">
+      <Project>{A1B7671F-FF1C-4C8E-9C10-4D86CA5E3A27}</Project>
+      <Name>Micajah.Math.Parser</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Control\DataRuleEdit.ascx" />
+    <Content Include="Control\DataRuleList.ascx" />
+    <Content Include="Control\DataValueChart.ascx" />
+    <Content Include="Control\DataView\ColumnListSelect.ascx" />
+    <Content Include="Control\DataView\ColumnSelect.ascx" />
+    <Content Include="Control\DataView\ConditionSelect.ascx" />
+    <Content Include="Control\DataView\DataViewEdit.ascx" />
+    <Content Include="Control\DataView\DataViewList.ascx" />
+    <Content Include="Control\DataView\DataViewQuery.ascx" />
+    <Content Include="Control\DataView\DataViewSelect.ascx" />
+    <Content Include="Control\DataView\ListManager.ascx" />
+    <Content Include="Control\DataView\WhereListSelect.ascx" />
+    <Content Include="Control\FormulaBuilder.ascx" />
+    <Content Include="Control\MetricBulkInput.ascx" />
+    <Content Include="Control\MetricFilter.ascx" />
+    <Content Include="Control\MetricInputList.ascx" />
+    <Content Include="Control\MetricValueHistoryLog.ascx" />
+    <Content Include="Control\MissedInputValues.ascx" />
+    <Content Include="Control\OrglocationMultipick.ascx" />
+    <Content Include="Control\OrgLocationSelect.ascx" />
+    <Content Include="Control\PIFList.ascx" />
+    <Content Include="Control\RelatedInputValues.ascx" />
+    <Content Include="Control\ScoreCardEdit.ascx" />
+    <Content Include="Control\ScoreCardList.ascx" />
+    <Content Include="Control\Select\SelectMonth.ascx" />
+    <Content Include="Control\Select\SelectQuarter.ascx" />
+    <Content Include="Control\Select\SelectSemiYear.ascx" />
+    <Content Include="Control\Select\SelectWeek.ascx" />
+    <Content Include="Control\Select\SelectYear.ascx" />
+    <Content Include="Control\UnderReviewQueue.ascx" />
+    <Content Include="css\MetricFilter.css" />
+    <Content Include="css\MetricInputIE6.css" />
+    <Content Include="css\MetricInputIE7.css" />
+    <Content Include="css\MetricInputIE8.css" />
+    <Content Include="css\MetricInput.css" />
+    <Content Include="css\BulkEdit.css" />
+    <Content Include="css\UnderReview.css" />
+    <Content Include="css\WorkList.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="home\ApproveDataList.aspx" />
+    <Content Include="home\ApproveWorkList.aspx" />
+    <Content Include="home\CalculateMetric.aspx" />
+    <Content Include="home\Dashboard.aspx" />
+    <Content Include="home\DashboardEdit.aspx" />
+    <Content Include="home\DataApproverEdit.aspx" />
+    <Content Include="home\DataApproverList.aspx" />
+    <Content Include="home\DataCollectorEdit.aspx" />
+    <Content Include="home\DataCollectorList.aspx" />
+    <Content Include="home\DataCollectOutPutRule.aspx" />
+    <Content Include="home\DataMinerEdit.aspx" />
+    <Content Include="home\DataMinerList.aspx" />
+    <Content Include="home\DataMinerView.aspx" />
+    <Content Include="home\DataValueChart.aspx" />
+    <Content Include="home\ExportExcel.aspx" />
+    <Content Include="home\MasterDataTree.aspx" />
+    <Content Include="home\MetricBulkApprove.aspx" />
+    <Content Include="home\MetricBulkInput.aspx" />
+    <Content Include="home\MetricDataList.aspx" />
+    <Content Include="home\MetricFormulaEdit.aspx" />
+    <Content Include="home\MetricInfo.aspx" />
+    <Content Include="home\MetricMissedValuesList.aspx" />
+    <Content Include="home\OrgMetricRulesResultList.aspx" />
+    <Content Include="home\OrgPIFList.aspx" />
+    <Content Include="home\PerformanceIndicatorInfo.aspx" />
+    <Content Include="home\PIFOrgLocationJunc.aspx" />
+    <Content Include="home\RelatedInputValues.aspx" />
+    <Content Include="home\RelatedInputValuesA.aspx" />
+    <Content Include="home\SaveFilter.aspx" />
+    <Content Include="home\ScoreCardDashboardEdit.aspx" />
+    <Content Include="home\ScoreCardEdit.aspx" />
+    <Content Include="home\ScoreCardList.aspx" />
+    <Content Include="home\ScoreCardMetricEdit.aspx" />
+    <Content Include="images\backgrounds\BlockTitleBackground.gif" />
+    <Content Include="images\backgrounds\BlockTitleBackground28.gif" />
+    <Content Include="images\backgrounds\BlockTitleBorders.gif" />
+    <Content Include="images\backgrounds\BlockTitleBorders28.gif" />
+    <Content Include="images\backgrounds\flag-right.png" />
+    <Content Include="images\backgrounds\td-empty.png" />
+    <Content Include="images\buttons\Add.gif" />
+    <Content Include="images\buttons\arrow-left-disabled.png" />
+    <Content Include="images\buttons\arrow-left.png" />
+    <Content Include="images\buttons\arrow-right-disabled.png" />
+    <Content Include="images\buttons\arrow-right.png" />
+    <Content Include="images\buttons\border.gif" />
+    <Content Include="images\buttons\Chart.gif" />
+    <Content Include="images\buttons\date-select.png" />
+    <Content Include="images\buttons\DownGray.gif" />
+    <Content Include="images\buttons\DownGreen.gif" />
+    <Content Include="images\buttons\DownRed.gif" />
+    <Content Include="images\buttons\refresh.gif" />
+    <Content Include="images\buttons\Remove.gif" />
+    <Content Include="images\buttons\RightDown.gif" />
+    <Content Include="images\buttons\RightDownSelected.gif" />
+    <Content Include="images\buttons\UpGray.gif" />
+    <Content Include="images\buttons\UpGreen.gif" />
+    <Content Include="images\buttons\UpRed.gif" />
+    <Content Include="images\GCATree\OrgLocation.gif" />
+    <Content Include="images\icons\clip-white.png" />
+    <Content Include="images\icons\clip-yellow.png" />
+    <Content Include="images\icons\clip.png" />
+    <Content Include="images\icons\note.png" />
+    <Content Include="images\icons\pencil.png" />
+    <Content Include="images\icons\rick-clip-white.png" />
+    <Content Include="images\icons\rick-clip-yellow.png" />
+    <Content Include="images\icons\rick-clip.png" />
+    <Content Include="images\icons\rick-up-clip.png" />
+    <Content Include="images\icons\rick-up.png" />
+    <Content Include="images\icons\rick-white.png" />
+    <Content Include="images\icons\rick-yellow.png" />
+    <Content Include="images\icons\rick.png" />
+    <Content Include="images\icons\tick-clip-white.png" />
+    <Content Include="images\icons\tick-clip-yellow.png" />
+    <Content Include="images\icons\tick-clip.png" />
+    <Content Include="images\icons\tick-white.png" />
+    <Content Include="images\icons\tick-yellow.png" />
+    <Content Include="images\icons\tick.png" />
+    <Content Include="images\loading4.gif" />
+    <Content Include="images\MetricTracLogo_80px.gif" />
+    <Content Include="images\More.gif" />
+    <Content Include="images\Navigation\application_side_contract.png" />
+    <Content Include="images\Navigation\application_side_expand.png" />
+    <Content Include="images\Navigation\down.gif" />
+    <Content Include="images\Navigation\empty.GIF" />
+    <Content Include="images\Navigation\up.gif" />
+    <Content Include="images\null.gif" />
+    <Content Include="images\ShowHide.GIF" />
+    <Content Include="includes\script\CustomTreeView.js" />
+    <Content Include="includes\script\jquery-1.4.4.min.js" />
+    <Content Include="includes\script\jquery-ui-1.8.9.custom.min.js" />
+    <Content Include="Micajah.Common.config" />
+    <Content Include="report\PerformanceIndicatorXLSReport.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="licensecontext.slf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Data\ExportMetricTemplate.xls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

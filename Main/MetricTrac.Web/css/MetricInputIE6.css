@@ -1,0 +1,54 @@
+/*  INTERNET EXPLORER 6 FIXES  */
+
+.flag {
+	overflow: hidden;
+	}
+
+.metric td.cal-metric big.tick { background: transparent url('../images/icons/tick-white.png') right 50% no-repeat; }	
+.metric td.cal-metric big.clip { background: transparent url('../images/icons/clip-white.png') right 50% no-repeat; }	
+.metric td.cal-metric big.tick-clip { background: transparent url('../images/icons/tick-clip-white.png') right 50% no-repeat; }	
+.metric td.cal-metric big.rick { background: transparent url('../images/icons/rick-white.png') right 50% no-repeat; }					
+.metric td.cal-metric big.rick-clip { background: transparent url('../images/icons/rick-clip-white.png') right 50% no-repeat; }	
+	
+.metric td.cal-metric a:hover big.tick,
+.metric td.cal-metric a:focus big.tick { background: transparent url('../images/icons/tick-yellow.png') right 50% no-repeat; }	
+
+.metric td.cal-metric a:hover big.rick,
+.metric td.cal-metric a:focus big.rick { background: transparent url('../images/icons/rick-yellow.png') right 50% no-repeat; }	
+
+.metric td.cal-metric a:hover big.clip,
+.metric td.cal-metric a:focus big.clip { background: transparent url('../images/icons/clip-yellow.png') right 50% no-repeat; }	
+
+.metric td.cal-metric a:hover big.tick-clip,
+.metric td.cal-metric a:focus big.tick-clip { background: transparent url('../images/icons/tick-clip-yellow.png') right 50% no-repeat; }	
+
+.metric td.cal-metric a:hover big.rick-clip,
+.metric td.cal-metric a:focus big.rick-clip { background: transparent url('../images/icons/rick-clip-yellow.png') right 50% no-repeat; }	
+		
+/*  INTERNET EXPLORER 7 FIXES  */
+
+.metric th.arrow img {
+	position: relative;
+	top: 4px;
+	}
+
+.metric td.cal-metric a {	
+	padding: 8% 5%;
+	width: 90%;
+	height: 84%;
+	}	
+
+.metric td.unit {
+	width: 14px;
+	padding: 0 0 0 2px;
+	}
+	
+#filters select {
+	top: 0;
+	}	
+	
+/*  INTERNET EXPLORER 8 FIXES  */
+
+#filters input {
+	width: 65px;
+	}	

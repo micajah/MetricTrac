@@ -1,0 +1,1528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database Name="MetricTrac_Local" xmlns="http://schemas.microsoft.com/linqtosql/mapping/2007">
+  <Table Name="dbo.ApplicationLog" Member="ApplicationLog">
+    <Type Name="MetricTrac.Bll.ApplicationLog">
+      <Column Name="ApplicationLogID" Member="ApplicationLogID" Storage="_ApplicationLogID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Code" Member="Code" Storage="_Code" DbType="NVarChar(1000)" />
+      <Column Name="Message" Member="Message" Storage="_Message" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CurrentFrequencyView" Member="CurrentFrequencyView">
+    <Type Name="MetricTrac.Bll.CurrentFrequencyView">
+      <Column Name="FrequencyID" Member="FrequencyID" Storage="_FrequencyID" DbType="Int NOT NULL" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PeriodNumber" Member="PeriodNumber" Storage="_PeriodNumber" DbType="Int NOT NULL" />
+      <Column Name="Date" Member="Date" Storage="_Date" DbType="SmallDateTime NOT NULL" />
+      <Column Name="ShortName" Member="ShortName" Storage="_ShortName" DbType="NVarChar(50)" />
+      <Column Name="LongName" Member="LongName" Storage="_LongName" DbType="NVarChar(50)" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D_DataRule" Member="D_DataRule">
+    <Type Name="MetricTrac.Bll.D_DataRule">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="D_DataRuleID" Member="D_DataRuleID" Storage="_D_DataRuleID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="DataRuleID" Member="DataRuleID" Storage="_DataRuleID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="DataRuleTypeID" Member="DataRuleTypeID" Storage="_DataRuleTypeID" DbType="Int NOT NULL" />
+      <Column Name="OrderNumber" Member="OrderNumber" Storage="_OrderNumber" DbType="Int NOT NULL" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier" />
+      <Column Name="GroupCategoryAspectID" Member="GroupCategoryAspectID" Storage="_GroupCategoryAspectID" DbType="UniqueIdentifier" />
+      <Column Name="PerformanceIndicatorID" Member="PerformanceIndicatorID" Storage="_PerformanceIndicatorID" DbType="UniqueIdentifier" />
+      <Column Name="PerformanceIndicatorFormID" Member="PerformanceIndicatorFormID" Storage="_PerformanceIndicatorFormID" DbType="UniqueIdentifier" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="UserId" Member="UserId" Storage="_UserId" DbType="UniqueIdentifier" />
+      <Column Name="GroupId" Member="GroupId" Storage="_GroupId" DbType="UniqueIdentifier" />
+      <Association Name="FK_D_DataRule_DataRule" Member="DataRuleType" Storage="_DataRuleType" ThisKey="DataRuleTypeID" OtherKey="DataRuleTypeID" IsForeignKey="true" />
+      <Association Name="FK_D_DataRule_GroupCategoryAspect" Member="GroupCategoryAspect" Storage="_GroupCategoryAspect" ThisKey="InstanceId,GroupCategoryAspectID" OtherKey="InstanceId,GroupCategoryAspectID" IsForeignKey="true" />
+      <Association Name="FK_D_DataRule_Mc_EntityNode" Member="Mc_EntityNode" Storage="_Mc_EntityNode" ThisKey="OrgLocationID" OtherKey="EntityNodeId" IsForeignKey="true" />
+      <Association Name="FK_D_DataRule_Mc_Group" Member="Mc_Group" Storage="_Mc_Group" ThisKey="GroupId" OtherKey="GroupId" IsForeignKey="true" />
+      <Association Name="FK_D_DataRule_Mc_User" Member="Mc_User" Storage="_Mc_User" ThisKey="UserId" OtherKey="UserId" IsForeignKey="true" />
+      <Association Name="FK_D_DataRule_Metric" Member="Metric" Storage="_Metric" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" IsForeignKey="true" />
+      <Association Name="FK_D_DataRule_PerformanceIndicator" Member="PerformanceIndicator" Storage="_PerformanceIndicator" ThisKey="InstanceId,PerformanceIndicatorID" OtherKey="InstanceId,PerformanceIndicatorID" IsForeignKey="true" />
+      <Association Name="FK_D_DataRule_PerformanceIndicatorForm" Member="PerformanceIndicatorForm" Storage="_PerformanceIndicatorForm" ThisKey="InstanceId,PerformanceIndicatorFormID" OtherKey="InstanceId,PerformanceIndicatorFormID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D_EntityNode" Member="D_EntityNode">
+    <Type Name="MetricTrac.Bll.D_EntityNode">
+      <Column Name="D_EntityNodeID" Member="D_EntityNodeID" Storage="_D_EntityNodeID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier" />
+      <Column Name="OrganizationId" Member="OrganizationId" Storage="_OrganizationId" DbType="UniqueIdentifier" />
+      <Column Name="EntityNodeId" Member="EntityNodeId" Storage="_EntityNodeId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="IncludedId" Member="IncludedId" Storage="_IncludedId" DbType="UniqueIdentifier NOT NULL" />
+      <Association Name="FK_D_EntityNode_Mc_EntityNode" Member="Mc_EntityNode" Storage="_Mc_EntityNode" ThisKey="EntityNodeId" OtherKey="EntityNodeId" IsForeignKey="true" />
+      <Association Name="FK_D_EntityNode_Mc_EntityNode1" Member="Included" Storage="_Included" ThisKey="IncludedId" OtherKey="EntityNodeId" IsForeignKey="true" />
+      <Association Name="FK_D_EntityNode_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_D_EntityNode_Mc_Organization" Member="Mc_Organization" Storage="_Mc_Organization" ThisKey="OrganizationId" OtherKey="OrganizationId" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D_GroupCategoryAspect" Member="D_GroupCategoryAspect">
+    <Type Name="MetricTrac.Bll.D_GroupCategoryAspect">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="GroupCategoryAspectID" Member="GroupCategoryAspectID" Storage="_GroupCategoryAspectID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="IncludedID" Member="IncludedID" Storage="_IncludedID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D_MetricCategory" Member="D_MetricCategory">
+    <Type Name="MetricTrac.Bll.D_MetricCategory">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricCategoryID" Member="MetricCategoryID" Storage="_MetricCategoryID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="IncludedID" Member="IncludedID" Storage="_IncludedID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Association Name="FK_D_MetricCategory_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_D_MetricCategory_MetricCategory" Member="MetricCategory" Storage="_MetricCategory" ThisKey="InstanceId,MetricCategoryID" OtherKey="InstanceId,MetricCategoryID" IsForeignKey="true" />
+      <Association Name="FK_D_MetricCategory_MetricCategory1" Member="D_MetricCategory_MetricCategory1" Storage="_D_MetricCategory_MetricCategory1" ThisKey="InstanceId,IncludedID" OtherKey="InstanceId,MetricCategoryID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D_MetricOrgLocationPath" Member="D_MetricOrgLocationPath">
+    <Type Name="MetricTrac.Bll.D_MetricOrgLocationPath">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricOrgLocationPathID" Member="MetricOrgLocationPathID" Storage="_MetricOrgLocationPathID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="PerformanceIndicatorID" Member="PerformanceIndicatorID" Storage="_PerformanceIndicatorID" DbType="UniqueIdentifier" />
+      <Column Name="GroupCategoryAspectID" Member="GroupCategoryAspectID" Storage="_GroupCategoryAspectID" DbType="UniqueIdentifier" />
+      <Column Name="PerformanceIndicatorFormID" Member="PerformanceIndicatorFormID" Storage="_PerformanceIndicatorFormID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="IsVirtual" Member="IsVirtual" Storage="_IsVirtual" DbType="Bit NOT NULL" />
+      <Association Name="FK_D_MetricOrgLocationPath_GroupCategoryAspect" Member="GroupCategoryAspect" Storage="_GroupCategoryAspect" ThisKey="InstanceId,GroupCategoryAspectID" OtherKey="InstanceId,GroupCategoryAspectID" IsForeignKey="true" />
+      <Association Name="FK_D_MetricOrgLocationPath_Mc_EntityNode" Member="Mc_EntityNode" Storage="_Mc_EntityNode" ThisKey="OrgLocationID" OtherKey="EntityNodeId" IsForeignKey="true" />
+      <Association Name="FK_D_MetricOrgLocationPath_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_D_MetricOrgLocationPath_Metric" Member="Metric" Storage="_Metric" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" IsForeignKey="true" />
+      <Association Name="FK_D_MetricOrgLocationPath_PerformanceIndicator" Member="PerformanceIndicator" Storage="_PerformanceIndicator" ThisKey="InstanceId,PerformanceIndicatorID" OtherKey="InstanceId,PerformanceIndicatorID" IsForeignKey="true" />
+      <Association Name="FK_D_MetricOrgLocationPath_PerformanceIndicatorForm" Member="PerformanceIndicatorForm" Storage="_PerformanceIndicatorForm" ThisKey="InstanceId,PerformanceIndicatorFormID" OtherKey="InstanceId,PerformanceIndicatorFormID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D_MetricOrgLocationRule" Member="D_MetricOrgLocationRule">
+    <Type Name="MetricTrac.Bll.D_MetricOrgLocationRule">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="CollectorUserId" Member="CollectorUserId" Storage="_CollectorUserId" DbType="UniqueIdentifier" />
+      <Column Name="CollectorGroupId" Member="CollectorGroupId" Storage="_CollectorGroupId" DbType="UniqueIdentifier" />
+      <Column Name="CollectorDataRuleID" Member="CollectorDataRuleID" Storage="_CollectorDataRuleID" DbType="UniqueIdentifier" />
+      <Column Name="ApproverUserId" Member="ApproverUserId" Storage="_ApproverUserId" DbType="UniqueIdentifier" />
+      <Column Name="ApproverGroupId" Member="ApproverGroupId" Storage="_ApproverGroupId" DbType="UniqueIdentifier" />
+      <Column Name="ApproverDataRuleID" Member="ApproverDataRuleID" Storage="_ApproverDataRuleID" DbType="UniqueIdentifier" />
+      <Association Name="FK_D_MetricOrgLocationRule_DataRule_Approver" Member="DataRule" Storage="_DataRule" ThisKey="InstanceId,ApproverDataRuleID" OtherKey="InstanceId,DataRuleID" IsForeignKey="true" />
+      <Association Name="FK_D_MetricOrgLocationRule_DataRule_Collector" Member="D_MetricOrgLocationRule_DataRule_Collector" Storage="_D_MetricOrgLocationRule_DataRule_Collector" ThisKey="InstanceId,CollectorDataRuleID" OtherKey="InstanceId,DataRuleID" IsForeignKey="true" />
+      <Association Name="FK_D_MetricOrgLocationRule_Mc_EntityNode" Member="Mc_EntityNode" Storage="_Mc_EntityNode" ThisKey="OrgLocationID" OtherKey="EntityNodeId" IsForeignKey="true" />
+      <Association Name="FK_D_MetricOrgLocationRule_Mc_Group_Approver" Member="Mc_Group" Storage="_Mc_Group" ThisKey="ApproverGroupId" OtherKey="GroupId" IsForeignKey="true" />
+      <Association Name="FK_D_MetricOrgLocationRule_Mc_Group_Collector" Member="CollectorGroup" Storage="_CollectorGroup" ThisKey="CollectorGroupId" OtherKey="GroupId" IsForeignKey="true" />
+      <Association Name="FK_D_MetricOrgLocationRule_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_D_MetricOrgLocationRule_Mc_User_Approver" Member="Mc_User" Storage="_Mc_User" ThisKey="ApproverUserId" OtherKey="UserId" IsForeignKey="true" />
+      <Association Name="FK_D_MetricOrgLocationRule_Mc_User_Collector" Member="CollectorUser" Storage="_CollectorUser" ThisKey="CollectorUserId" OtherKey="UserId" IsForeignKey="true" />
+      <Association Name="FK_D_MetricOrgLocationRule_Metric" Member="Metric" Storage="_Metric" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D_MetricRelation" Member="D_MetricRelation">
+    <Type Name="MetricTrac.Bll.D_MetricRelation">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="CalculatedMetricID" Member="CalculatedMetricID" Storage="_CalculatedMetricID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="InputMetricID" Member="InputMetricID" Storage="_InputMetricID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Association Name="FK_D_MetricRelation_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_D_MetricRelation_Metric_Calculated" Member="Metric" Storage="_Metric" ThisKey="InstanceId,CalculatedMetricID" OtherKey="InstanceId,MetricID" IsForeignKey="true" />
+      <Association Name="FK_D_MetricRelation_Metric_Input" Member="D_MetricRelation_Metric_Input" Storage="_D_MetricRelation_Metric_Input" ThisKey="InstanceId,InputMetricID" OtherKey="InstanceId,MetricID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D_PeriodDate" Member="D_PeriodDate">
+    <Type Name="MetricTrac.Bll.D_PeriodDate">
+      <Column Name="FrequencyID" Member="FrequencyID" Storage="_FrequencyID" DbType="Int NOT NULL" IsPrimaryKey="true" />
+      <Column Name="PeriodNumber" Member="PeriodNumber" Storage="_PeriodNumber" DbType="Int NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Date" Member="Date" Storage="_Date" DbType="SmallDateTime NOT NULL" />
+      <Column Name="ShortName" Member="ShortName" Storage="_ShortName" DbType="NVarChar(50)" />
+      <Column Name="LongName" Member="LongName" Storage="_LongName" DbType="NVarChar(50)" />
+      <Association Name="FK_D_PeriodDate_Frequency" Member="Frequency" Storage="_Frequency" ThisKey="FrequencyID" OtherKey="FrequencyID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DataCollectorRuleOut" Member="DataCollectorRuleOut">
+    <Type Name="MetricTrac.Bll.DataCollectorRuleOut">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="RuleId" Member="RuleId" Storage="_RuleId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="UserId" Member="UserId" Storage="_UserId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Association Name="FK_DataCollectorRuleOut_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_DataCollectorRuleOut_Mc_User" Member="Mc_User" Storage="_Mc_User" ThisKey="UserId" OtherKey="UserId" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DataRule" Member="DataRule">
+    <Type Name="MetricTrac.Bll.DataRule">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="DataRuleID" Member="DataRuleID" Storage="_DataRuleID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="DataRuleTypeID" Member="DataRuleTypeID" Storage="_DataRuleTypeID" DbType="Int NOT NULL" />
+      <Column Name="OrderNumber" Member="OrderNumber" Storage="_OrderNumber" DbType="Int NOT NULL" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier" />
+      <Column Name="GroupCategoryAspectID" Member="GroupCategoryAspectID" Storage="_GroupCategoryAspectID" DbType="UniqueIdentifier" />
+      <Column Name="PerformanceIndicatorID" Member="PerformanceIndicatorID" Storage="_PerformanceIndicatorID" DbType="UniqueIdentifier" />
+      <Column Name="PerformanceIndicatorFormID" Member="PerformanceIndicatorFormID" Storage="_PerformanceIndicatorFormID" DbType="UniqueIdentifier" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="UserId" Member="UserId" Storage="_UserId" DbType="UniqueIdentifier" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="Description" Member="Description" Storage="_Description" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="GroupId" Member="GroupId" Storage="_GroupId" DbType="UniqueIdentifier" />
+      <Column Name="RuleClusterID" Member="RuleClusterID" Storage="_RuleClusterID" DbType="UniqueIdentifier" />
+      <Association Name="FK_D_MetricOrgLocationRule_DataRule_Approver" Member="D_MetricOrgLocationRule" Storage="_D_MetricOrgLocationRule" ThisKey="InstanceId,DataRuleID" OtherKey="InstanceId,ApproverDataRuleID" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricOrgLocationRule_DataRule_Collector" Member="D_MetricOrgLocationRule_DataRule_Collector" Storage="_D_MetricOrgLocationRule_DataRule_Collector" ThisKey="InstanceId,DataRuleID" OtherKey="InstanceId,CollectorDataRuleID" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataRule_DataRuleType" Member="DataRuleType" Storage="_DataRuleType" ThisKey="DataRuleTypeID" OtherKey="DataRuleTypeID" IsForeignKey="true" />
+      <Association Name="FK_DataRule_GroupCategoryAspect" Member="GroupCategoryAspect" Storage="_GroupCategoryAspect" ThisKey="InstanceId,GroupCategoryAspectID" OtherKey="InstanceId,GroupCategoryAspectID" IsForeignKey="true" />
+      <Association Name="FK_DataRule_Mc_EntityNode" Member="Mc_EntityNode" Storage="_Mc_EntityNode" ThisKey="OrgLocationID" OtherKey="EntityNodeId" IsForeignKey="true" />
+      <Association Name="FK_DataRule_Mc_Group" Member="Mc_Group" Storage="_Mc_Group" ThisKey="GroupId" OtherKey="GroupId" IsForeignKey="true" />
+      <Association Name="FK_DataRule_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_DataRule_Mc_User" Member="Mc_User" Storage="_Mc_User" ThisKey="UserId" OtherKey="UserId" IsForeignKey="true" />
+      <Association Name="FK_DataRule_Metric" Member="Metric" Storage="_Metric" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" IsForeignKey="true" />
+      <Association Name="FK_DataRule_PerformanceIndicator" Member="PerformanceIndicator" Storage="_PerformanceIndicator" ThisKey="InstanceId,PerformanceIndicatorID" OtherKey="InstanceId,PerformanceIndicatorID" IsForeignKey="true" />
+      <Association Name="FK_DataRule_PerformanceIndicatorForm" Member="PerformanceIndicatorForm" Storage="_PerformanceIndicatorForm" ThisKey="InstanceId,PerformanceIndicatorFormID" OtherKey="InstanceId,PerformanceIndicatorFormID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DataRuleFullOrgLocationView" Member="DataRuleFullOrgLocationView">
+    <Type Name="MetricTrac.Bll.DataRuleFullOrgLocationView">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="DataRuleID" Member="DataRuleID" Storage="_DataRuleID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="DataRuleTypeID" Member="DataRuleTypeID" Storage="_DataRuleTypeID" DbType="Int NOT NULL" />
+      <Column Name="OrderNumber" Member="OrderNumber" Storage="_OrderNumber" DbType="Int NOT NULL" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier" />
+      <Column Name="GroupCategoryAspectID" Member="GroupCategoryAspectID" Storage="_GroupCategoryAspectID" DbType="UniqueIdentifier" />
+      <Column Name="PerformanceIndicatorID" Member="PerformanceIndicatorID" Storage="_PerformanceIndicatorID" DbType="UniqueIdentifier" />
+      <Column Name="PerformanceIndicatorFormID" Member="PerformanceIndicatorFormID" Storage="_PerformanceIndicatorFormID" DbType="UniqueIdentifier" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="UserId" Member="UserId" Storage="_UserId" DbType="UniqueIdentifier" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="Description" Member="Description" Storage="_Description" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="GroupId" Member="GroupId" Storage="_GroupId" DbType="UniqueIdentifier" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DataRuleType" Member="DataRuleType">
+    <Type Name="MetricTrac.Bll.DataRuleType">
+      <Column Name="DataRuleTypeID" Member="DataRuleTypeID" Storage="_DataRuleTypeID" DbType="Int NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_D_DataRule_DataRule" Member="D_DataRule" Storage="_D_DataRule" ThisKey="DataRuleTypeID" OtherKey="DataRuleTypeID" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataRule_DataRuleType" Member="DataRule" Storage="_DataRule" ThisKey="DataRuleTypeID" OtherKey="DataRuleTypeID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DataViewColumn" Member="DataViewColumn">
+    <Type Name="MetricTrac.Bll.DataViewColumn">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="DataViewColumnID" Member="DataViewColumnID" Storage="_DataViewColumnID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="DataViewListID" Member="DataViewListID" Storage="_DataViewListID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="DataViewColumnListTypeID" Member="DataViewColumnListTypeID" Storage="_DataViewColumnListTypeID" DbType="Int NOT NULL" />
+      <Column Name="TableName" Member="TableName" Storage="_TableName" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ColumnName" Member="ColumnName" Storage="_ColumnName" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderNumber" Member="OrderNumber" Storage="_OrderNumber" DbType="Int NOT NULL" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Association Name="FK_DataViewColumn_DataViewColumnListType" Member="DataViewColumnListType" Storage="_DataViewColumnListType" ThisKey="DataViewColumnListTypeID" OtherKey="DataViewColumnListTypeID" IsForeignKey="true" />
+      <Association Name="FK_DataViewColumn_DataViewList" Member="DataViewList" Storage="_DataViewList" ThisKey="InstanceId,DataViewListID" OtherKey="InstanceId,DataViewListID" IsForeignKey="true" />
+      <Association Name="FK_DataViewColumn_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_DataViewWhere_DataViewColumn" Member="DataViewWhere" Storage="_DataViewWhere" ThisKey="InstanceId,DataViewColumnID" OtherKey="InstanceId,DataViewColumnID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DataViewColumnListType" Member="DataViewColumnListType">
+    <Type Name="MetricTrac.Bll.DataViewColumnListType">
+      <Column Name="DataViewColumnListTypeID" Member="DataViewColumnListTypeID" Storage="_DataViewColumnListTypeID" DbType="Int NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_DataViewColumn_DataViewColumnListType" Member="DataViewColumn" Storage="_DataViewColumn" ThisKey="DataViewColumnListTypeID" OtherKey="DataViewColumnListTypeID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DataViewConditionType" Member="DataViewConditionType">
+    <Type Name="MetricTrac.Bll.DataViewConditionType">
+      <Column Name="DataViewConditionTypeID" Member="DataViewConditionTypeID" Storage="_DataViewConditionTypeID" DbType="Int NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Member="Description" Storage="_Description" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Association Name="FK_DataViewWhere_DataViewCondition" Member="DataViewWhere" Storage="_DataViewWhere" ThisKey="DataViewConditionTypeID" OtherKey="DataViewConditionTypeID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DataViewList" Member="DataViewList">
+    <Type Name="MetricTrac.Bll.DataViewList">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="DataViewListID" Member="DataViewListID" Storage="_DataViewListID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="DataViewTypeID" Member="DataViewTypeID" Storage="_DataViewTypeID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Member="Description" Storage="_Description" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="WhereCondition" Member="WhereCondition" Storage="_WhereCondition" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="Slave" Member="Slave" Storage="_Slave" DbType="Bit NOT NULL" />
+      <Column Name="WhereConditionSlave" Member="WhereConditionSlave" Storage="_WhereConditionSlave" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Association Name="FK_DataView_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_DataViewColumn_DataViewList" Member="DataViewColumn" Storage="_DataViewColumn" ThisKey="InstanceId,DataViewListID" OtherKey="InstanceId,DataViewListID" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataViewWhere_DataViewList" Member="DataViewWhere" Storage="_DataViewWhere" ThisKey="InstanceId,DataViewListID" OtherKey="InstanceId,DataViewListID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DataViewWhere" Member="DataViewWhere">
+    <Type Name="MetricTrac.Bll.DataViewWhere">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="DataViewWhereID" Member="DataViewWhereID" Storage="_DataViewWhereID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="DataViewColumnID" Member="DataViewColumnID" Storage="_DataViewColumnID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="DataViewConditionTypeID" Member="DataViewConditionTypeID" Storage="_DataViewConditionTypeID" DbType="Int NOT NULL" />
+      <Column Name="CompareValue" Member="CompareValue" Storage="_CompareValue" DbType="NVarChar(100)" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="Slave" Member="Slave" Storage="_Slave" DbType="Bit NOT NULL" />
+      <Column Name="DataViewListID" Member="DataViewListID" Storage="_DataViewListID" DbType="UniqueIdentifier NOT NULL" />
+      <Association Name="FK_DataViewWhere_DataViewColumn" Member="DataViewColumn" Storage="_DataViewColumn" ThisKey="InstanceId,DataViewColumnID" OtherKey="InstanceId,DataViewColumnID" IsForeignKey="true" />
+      <Association Name="FK_DataViewWhere_DataViewCondition" Member="DataViewConditionType" Storage="_DataViewConditionType" ThisKey="DataViewConditionTypeID" OtherKey="DataViewConditionTypeID" IsForeignKey="true" />
+      <Association Name="FK_DataViewWhere_DataViewList" Member="DataViewList" Storage="_DataViewList" ThisKey="InstanceId,DataViewListID" OtherKey="InstanceId,DataViewListID" IsForeignKey="true" />
+      <Association Name="FK_DataViewWhere_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EntityNodeFullNameView" Member="EntityNodeFullNameView">
+    <Type Name="MetricTrac.Bll.EntityNodeFullNameView">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier" />
+      <Column Name="EntityNodeId" Member="EntityNodeId" Storage="_EntityNodeId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="EntityNodeTypeId" Member="EntityNodeTypeId" Storage="_EntityNodeTypeId" DbType="UniqueIdentifier" />
+      <Column Name="Parent1" Member="Parent1" Storage="_Parent1" DbType="UniqueIdentifier" />
+      <Column Name="ParOrgId1" Member="ParOrgId1" Storage="_ParOrgId1" DbType="UniqueIdentifier" />
+      <Column Name="Parent2" Member="Parent2" Storage="_Parent2" DbType="UniqueIdentifier" />
+      <Column Name="ParOrgId2" Member="ParOrgId2" Storage="_ParOrgId2" DbType="UniqueIdentifier" />
+      <Column Name="Parent3" Member="Parent3" Storage="_Parent3" DbType="UniqueIdentifier" />
+      <Column Name="ParOrgId3" Member="ParOrgId3" Storage="_ParOrgId3" DbType="UniqueIdentifier" />
+      <Column Name="Parent4" Member="Parent4" Storage="_Parent4" DbType="UniqueIdentifier" />
+      <Column Name="ParOrgId4" Member="ParOrgId4" Storage="_ParOrgId4" DbType="UniqueIdentifier" />
+      <Column Name="Parent5" Member="Parent5" Storage="_Parent5" DbType="UniqueIdentifier" />
+      <Column Name="ParOrgId5" Member="ParOrgId5" Storage="_ParOrgId5" DbType="UniqueIdentifier" />
+      <Column Name="FullName" Member="FullName" Storage="_FullName" DbType="NVarChar(1545) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="mfs.File" Member="Mfs_File">
+    <Type Name="MetricTrac.Bll.Mfs_File">
+      <Column Name="FileUniqueId" Member="FileUniqueId" Storage="_FileUniqueId" DbType="NVarChar(32) NOT NULL" CanBeNull="false" IsPrimaryKey="true" />
+      <Column Name="OrganizationId" Member="OrganizationId" Storage="_OrganizationId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="DepartmentId" Member="DepartmentId" Storage="_DepartmentId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="LocalObjectType" Member="LocalObjectType" Storage="_LocalObjectType" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LocalObjectId" Member="LocalObjectId" Storage="_LocalObjectId" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="SizeInBytes" Member="SizeInBytes" Storage="_SizeInBytes" DbType="Int NOT NULL" />
+      <Column Name="UpdatedTime" Member="UpdatedTime" Storage="_UpdatedTime" DbType="DateTime NOT NULL" />
+      <Column Name="UpdatedBy" Member="UpdatedBy" Storage="_UpdatedBy" DbType="NVarChar(255)" />
+      <Column Name="Deleted" Member="Deleted" Storage="_Deleted" DbType="Bit NOT NULL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Frequency" Member="Frequency">
+    <Type Name="MetricTrac.Bll.Frequency">
+      <Column Name="FrequencyID" Member="FrequencyID" Storage="_FrequencyID" DbType="Int NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_D_PeriodDate_Frequency" Member="D_PeriodDate" Storage="_D_PeriodDate" ThisKey="FrequencyID" OtherKey="FrequencyID" DeleteRule="NO ACTION" />
+      <Association Name="FK_Metric_Frequency" Member="Metric" Storage="_Metric" ThisKey="FrequencyID" OtherKey="FrequencyID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricValue_Frequency" Member="MetricValue" Storage="_MetricValue" ThisKey="FrequencyID" OtherKey="FrequencyID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GCAFullNameView" Member="GCAFullNameView">
+    <Type Name="MetricTrac.Bll.GCAFullNameView">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="GroupCategoryAspectID" Member="GroupCategoryAspectID" Storage="_GroupCategoryAspectID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="Parent1" Member="Parent1" Storage="_Parent1" DbType="UniqueIdentifier" />
+      <Column Name="Parent2" Member="Parent2" Storage="_Parent2" DbType="UniqueIdentifier" />
+      <Column Name="FullName" Member="FullName" Storage="_FullName" DbType="NVarChar(326) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GroupCategoryAspect" Member="GroupCategoryAspect">
+    <Type Name="MetricTrac.Bll.GroupCategoryAspect">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="GroupCategoryAspectID" Member="GroupCategoryAspectID" Storage="_GroupCategoryAspectID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="ParentId" Member="ParentId" Storage="_ParentId" DbType="UniqueIdentifier" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Association Name="FK_D_DataRule_GroupCategoryAspect" Member="D_DataRule" Storage="_D_DataRule" ThisKey="InstanceId,GroupCategoryAspectID" OtherKey="InstanceId,GroupCategoryAspectID" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricOrgLocationPath_GroupCategoryAspect" Member="D_MetricOrgLocationPath" Storage="_D_MetricOrgLocationPath" ThisKey="InstanceId,GroupCategoryAspectID" OtherKey="InstanceId,GroupCategoryAspectID" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataRule_GroupCategoryAspect" Member="DataRule" Storage="_DataRule" ThisKey="InstanceId,GroupCategoryAspectID" OtherKey="InstanceId,GroupCategoryAspectID" DeleteRule="NO ACTION" />
+      <Association Name="FK_GroupCategoryAspect_GroupCategoryAspect" Member="GroupCategoryAspect_GroupCategoryAspect" Storage="_GroupCategoryAspect_GroupCategoryAspect" ThisKey="InstanceId,ParentId" OtherKey="InstanceId,GroupCategoryAspectID" IsForeignKey="true" />
+      <Association Name="FK_GroupCategoryAspect_GroupCategoryAspect" Member="GroupCategoryAspect_GroupCategoryAspect1" Storage="_GroupCategoryAspect_GroupCategoryAspect1" ThisKey="InstanceId,GroupCategoryAspectID" OtherKey="InstanceId,ParentId" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricFilter_GroupCategoryAspect" Member="MetricFilter" Storage="_MetricFilter" ThisKey="InstanceId,GroupCategoryAspectID" OtherKey="InstanceID,GroupCategoryAspectID" DeleteRule="NO ACTION" />
+      <Association Name="FK_PerformanceIndicator_GroupCategoryAspect" Member="PerformanceIndicator" Storage="_PerformanceIndicator" ThisKey="InstanceId,GroupCategoryAspectID" OtherKey="InstanceId,GroupCategoryAspectID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mc_Database" Member="Mc_Database">
+    <Type Name="MetricTrac.Bll.Mc_Database">
+      <Column Name="DatabaseId" Member="DatabaseId" Storage="_DatabaseId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Member="Description" Storage="_Description" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Member="UserName" Storage="_UserName" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Member="Password" Storage="_Password" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="DatabaseServerId" Member="DatabaseServerId" Storage="_DatabaseServerId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="Deleted" Member="Deleted" Storage="_Deleted" DbType="Bit NOT NULL" />
+      <Association Name="FK_Mc_Database_Mc_DatabaseServer" Member="Mc_DatabaseServer" Storage="_Mc_DatabaseServer" ThisKey="DatabaseServerId" OtherKey="DatabaseServerId" IsForeignKey="true" />
+      <Association Name="FK_Mc_Organization_Mc_Database" Member="Mc_Organization" Storage="_Mc_Organization" ThisKey="DatabaseId" OtherKey="DatabaseId" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mc_DatabaseServer" Member="Mc_DatabaseServer">
+    <Type Name="MetricTrac.Bll.Mc_DatabaseServer">
+      <Column Name="DatabaseServerId" Member="DatabaseServerId" Storage="_DatabaseServerId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="InstanceName" Member="InstanceName" Storage="_InstanceName" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Port" Member="Port" Storage="_Port" DbType="Int NOT NULL" />
+      <Column Name="Description" Member="Description" Storage="_Description" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="WebsiteId" Member="WebsiteId" Storage="_WebsiteId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="Deleted" Member="Deleted" Storage="_Deleted" DbType="Bit NOT NULL" />
+      <Association Name="FK_Mc_Database_Mc_DatabaseServer" Member="Mc_Database" Storage="_Mc_Database" ThisKey="DatabaseServerId" OtherKey="DatabaseServerId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_DatabaseServer_Mc_Website" Member="Mc_Website" Storage="_Mc_Website" ThisKey="WebsiteId" OtherKey="WebsiteId" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mc_EntityNode" Member="Mc_EntityNode">
+    <Type Name="MetricTrac.Bll.Mc_EntityNode">
+      <Column Name="EntityNodeId" Member="EntityNodeId" Storage="_EntityNodeId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="ParentEntityNodeId" Member="ParentEntityNodeId" Storage="_ParentEntityNodeId" DbType="UniqueIdentifier" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderNumber" Member="OrderNumber" Storage="_OrderNumber" DbType="Int NOT NULL" />
+      <Column Name="OrganizationId" Member="OrganizationId" Storage="_OrganizationId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier" />
+      <Column Name="EntityId" Member="EntityId" Storage="_EntityId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="EntityNodeTypeId" Member="EntityNodeTypeId" Storage="_EntityNodeTypeId" DbType="UniqueIdentifier" />
+      <Column Name="SubEntityId" Member="SubEntityId" Storage="_SubEntityId" DbType="UniqueIdentifier" />
+      <Column Name="SubEntityLocalId" Member="SubEntityLocalId" Storage="_SubEntityLocalId" DbType="NVarChar(255)" />
+      <Column Name="FullPath" Member="FullPath" Storage="_FullPath" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="Deleted" Member="Deleted" Storage="_Deleted" DbType="Bit NOT NULL" />
+      <Association Name="FK_D_DataRule_Mc_EntityNode" Member="D_DataRule" Storage="_D_DataRule" ThisKey="EntityNodeId" OtherKey="OrgLocationID" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_EntityNode_Mc_EntityNode" Member="D_EntityNode" Storage="_D_EntityNode" ThisKey="EntityNodeId" OtherKey="EntityNodeId" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_EntityNode_Mc_EntityNode1" Member="EntityNode" Storage="_EntityNode" ThisKey="EntityNodeId" OtherKey="IncludedId" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricOrgLocationPath_Mc_EntityNode" Member="D_MetricOrgLocationPath" Storage="_D_MetricOrgLocationPath" ThisKey="EntityNodeId" OtherKey="OrgLocationID" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricOrgLocationRule_Mc_EntityNode" Member="D_MetricOrgLocationRule" Storage="_D_MetricOrgLocationRule" ThisKey="EntityNodeId" OtherKey="OrgLocationID" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataRule_Mc_EntityNode" Member="DataRule" Storage="_DataRule" ThisKey="EntityNodeId" OtherKey="OrgLocationID" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_EntityNode_Mc_EntityNode" Member="ParentEntityNode" Storage="_ParentEntityNode" ThisKey="ParentEntityNodeId" OtherKey="EntityNodeId" IsForeignKey="true" />
+      <Association Name="FK_Mc_EntityNode_Mc_EntityNode" Member="Mc_EntityNode_Mc_EntityNode" Storage="_Mc_EntityNode_Mc_EntityNode" ThisKey="EntityNodeId" OtherKey="ParentEntityNodeId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_EntityNode_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_MetricFilter_Mc_EntityNode" Member="MetricFilter" Storage="_MetricFilter" ThisKey="EntityNodeId" OtherKey="OrgLocationID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricOrgLocationName_Mc_EntityNode" Member="MetricOrgLocationName" Storage="_MetricOrgLocationName" ThisKey="EntityNodeId" OtherKey="OrgLocationID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricOrgLocationUoM_Mc_EntityNode" Member="MetricOrgLocationUoM" Storage="_MetricOrgLocationUoM" ThisKey="EntityNodeId" OtherKey="OrgLocationID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricValue_Mc_EntityNode" Member="MetricValue" Storage="_MetricValue" ThisKey="EntityNodeId" OtherKey="OrgLocationID" DeleteRule="NO ACTION" />
+      <Association Name="FK_ScoreCardMetric_Mc_EntityNode" Member="ScoreCardMetric" Storage="_ScoreCardMetric" ThisKey="EntityNodeId" OtherKey="OrgLocationID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mc_EntityNodesRelatedEntityNodes" Member="Mc_EntityNodesRelatedEntityNodes">
+    <Type Name="MetricTrac.Bll.Mc_EntityNodesRelatedEntityNodes">
+      <Column Name="EntityNodesRelatedEntityNodesId" Member="EntityNodesRelatedEntityNodesId" Storage="_EntityNodesRelatedEntityNodesId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="EntityNodeId" Member="EntityNodeId" Storage="_EntityNodeId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="RelatedEntityNodeId" Member="RelatedEntityNodeId" Storage="_RelatedEntityNodeId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="EntityId" Member="EntityId" Storage="_EntityId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="RelationType" Member="RelationType" Storage="_RelationType" DbType="Int NOT NULL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mc_EntityNodeType" Member="Mc_EntityNodeType">
+    <Type Name="MetricTrac.Bll.Mc_EntityNodeType">
+      <Column Name="EntityNodeTypeId" Member="EntityNodeTypeId" Storage="_EntityNodeTypeId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="EntityId" Member="EntityId" Storage="_EntityId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderNumber" Member="OrderNumber" Storage="_OrderNumber" DbType="Int NOT NULL" />
+      <Column Name="OrganizationId" Member="OrganizationId" Storage="_OrganizationId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier" />
+      <Column Name="Deleted" Member="Deleted" Storage="_Deleted" DbType="Bit NOT NULL" />
+      <Association Name="FK_Mc_EntityNodeType_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mc_Group" Member="Mc_Group">
+    <Type Name="MetricTrac.Bll.Mc_Group">
+      <Column Name="GroupId" Member="GroupId" Storage="_GroupId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="OrganizationId" Member="OrganizationId" Storage="_OrganizationId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Member="Description" Storage="_Description" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="BuiltIn" Member="BuiltIn" Storage="_BuiltIn" DbType="Bit NOT NULL" />
+      <Column Name="Deleted" Member="Deleted" Storage="_Deleted" DbType="Bit NOT NULL" />
+      <Association Name="FK_D_DataRule_Mc_Group" Member="D_DataRule" Storage="_D_DataRule" ThisKey="GroupId" OtherKey="GroupId" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricOrgLocationRule_Mc_Group_Approver" Member="D_MetricOrgLocationRule" Storage="_D_MetricOrgLocationRule" ThisKey="GroupId" OtherKey="ApproverGroupId" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricOrgLocationRule_Mc_Group_Collector" Member="Group" Storage="_Group" ThisKey="GroupId" OtherKey="CollectorGroupId" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataRule_Mc_Group" Member="DataRule" Storage="_DataRule" ThisKey="GroupId" OtherKey="GroupId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_GroupsInstancesActions_Mc_Group" Member="Mc_GroupsInstancesActions" Storage="_Mc_GroupsInstancesActions" ThisKey="GroupId" OtherKey="GroupId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_GroupsInstancesRoles_Mc_Group" Member="Mc_GroupsInstancesRoles" Storage="_Mc_GroupsInstancesRoles" ThisKey="GroupId" OtherKey="GroupId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_SettingsValues_Mc_Group" Member="Mc_SettingsValues" Storage="_Mc_SettingsValues" ThisKey="GroupId" OtherKey="GroupId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_UsersGroups_Mc_Group" Member="Mc_UsersGroups" Storage="_Mc_UsersGroups" ThisKey="GroupId" OtherKey="GroupId" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mc_Instance" Member="Mc_Instance">
+    <Type Name="MetricTrac.Bll.Mc_Instance">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="OrganizationId" Member="OrganizationId" Storage="_OrganizationId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Member="Description" Storage="_Description" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="EnableSignUpUser" Member="EnableSignUpUser" Storage="_EnableSignUpUser" DbType="Bit NOT NULL" />
+      <Column Name="Deleted" Member="Deleted" Storage="_Deleted" DbType="Bit NOT NULL" />
+      <Association Name="FK_D_EntityNode_Mc_Instance" Member="D_EntityNode" Storage="_D_EntityNode" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricCategory_Mc_Instance" Member="D_MetricCategory" Storage="_D_MetricCategory" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricOrgLocationPath_Mc_Instance" Member="D_MetricOrgLocationPath" Storage="_D_MetricOrgLocationPath" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricOrgLocationRule_Mc_Instance" Member="D_MetricOrgLocationRule" Storage="_D_MetricOrgLocationRule" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricRelation_Mc_Instance" Member="D_MetricRelation" Storage="_D_MetricRelation" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataCollectorRuleOut_Mc_Instance" Member="DataCollectorRuleOut" Storage="_DataCollectorRuleOut" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataRule_Mc_Instance" Member="DataRule" Storage="_DataRule" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataView_Mc_Instance" Member="DataViewList" Storage="_DataViewList" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataViewColumn_Mc_Instance" Member="DataViewColumn" Storage="_DataViewColumn" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataViewWhere_Mc_Instance" Member="DataViewWhere" Storage="_DataViewWhere" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_EntityField_Mc_Instance" Member="Mc_EntityField" Storage="_Mc_EntityField" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_EntityNode_Mc_Instance" Member="Mc_EntityNode" Storage="_Mc_EntityNode" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_EntityNodeType_Mc_Instance" Member="Mc_EntityNodeType" Storage="_Mc_EntityNodeType" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_GroupsInstancesActions_Mc_Instance" Member="Mc_GroupsInstancesActions" Storage="_Mc_GroupsInstancesActions" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_GroupsInstancesRoles_Mc_Instance" Member="Mc_GroupsInstancesRoles" Storage="_Mc_GroupsInstancesRoles" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_SettingsValues_Mc_Instance" Member="Mc_SettingsValues" Storage="_Mc_SettingsValues" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Metric_Mc_Instance" Member="Metric" Storage="_Metric" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricCategory_Mc_Instance" Member="MetricCategory" Storage="_MetricCategory" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricFilter_Mc_Instance" Member="MetricFilter" Storage="_MetricFilter" ThisKey="InstanceId" OtherKey="InstanceID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricFormula_Mc_Instance" Member="MetricFormula" Storage="_MetricFormula" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricOrgLocationName_Mc_Instance" Member="MetricOrgLocationName" Storage="_MetricOrgLocationName" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricOrgLocationUoM_Mc_Instance" Member="MetricOrgLocationUoM" Storage="_MetricOrgLocationUoM" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricRelation_Mc_Instance" Member="MetricRelation" Storage="_MetricRelation" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricValue_Mc_Instance" Member="MetricValue" Storage="_MetricValue" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricValueChangeLog_Mc_Instance" Member="MetricValueChangeLog" Storage="_MetricValueChangeLog" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_PerformanceIndicator_Mc_Instance" Member="PerformanceIndicator" Storage="_PerformanceIndicator" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_PerformanceIndicatorForm_Mc_Instance" Member="PerformanceIndicatorForm" Storage="_PerformanceIndicatorForm" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_PerformanceIndicatorFormPerformanceIndicatorJunc_Mc_Instance" Member="PerformanceIndicatorFormPerformanceIndicatorJunc" Storage="_PerformanceIndicatorFormPerformanceIndicatorJunc" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_PerformanceIndicatorMetricJunc_Mc_Instance" Member="PerformanceIndicatorMetricJunc" Storage="_PerformanceIndicatorMetricJunc" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_ScoreCard_Mc_Instance" Member="ScoreCard" Storage="_ScoreCard" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_ScoreCardDashboard_Mc_Instance" Member="ScoreCardDashboard" Storage="_ScoreCardDashboard" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_ScoreCardHidden_Mc_Instance" Member="ScoreCardHidden" Storage="_ScoreCardHidden" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_ScoreCardMetric_Mc_Instance" Member="ScoreCardMetric" Storage="_ScoreCardMetric" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+      <Association Name="FK_ScoreCardValue_Mc_Instance" Member="ScoreCardValue" Storage="_ScoreCardValue" ThisKey="InstanceId" OtherKey="InstanceId" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mc_Organization" Member="Mc_Organization">
+    <Type Name="MetricTrac.Bll.Mc_Organization">
+      <Column Name="OrganizationId" Member="OrganizationId" Storage="_OrganizationId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Member="Description" Storage="_Description" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="WebsiteUrl" Member="WebsiteUrl" Storage="_WebsiteUrl" DbType="NVarChar(2048) NOT NULL" CanBeNull="false" />
+      <Column Name="DatabaseId" Member="DatabaseId" Storage="_DatabaseId" DbType="UniqueIdentifier" />
+      <Column Name="Deleted" Member="Deleted" Storage="_Deleted" DbType="Bit NOT NULL" />
+      <Column Name="FiscalYearStartDay" Member="FiscalYearStartDay" Storage="_FiscalYearStartDay" DbType="Int" />
+      <Column Name="FiscalYearStartMonth" Member="FiscalYearStartMonth" Storage="_FiscalYearStartMonth" DbType="Int" />
+      <Column Name="WeekStartsDay" Member="WeekStartsDay" Storage="_WeekStartsDay" DbType="Int" />
+      <Association Name="FK_D_EntityNode_Mc_Organization" Member="D_EntityNode" Storage="_D_EntityNode" ThisKey="OrganizationId" OtherKey="OrganizationId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_InvitedLogin_Mc_Organization" Member="Mc_InvitedLogin" Storage="_Mc_InvitedLogin" ThisKey="OrganizationId" OtherKey="OrganizationId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_Organization_Mc_Database" Member="Mc_Database" Storage="_Mc_Database" ThisKey="DatabaseId" OtherKey="DatabaseId" IsForeignKey="true" />
+      <Association Name="FK_Mc_OrganizationsLogins_Mc_Organization" Member="Mc_OrganizationsLogins" Storage="_Mc_OrganizationsLogins" ThisKey="OrganizationId" OtherKey="OrganizationId" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mc_OrganizationsUsers" Member="Mc_OrganizationsUsers">
+    <Type Name="MetricTrac.Bll.Mc_OrganizationsUsers">
+      <Column Name="OrganizationId" Member="OrganizationId" Storage="_OrganizationId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="UserId" Member="UserId" Storage="_UserId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="OrganizationAdministrator" Member="OrganizationAdministrator" Storage="_OrganizationAdministrator" DbType="Bit NOT NULL" />
+      <Association Name="FK_Mc_OrganizationsUsers_Mc_User" Member="Mc_User" Storage="_Mc_User" ThisKey="UserId" OtherKey="UserId" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mc_UnitsOfMeasure" Member="Mc_UnitsOfMeasure">
+    <Type Name="MetricTrac.Bll.Mc_UnitsOfMeasure">
+      <Column Name="UnitsOfMeasureId" Member="UnitsOfMeasureId" Storage="_UnitsOfMeasureId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="OrganizationId" Member="OrganizationId" Storage="_OrganizationId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="SingularName" Member="SingularName" Storage="_SingularName" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="SingularAbbrv" Member="SingularAbbrv" Storage="_SingularAbbrv" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PluralName" Member="PluralName" Storage="_PluralName" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="PluralAbbrv" Member="PluralAbbrv" Storage="_PluralAbbrv" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="GroupName" Member="GroupName" Storage="_GroupName" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LocalName" Member="LocalName" Storage="_LocalName" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mc_UnitsOfMeasureConversion" Member="Mc_UnitsOfMeasureConversion">
+    <Type Name="MetricTrac.Bll.Mc_UnitsOfMeasureConversion">
+      <Column Name="UnitOfMeasureFrom" Member="UnitOfMeasureFrom" Storage="_UnitOfMeasureFrom" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="UnitOfMeasureTo" Member="UnitOfMeasureTo" Storage="_UnitOfMeasureTo" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Factor" Member="Factor" Storage="_Factor" DbType="Float NOT NULL" />
+      <Column Name="OrganizationId" Member="OrganizationId" Storage="_OrganizationId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mc_User" Member="Mc_User">
+    <Type Name="MetricTrac.Bll.Mc_User">
+      <Column Name="UserId" Member="UserId" Storage="_UserId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Email" Member="Email" Storage="_Email" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Member="FirstName" Storage="_FirstName" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Member="LastName" Storage="_LastName" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Member="MiddleName" Storage="_MiddleName" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Member="Phone" Storage="_Phone" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MobilePhone" Member="MobilePhone" Storage="_MobilePhone" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Fax" Member="Fax" Storage="_Fax" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Member="Title" Storage="_Title" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Department" Member="Department" Storage="_Department" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Street" Member="Street" Storage="_Street" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Street2" Member="Street2" Storage="_Street2" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="City" Member="City" Storage="_City" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="State" Member="State" Storage="_State" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="PostalCode" Member="PostalCode" Storage="_PostalCode" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Country" Member="Country" Storage="_Country" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="LastLoginDate" Member="LastLoginDate" Storage="_LastLoginDate" DbType="DateTime" />
+      <Column Name="Deleted" Member="Deleted" Storage="_Deleted" DbType="Bit NOT NULL" />
+      <Association Name="FK_D_DataRule_Mc_User" Member="D_DataRule" Storage="_D_DataRule" ThisKey="UserId" OtherKey="UserId" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricOrgLocationRule_Mc_User_Approver" Member="D_MetricOrgLocationRule" Storage="_D_MetricOrgLocationRule" ThisKey="UserId" OtherKey="ApproverUserId" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricOrgLocationRule_Mc_User_Collector" Member="User" Storage="_User" ThisKey="UserId" OtherKey="CollectorUserId" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataCollectorRuleOut_Mc_User" Member="DataCollectorRuleOut" Storage="_DataCollectorRuleOut" ThisKey="UserId" OtherKey="UserId" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataRule_Mc_User" Member="DataRule" Storage="_DataRule" ThisKey="UserId" OtherKey="UserId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_Message_Mc_User_1" Member="Mc_Message" Storage="_Mc_Message" ThisKey="UserId" OtherKey="FromUserId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_Message_Mc_User_2" Member="Mc_Message_Mc_User_2" Storage="_Mc_Message_Mc_User_2" ThisKey="UserId" OtherKey="ToUserId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_OrganizationsUsers_Mc_User" Member="Mc_OrganizationsUsers" Storage="_Mc_OrganizationsUsers" ThisKey="UserId" OtherKey="UserId" DeleteRule="NO ACTION" />
+      <Association Name="FK_Mc_UsersGroups_Mc_User" Member="Mc_UsersGroups" Storage="_Mc_UsersGroups" ThisKey="UserId" OtherKey="UserId" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricFilter_Mc_User" Member="MetricFilter" Storage="_MetricFilter" ThisKey="UserId" OtherKey="UserID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricFilter_Mc_User1" Member="MetricFilter_Mc_User1" Storage="_MetricFilter_Mc_User1" ThisKey="UserId" OtherKey="DataCollectorID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricFormula_Mc_User" Member="MetricFormula" Storage="_MetricFormula" ThisKey="UserId" OtherKey="UpdatedBy" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricValueChangeLog_Mc_User" Member="MetricValueChangeLog" Storage="_MetricValueChangeLog" ThisKey="UserId" OtherKey="UserId" DeleteRule="NO ACTION" />
+      <Association Name="FK_ScoreCard_Mc_User" Member="ScoreCard" Storage="_ScoreCard" ThisKey="UserId" OtherKey="UserId" DeleteRule="NO ACTION" />
+      <Association Name="FK_ScoreCardDashboard_Mc_User" Member="ScoreCardDashboard" Storage="_ScoreCardDashboard" ThisKey="UserId" OtherKey="UserId" DeleteRule="NO ACTION" />
+      <Association Name="FK_ScoreCardHidden_Mc_User" Member="ScoreCardHidden" Storage="_ScoreCardHidden" ThisKey="UserId" OtherKey="UserId" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mc_Website" Member="Mc_Website">
+    <Type Name="MetricTrac.Bll.Mc_Website">
+      <Column Name="WebsiteId" Member="WebsiteId" Storage="_WebsiteId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Url" Member="Url" Storage="_Url" DbType="NVarChar(2048) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Member="Description" Storage="_Description" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="AdminContactInfo" Member="AdminContactInfo" Storage="_AdminContactInfo" DbType="NVarChar(2048) NOT NULL" CanBeNull="false" />
+      <Column Name="Deleted" Member="Deleted" Storage="_Deleted" DbType="Bit NOT NULL" />
+      <Association Name="FK_Mc_DatabaseServer_Mc_Website" Member="Mc_DatabaseServer" Storage="_Mc_DatabaseServer" ThisKey="WebsiteId" OtherKey="WebsiteId" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Metric" Member="Metric">
+    <Type Name="MetricTrac.Bll.Metric">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Notes" Member="Notes" Storage="_Notes" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="FrequencyID" Member="FrequencyID" Storage="_FrequencyID" DbType="Int NOT NULL" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="MetricCategoryID" Member="MetricCategoryID" Storage="_MetricCategoryID" DbType="UniqueIdentifier" />
+      <Column Name="UnitOfMeasureID" Member="UnitOfMeasureID" Storage="_UnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricDataTypeID" Member="MetricDataTypeID" Storage="_MetricDataTypeID" DbType="Int NOT NULL" />
+      <Column Name="NODecPlaces" Member="NODecPlaces" Storage="_NODecPlaces" DbType="Int" />
+      <Column Name="NOMinValue" Member="NOMinValue" Storage="_NOMinValue" DbType="Decimal(29,10)" />
+      <Column Name="NOMaxValue" Member="NOMaxValue" Storage="_NOMaxValue" DbType="Decimal(29,10)" />
+      <Column Name="Definition" Member="Definition" Storage="_Definition" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="Documentation" Member="Documentation" Storage="_Documentation" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="MetricReferences" Member="MetricReferences" Storage="_MetricReferences" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="Code" Member="Code" Storage="_Code" DbType="NVarChar(25)" />
+      <Column Name="MetricTypeID" Member="MetricTypeID" Storage="_MetricTypeID" DbType="Int NOT NULL" />
+      <Column Name="Alias" Member="Alias" Storage="_Alias" DbType="NVarChar(50)" />
+      <Column Name="Generation" Member="Generation" Storage="_Generation" DbType="Int NOT NULL" />
+      <Column Name="FormulaCode" Member="FormulaCode" Storage="_FormulaCode" DbType="NVarChar(200)" />
+      <Column Name="InputUnitOfMeasureID" Member="InputUnitOfMeasureID" Storage="_InputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="Variable" Member="Variable" Storage="_Variable" DbType="NVarChar(200)" />
+      <Column Name="GrowUpIsGood" Member="GrowUpIsGood" Storage="_GrowUpIsGood" DbType="Bit" />
+      <Column Name="CollectionStartDate" Member="CollectionStartDate" Storage="_CollectionStartDate" DbType="SmallDateTime" />
+      <Column Name="CollectionEndDate" Member="CollectionEndDate" Storage="_CollectionEndDate" DbType="SmallDateTime" />
+      <Column Name="AllowCustomNames" Member="AllowCustomNames" Storage="_AllowCustomNames" DbType="Bit NOT NULL" />
+      <Association Name="FK_D_DataRule_Metric" Member="D_DataRule" Storage="_D_DataRule" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricOrgLocationPath_Metric" Member="D_MetricOrgLocationPath" Storage="_D_MetricOrgLocationPath" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricOrgLocationRule_Metric" Member="D_MetricOrgLocationRule" Storage="_D_MetricOrgLocationRule" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricRelation_Metric_Calculated" Member="D_MetricRelation" Storage="_D_MetricRelation" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,CalculatedMetricID" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricRelation_Metric_Input" Member="D_MetricRelation_Metric_Input" Storage="_D_MetricRelation_Metric_Input" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,InputMetricID" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataRule_Metric" Member="DataRule" Storage="_DataRule" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" DeleteRule="NO ACTION" />
+      <Association Name="FK_Metric_Frequency" Member="Frequency" Storage="_Frequency" ThisKey="FrequencyID" OtherKey="FrequencyID" IsForeignKey="true" />
+      <Association Name="FK_Metric_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_Metric_MetricCategory" Member="MetricCategory" Storage="_MetricCategory" ThisKey="InstanceId,MetricCategoryID" OtherKey="InstanceId,MetricCategoryID" IsForeignKey="true" />
+      <Association Name="FK_Metric_MetricDataType" Member="MetricDataType" Storage="_MetricDataType" ThisKey="MetricDataTypeID" OtherKey="MetricDataTypeID" IsForeignKey="true" />
+      <Association Name="FK_Metric_MetricType" Member="MetricType" Storage="_MetricType" ThisKey="MetricTypeID" OtherKey="MetricTypeID" IsForeignKey="true" />
+      <Association Name="FK_MetricFilter_Metric" Member="MetricFilter" Storage="_MetricFilter" ThisKey="InstanceId,MetricID" OtherKey="InstanceID,MetricID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricFormula_Metric" Member="MetricFormula" Storage="_MetricFormula" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricOrgLocationName_Metric" Member="MetricOrgLocationName" Storage="_MetricOrgLocationName" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricOrgLocationUoM_Metric" Member="MetricOrgLocationUoM" Storage="_MetricOrgLocationUoM" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricRelation_Metric" Member="MetricRelation" Storage="_MetricRelation" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricRelation_Metric1" Member="MetricRelation_Metric1" Storage="_MetricRelation_Metric1" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,ReferenceMetricID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricValue_Metric" Member="MetricValue" Storage="_MetricValue" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" DeleteRule="NO ACTION" />
+      <Association Name="FK_Performance IndicatorMetricJunc_Metric" Member="PerformanceIndicatorMetricJunc" Storage="_PerformanceIndicatorMetricJunc" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" DeleteRule="NO ACTION" />
+      <Association Name="FK_ScoreCardMetric_Metric" Member="ScoreCardMetric" Storage="_ScoreCardMetric" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MetricCategory" Member="MetricCategory">
+    <Type Name="MetricTrac.Bll.MetricCategory">
+      <Column Name="MetricCategoryID" Member="MetricCategoryID" Storage="_MetricCategoryID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="ParentId" Member="ParentId" Storage="_ParentId" DbType="UniqueIdentifier" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Association Name="FK_D_MetricCategory_MetricCategory" Member="D_MetricCategory" Storage="_D_MetricCategory" ThisKey="InstanceId,MetricCategoryID" OtherKey="InstanceId,MetricCategoryID" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricCategory_MetricCategory1" Member="D_MetricCategory_MetricCategory1" Storage="_D_MetricCategory_MetricCategory1" ThisKey="InstanceId,MetricCategoryID" OtherKey="InstanceId,IncludedID" DeleteRule="NO ACTION" />
+      <Association Name="FK_Metric_MetricCategory" Member="Metric" Storage="_Metric" ThisKey="InstanceId,MetricCategoryID" OtherKey="InstanceId,MetricCategoryID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricCategory_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_MetricCategory_MetricCategory" Member="MetricCategory_MetricCategory" Storage="_MetricCategory_MetricCategory" ThisKey="InstanceId,ParentId" OtherKey="InstanceId,MetricCategoryID" IsForeignKey="true" />
+      <Association Name="FK_MetricCategory_MetricCategory" Member="MetricCategory_MetricCategory1" Storage="_MetricCategory_MetricCategory1" ThisKey="InstanceId,MetricCategoryID" OtherKey="InstanceId,ParentId" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MetricCategoryFullNameView" Member="MetricCategoryFullNameView">
+    <Type Name="MetricTrac.Bll.MetricCategoryFullNameView">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="MetricCategoryID" Member="MetricCategoryID" Storage="_MetricCategoryID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="Parent1" Member="Parent1" Storage="_Parent1" DbType="UniqueIdentifier" />
+      <Column Name="Parent2" Member="Parent2" Storage="_Parent2" DbType="UniqueIdentifier" />
+      <Column Name="FullName" Member="FullName" Storage="_FullName" DbType="NVarChar(306) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MetricDataType" Member="MetricDataType">
+    <Type Name="MetricTrac.Bll.MetricDataType">
+      <Column Name="MetricDataTypeID" Member="MetricDataTypeID" Storage="_MetricDataTypeID" DbType="Int NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_Metric_MetricDataType" Member="Metric" Storage="_Metric" ThisKey="MetricDataTypeID" OtherKey="MetricDataTypeID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricValue_MetricDataType" Member="MetricValue" Storage="_MetricValue" ThisKey="MetricDataTypeID" OtherKey="MetricDataTypeID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MetricFilter" Member="MetricFilter">
+    <Type Name="MetricTrac.Bll.MetricFilter">
+      <Column Name="InstanceID" Member="InstanceID" Storage="_InstanceID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricFilterID" Member="MetricFilterID" Storage="_MetricFilterID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="UserID" Member="UserID" Storage="_UserID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="PerformanceIndicatorID" Member="PerformanceIndicatorID" Storage="_PerformanceIndicatorID" DbType="UniqueIdentifier" />
+      <Column Name="GroupCategoryAspectID" Member="GroupCategoryAspectID" Storage="_GroupCategoryAspectID" DbType="UniqueIdentifier" />
+      <Column Name="PerformanceIndicatorFormID" Member="PerformanceIndicatorFormID" Storage="_PerformanceIndicatorFormID" DbType="UniqueIdentifier" />
+      <Column Name="DataCollectorID" Member="DataCollectorID" Storage="_DataCollectorID" DbType="UniqueIdentifier" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocations" Member="OrgLocations" Storage="_OrgLocations" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Association Name="FK_MetricFilter_GroupCategoryAspect" Member="GroupCategoryAspect" Storage="_GroupCategoryAspect" ThisKey="InstanceID,GroupCategoryAspectID" OtherKey="InstanceId,GroupCategoryAspectID" IsForeignKey="true" />
+      <Association Name="FK_MetricFilter_Mc_EntityNode" Member="Mc_EntityNode" Storage="_Mc_EntityNode" ThisKey="OrgLocationID" OtherKey="EntityNodeId" IsForeignKey="true" />
+      <Association Name="FK_MetricFilter_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceID" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_MetricFilter_Mc_User" Member="Mc_User" Storage="_Mc_User" ThisKey="UserID" OtherKey="UserId" IsForeignKey="true" />
+      <Association Name="FK_MetricFilter_Mc_User1" Member="DataCollector" Storage="_DataCollector" ThisKey="DataCollectorID" OtherKey="UserId" IsForeignKey="true" />
+      <Association Name="FK_MetricFilter_Metric" Member="Metric" Storage="_Metric" ThisKey="InstanceID,MetricID" OtherKey="InstanceId,MetricID" IsForeignKey="true" />
+      <Association Name="FK_MetricFilter_PerformanceIndicator" Member="PerformanceIndicator" Storage="_PerformanceIndicator" ThisKey="InstanceID,PerformanceIndicatorID" OtherKey="InstanceId,PerformanceIndicatorID" IsForeignKey="true" />
+      <Association Name="FK_MetricFilter_PerformanceIndicatorForm" Member="PerformanceIndicatorForm" Storage="_PerformanceIndicatorForm" ThisKey="InstanceID,PerformanceIndicatorFormID" OtherKey="InstanceId,PerformanceIndicatorFormID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MetricFormula" Member="MetricFormula">
+    <Type Name="MetricTrac.Bll.MetricFormula">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricFormulaID" Member="MetricFormulaID" Storage="_MetricFormulaID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="Formula" Member="Formula" Storage="_Formula" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="BeginDate" Member="BeginDate" Storage="_BeginDate" DbType="SmallDateTime NOT NULL" />
+      <Column Name="EndDate" Member="EndDate" Storage="_EndDate" DbType="SmallDateTime" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="UpdatedBy" Member="UpdatedBy" Storage="_UpdatedBy" DbType="UniqueIdentifier" />
+      <Column Name="Comment" Member="Comment" Storage="_Comment" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="VariableFormula" Member="VariableFormula" Storage="_VariableFormula" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="FK_MetricFormula_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_MetricFormula_Mc_User" Member="Mc_User" Storage="_Mc_User" ThisKey="UpdatedBy" OtherKey="UserId" IsForeignKey="true" />
+      <Association Name="FK_MetricFormula_Metric" Member="Metric" Storage="_Metric" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" IsForeignKey="true" />
+      <Association Name="FK_MetricRelation_MetricFormula1" Member="MetricRelation" Storage="_MetricRelation" ThisKey="InstanceId,MetricFormulaID" OtherKey="InstanceId,MetricFormulaID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MetricOrgLocationName" Member="MetricOrgLocationName">
+    <Type Name="MetricTrac.Bll.MetricOrgLocationName">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricOrgLocationNameID" Member="MetricOrgLocationNameID" Storage="_MetricOrgLocationNameID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="Alias" Member="Alias" Storage="_Alias" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Member="Code" Storage="_Code" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_MetricOrgLocationName_Mc_EntityNode" Member="Mc_EntityNode" Storage="_Mc_EntityNode" ThisKey="OrgLocationID" OtherKey="EntityNodeId" IsForeignKey="true" />
+      <Association Name="FK_MetricOrgLocationName_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_MetricOrgLocationName_Metric" Member="Metric" Storage="_Metric" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MetricOrgLocationUoM" Member="MetricOrgLocationUoM">
+    <Type Name="MetricTrac.Bll.MetricOrgLocationUoM">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricOrgLocationUoMID" Member="MetricOrgLocationUoMID" Storage="_MetricOrgLocationUoMID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="InputUnitOfMeasureID" Member="InputUnitOfMeasureID" Storage="_InputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Association Name="FK_MetricOrgLocationUoM_Mc_EntityNode" Member="Mc_EntityNode" Storage="_Mc_EntityNode" ThisKey="OrgLocationID" OtherKey="EntityNodeId" IsForeignKey="true" />
+      <Association Name="FK_MetricOrgLocationUoM_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_MetricOrgLocationUoM_Metric" Member="Metric" Storage="_Metric" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MetricPathView" Member="MetricPathView">
+    <Type Name="MetricTrac.Bll.MetricPathView">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="MetricTypeID" Member="MetricTypeID" Storage="_MetricTypeID" DbType="Int NOT NULL" />
+      <Column Name="PerformanceIndicatorID" Member="PerformanceIndicatorID" Storage="_PerformanceIndicatorID" DbType="UniqueIdentifier" />
+      <Column Name="GroupCategoryAspectID" Member="GroupCategoryAspectID" Storage="_GroupCategoryAspectID" DbType="UniqueIdentifier" />
+      <Column Name="PerformanceIndicatorFormID" Member="PerformanceIndicatorFormID" Storage="_PerformanceIndicatorFormID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MetricRelation" Member="MetricRelation">
+    <Type Name="MetricTrac.Bll.MetricRelation">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricRelationID" Member="MetricRelationID" Storage="_MetricRelationID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="ReferenceMetricID" Member="ReferenceMetricID" Storage="_ReferenceMetricID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="MetricFormulaID" Member="MetricFormulaID" Storage="_MetricFormulaID" DbType="UniqueIdentifier NOT NULL" />
+      <Association Name="FK_MetricRelation_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_MetricRelation_Metric" Member="Metric" Storage="_Metric" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" IsForeignKey="true" />
+      <Association Name="FK_MetricRelation_Metric1" Member="MetricRelation_Metric1" Storage="_MetricRelation_Metric1" ThisKey="InstanceId,ReferenceMetricID" OtherKey="InstanceId,MetricID" IsForeignKey="true" />
+      <Association Name="FK_MetricRelation_MetricFormula1" Member="MetricFormula" Storage="_MetricFormula" ThisKey="InstanceId,MetricFormulaID" OtherKey="InstanceId,MetricFormulaID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MetricType" Member="MetricType">
+    <Type Name="MetricTrac.Bll.MetricType">
+      <Column Name="MetricTypeID" Member="MetricTypeID" Storage="_MetricTypeID" DbType="Int NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_Metric_MetricType" Member="Metric" Storage="_Metric" ThisKey="MetricTypeID" OtherKey="MetricTypeID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MetricValue" Member="MetricValue">
+    <Type Name="MetricTrac.Bll.MetricValue">
+      <Column Name="MetricValueID" Member="MetricValueID" Storage="_MetricValueID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="FrequencyID" Member="FrequencyID" Storage="_FrequencyID" DbType="Int NOT NULL" />
+      <Column Name="Date" Member="Date" Storage="_Date" DbType="SmallDateTime NOT NULL" />
+      <Column Name="UnitOfMeasureID" Member="UnitOfMeasureID" Storage="_UnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricDataTypeID" Member="MetricDataTypeID" Storage="_MetricDataTypeID" DbType="Int NOT NULL" />
+      <Column Name="Value" Member="Value" Storage="_Value" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="Notes" Member="Notes" Storage="_Notes" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="Verified" Member="Verified" Storage="_Verified" DbType="Bit NOT NULL" />
+      <Column Name="Approved" Member="Approved" Storage="_Approved" DbType="Bit" />
+      <Column Name="FilesAttached" Member="FilesAttached" Storage="_FilesAttached" DbType="Bit NOT NULL" />
+      <Column Name="InputUserId" Member="InputUserId" Storage="_InputUserId" DbType="UniqueIdentifier" />
+      <Column Name="IsCalc" Member="IsCalc" Storage="_IsCalc" DbType="Bit NOT NULL" />
+      <Column Name="InProcess" Member="InProcess" Storage="_InProcess" DbType="Bit NOT NULL" />
+      <Column Name="ApproveUserId" Member="ApproveUserId" Storage="_ApproveUserId" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="ConvertedValue" Member="ConvertedValue" Storage="_ConvertedValue" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="InputUnitOfMeasureID" Member="InputUnitOfMeasureID" Storage="_InputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="ReviewUpdated" Member="ReviewUpdated" Storage="_ReviewUpdated" DbType="Bit NOT NULL" />
+      <Column Name="MissedCalc" Member="MissedCalc" Storage="_MissedCalc" DbType="Bit NOT NULL" />
+      <Association Name="FK_MetricValue_Frequency" Member="Frequency" Storage="_Frequency" ThisKey="FrequencyID" OtherKey="FrequencyID" IsForeignKey="true" />
+      <Association Name="FK_MetricValue_Mc_EntityNode" Member="Mc_EntityNode" Storage="_Mc_EntityNode" ThisKey="OrgLocationID" OtherKey="EntityNodeId" IsForeignKey="true" />
+      <Association Name="FK_MetricValue_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_MetricValue_Metric" Member="Metric" Storage="_Metric" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" IsForeignKey="true" />
+      <Association Name="FK_MetricValue_MetricDataType" Member="MetricDataType" Storage="_MetricDataType" ThisKey="MetricDataTypeID" OtherKey="MetricDataTypeID" IsForeignKey="true" />
+      <Association Name="FK_MetricValueChangeLog_MetricValue" Member="MetricValueChangeLog" Storage="_MetricValueChangeLog" ThisKey="MetricValueID" OtherKey="MetricValueID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MetricValueChangeLog" Member="MetricValueChangeLog">
+    <Type Name="MetricTrac.Bll.MetricValueChangeLog">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricValueChangeLogID" Member="MetricValueChangeLogID" Storage="_MetricValueChangeLogID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricValueID" Member="MetricValueID" Storage="_MetricValueID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="Event" Member="Event" Storage="_Event" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="OldValue" Member="OldValue" Storage="_OldValue" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="NewValue" Member="NewValue" Storage="_NewValue" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="CreatedTime" Member="CreatedTime" Storage="_CreatedTime" DbType="DateTime NOT NULL" />
+      <Column Name="MetricValueChangeTypeID" Member="MetricValueChangeTypeID" Storage="_MetricValueChangeTypeID" DbType="Int NOT NULL" />
+      <Column Name="UserId" Member="UserId" Storage="_UserId" DbType="UniqueIdentifier NOT NULL" />
+      <Association Name="FK_MetricValueChangeLog_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_MetricValueChangeLog_Mc_User" Member="Mc_User" Storage="_Mc_User" ThisKey="UserId" OtherKey="UserId" IsForeignKey="true" />
+      <Association Name="FK_MetricValueChangeLog_MetricValue" Member="MetricValue" Storage="_MetricValue" ThisKey="MetricValueID" OtherKey="MetricValueID" IsForeignKey="true" />
+      <Association Name="FK_MetricValueChangeLog_MetricValueChangeType" Member="MetricValueChangeType" Storage="_MetricValueChangeType" ThisKey="MetricValueChangeTypeID" OtherKey="MetricValueChangeTypeID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MetricValueChangeType" Member="MetricValueChangeType">
+    <Type Name="MetricTrac.Bll.MetricValueChangeType">
+      <Column Name="MetricValueChangeTypeID" Member="MetricValueChangeTypeID" Storage="_MetricValueChangeTypeID" DbType="Int NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_MetricValueChangeLog_MetricValueChangeType" Member="MetricValueChangeLog" Storage="_MetricValueChangeLog" ThisKey="MetricValueChangeTypeID" OtherKey="MetricValueChangeTypeID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PerformanceIndicator" Member="PerformanceIndicator">
+    <Type Name="MetricTrac.Bll.PerformanceIndicator">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="PerformanceIndicatorID" Member="PerformanceIndicatorID" Storage="_PerformanceIndicatorID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Member="Description" Storage="_Description" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="GroupCategoryAspectID" Member="GroupCategoryAspectID" Storage="_GroupCategoryAspectID" DbType="UniqueIdentifier" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="SectorID" Member="SectorID" Storage="_SectorID" DbType="Int" />
+      <Column Name="Help" Member="Help" Storage="_Help" DbType="Text" UpdateCheck="Never" />
+      <Column Name="RequirementID" Member="RequirementID" Storage="_RequirementID" DbType="Int" />
+      <Column Name="Alias" Member="Alias" Storage="_Alias" DbType="NVarChar(50)" />
+      <Column Name="Code" Member="Code" Storage="_Code" DbType="NVarChar(25)" />
+      <Column Name="SortCode" Member="SortCode" Storage="_SortCode" DbType="NVarChar(25)" />
+      <Association Name="FK_D_DataRule_PerformanceIndicator" Member="D_DataRule" Storage="_D_DataRule" ThisKey="InstanceId,PerformanceIndicatorID" OtherKey="InstanceId,PerformanceIndicatorID" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricOrgLocationPath_PerformanceIndicator" Member="D_MetricOrgLocationPath" Storage="_D_MetricOrgLocationPath" ThisKey="InstanceId,PerformanceIndicatorID" OtherKey="InstanceId,PerformanceIndicatorID" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataRule_PerformanceIndicator" Member="DataRule" Storage="_DataRule" ThisKey="InstanceId,PerformanceIndicatorID" OtherKey="InstanceId,PerformanceIndicatorID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricFilter_PerformanceIndicator" Member="MetricFilter" Storage="_MetricFilter" ThisKey="InstanceId,PerformanceIndicatorID" OtherKey="InstanceID,PerformanceIndicatorID" DeleteRule="NO ACTION" />
+      <Association Name="FK_Performance IndicatorMetricJunc_PerformanceIndicator" Member="PerformanceIndicatorMetricJunc" Storage="_PerformanceIndicatorMetricJunc" ThisKey="InstanceId,PerformanceIndicatorID" OtherKey="InstanceId,PerformanceIndicatorID" DeleteRule="NO ACTION" />
+      <Association Name="FK_PerformanceIndicator_GroupCategoryAspect" Member="GroupCategoryAspect" Storage="_GroupCategoryAspect" ThisKey="InstanceId,GroupCategoryAspectID" OtherKey="InstanceId,GroupCategoryAspectID" IsForeignKey="true" />
+      <Association Name="FK_PerformanceIndicator_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_PerformanceIndicator_Requirement" Member="Requirement" Storage="_Requirement" ThisKey="RequirementID" OtherKey="RequirementID" IsForeignKey="true" />
+      <Association Name="FK_PerformanceIndicator_Sector" Member="Sector" Storage="_Sector" ThisKey="SectorID" OtherKey="SectorID" IsForeignKey="true" />
+      <Association Name="FK_PerformanceIndicatorFormPerformanceIndicatorJunc_PerformanceIndicator" Member="PerformanceIndicatorFormPerformanceIndicatorJunc" Storage="_PerformanceIndicatorFormPerformanceIndicatorJunc" ThisKey="InstanceId,PerformanceIndicatorID" OtherKey="InstanceId,PerformanceIndicatorID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PerformanceIndicatorForm" Member="PerformanceIndicatorForm">
+    <Type Name="MetricTrac.Bll.PerformanceIndicatorForm">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="PerformanceIndicatorFormID" Member="PerformanceIndicatorFormID" Storage="_PerformanceIndicatorFormID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Association Name="FK_D_DataRule_PerformanceIndicatorForm" Member="D_DataRule" Storage="_D_DataRule" ThisKey="InstanceId,PerformanceIndicatorFormID" OtherKey="InstanceId,PerformanceIndicatorFormID" DeleteRule="NO ACTION" />
+      <Association Name="FK_D_MetricOrgLocationPath_PerformanceIndicatorForm" Member="D_MetricOrgLocationPath" Storage="_D_MetricOrgLocationPath" ThisKey="InstanceId,PerformanceIndicatorFormID" OtherKey="InstanceId,PerformanceIndicatorFormID" DeleteRule="NO ACTION" />
+      <Association Name="FK_DataRule_PerformanceIndicatorForm" Member="DataRule" Storage="_DataRule" ThisKey="InstanceId,PerformanceIndicatorFormID" OtherKey="InstanceId,PerformanceIndicatorFormID" DeleteRule="NO ACTION" />
+      <Association Name="FK_MetricFilter_PerformanceIndicatorForm" Member="MetricFilter" Storage="_MetricFilter" ThisKey="InstanceId,PerformanceIndicatorFormID" OtherKey="InstanceID,PerformanceIndicatorFormID" DeleteRule="NO ACTION" />
+      <Association Name="FK_PerformanceIndicatorForm_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_PerformanceIndicatorFormPerformanceIndicatorJunc_PerformanceIndicatorForm" Member="PerformanceIndicatorFormPerformanceIndicatorJunc" Storage="_PerformanceIndicatorFormPerformanceIndicatorJunc" ThisKey="InstanceId,PerformanceIndicatorFormID" OtherKey="InstanceId,PerformanceIndicatorFormID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PerformanceIndicatorFormPerformanceIndicatorJunc" Member="PerformanceIndicatorFormPerformanceIndicatorJunc">
+    <Type Name="MetricTrac.Bll.PerformanceIndicatorFormPerformanceIndicatorJunc">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="PerformanceIndicatorFormID" Member="PerformanceIndicatorFormID" Storage="_PerformanceIndicatorFormID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="PerformanceIndicatorID" Member="PerformanceIndicatorID" Storage="_PerformanceIndicatorID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Association Name="FK_PerformanceIndicatorFormPerformanceIndicatorJunc_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_PerformanceIndicatorFormPerformanceIndicatorJunc_PerformanceIndicator" Member="PerformanceIndicator" Storage="_PerformanceIndicator" ThisKey="InstanceId,PerformanceIndicatorID" OtherKey="InstanceId,PerformanceIndicatorID" IsForeignKey="true" />
+      <Association Name="FK_PerformanceIndicatorFormPerformanceIndicatorJunc_PerformanceIndicatorForm" Member="PerformanceIndicatorForm" Storage="_PerformanceIndicatorForm" ThisKey="InstanceId,PerformanceIndicatorFormID" OtherKey="InstanceId,PerformanceIndicatorFormID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PerformanceIndicatorMetricJunc" Member="PerformanceIndicatorMetricJunc">
+    <Type Name="MetricTrac.Bll.PerformanceIndicatorMetricJunc">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="PerformanceIndicatorID" Member="PerformanceIndicatorID" Storage="_PerformanceIndicatorID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Association Name="FK_Performance IndicatorMetricJunc_Metric" Member="Metric" Storage="_Metric" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" IsForeignKey="true" />
+      <Association Name="FK_Performance IndicatorMetricJunc_PerformanceIndicator" Member="PerformanceIndicator" Storage="_PerformanceIndicator" ThisKey="InstanceId,PerformanceIndicatorID" OtherKey="InstanceId,PerformanceIndicatorID" IsForeignKey="true" />
+      <Association Name="FK_PerformanceIndicatorMetricJunc_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PIFormOrgLocationJuncView" Member="PIFormOrgLocationJuncView">
+    <Type Name="MetricTrac.Bll.PIFormOrgLocationJuncView">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier" />
+      <Column Name="PerformanceIndicatorFormID" Member="PerformanceIndicatorFormID" Storage="_PerformanceIndicatorFormID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier NOT NULL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Requirement" Member="Requirement">
+    <Type Name="MetricTrac.Bll.Requirement">
+      <Column Name="RequirementID" Member="RequirementID" Storage="_RequirementID" DbType="Int NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_PerformanceIndicator_Requirement" Member="PerformanceIndicator" Storage="_PerformanceIndicator" ThisKey="RequirementID" OtherKey="RequirementID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ScoreCard" Member="ScoreCard">
+    <Type Name="MetricTrac.Bll.ScoreCard">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="ScoreCardID" Member="ScoreCardID" Storage="_ScoreCardID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Member="Description" Storage="_Description" DbType="NVarChar(MAX)" UpdateCheck="Never" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="IsPublic" Member="IsPublic" Storage="_IsPublic" DbType="Bit NOT NULL" />
+      <Column Name="UserId" Member="UserId" Storage="_UserId" DbType="UniqueIdentifier" />
+      <Association Name="FK_ScoreCard_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_ScoreCard_Mc_User" Member="Mc_User" Storage="_Mc_User" ThisKey="UserId" OtherKey="UserId" IsForeignKey="true" />
+      <Association Name="FK_ScoreCardHidden_ScoreCard" Member="ScoreCardHidden" Storage="_ScoreCardHidden" ThisKey="InstanceId,ScoreCardID" OtherKey="InstanceId,ScoreCardID" DeleteRule="NO ACTION" />
+      <Association Name="FK_ScoreCardMetric_ScoreCard" Member="ScoreCardMetric" Storage="_ScoreCardMetric" ThisKey="InstanceId,ScoreCardID" OtherKey="InstanceId,ScoreCardID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ScoreCardDashboard" Member="ScoreCardDashboard">
+    <Type Name="MetricTrac.Bll.ScoreCardDashboard">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="ScoreCardDashboardID" Member="ScoreCardDashboardID" Storage="_ScoreCardDashboardID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="UserId" Member="UserId" Storage="_UserId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="ScoreCardMetricID" Member="ScoreCardMetricID" Storage="_ScoreCardMetricID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Association Name="FK_ScoreCardDashboard_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_ScoreCardDashboard_Mc_User" Member="Mc_User" Storage="_Mc_User" ThisKey="UserId" OtherKey="UserId" IsForeignKey="true" />
+      <Association Name="FK_ScoreCardDashboard_ScoreCardMetric" Member="ScoreCardMetric" Storage="_ScoreCardMetric" ThisKey="InstanceId,ScoreCardMetricID" OtherKey="InstanceId,ScoreCardMetricID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ScoreCardHidden" Member="ScoreCardHidden">
+    <Type Name="MetricTrac.Bll.ScoreCardHidden">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="ScoreCardHiddenID" Member="ScoreCardHiddenID" Storage="_ScoreCardHiddenID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="UserId" Member="UserId" Storage="_UserId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="ScoreCardID" Member="ScoreCardID" Storage="_ScoreCardID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Association Name="FK_ScoreCardHidden_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_ScoreCardHidden_Mc_User" Member="Mc_User" Storage="_Mc_User" ThisKey="UserId" OtherKey="UserId" IsForeignKey="true" />
+      <Association Name="FK_ScoreCardHidden_ScoreCard" Member="ScoreCard" Storage="_ScoreCard" ThisKey="InstanceId,ScoreCardID" OtherKey="InstanceId,ScoreCardID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ScoreCardMetric" Member="ScoreCardMetric">
+    <Type Name="MetricTrac.Bll.ScoreCardMetric">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="ScoreCardMetricID" Member="ScoreCardMetricID" Storage="_ScoreCardMetricID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="ScoreCardID" Member="ScoreCardID" Storage="_ScoreCardID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="ScoreCardPeriodID" Member="ScoreCardPeriodID" Storage="_ScoreCardPeriodID" DbType="Int NOT NULL" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier" />
+      <Column Name="BaselineValue" Member="BaselineValue" Storage="_BaselineValue" DbType="Decimal(29,10)" />
+      <Column Name="Breakpoint1Value" Member="Breakpoint1Value" Storage="_Breakpoint1Value" DbType="Decimal(29,10)" />
+      <Column Name="Breakpoint2Value" Member="Breakpoint2Value" Storage="_Breakpoint2Value" DbType="Decimal(29,10)" />
+      <Column Name="MaxValue" Member="MaxValue" Storage="_MaxValue" DbType="Decimal(29,10)" />
+      <Column Name="MinValue" Member="MinValue" Storage="_MinValue" DbType="Decimal(29,10)" />
+      <Column Name="BaselineValueLabel" Member="BaselineValueLabel" Storage="_BaselineValueLabel" DbType="NVarChar(25)" />
+      <Column Name="Breakpoint1ValueLabel" Member="Breakpoint1ValueLabel" Storage="_Breakpoint1ValueLabel" DbType="NVarChar(25)" />
+      <Column Name="Breakpoint2ValueLabel" Member="Breakpoint2ValueLabel" Storage="_Breakpoint2ValueLabel" DbType="NVarChar(25)" />
+      <Association Name="FK_ScoreCardDashboard_ScoreCardMetric" Member="ScoreCardDashboard" Storage="_ScoreCardDashboard" ThisKey="InstanceId,ScoreCardMetricID" OtherKey="InstanceId,ScoreCardMetricID" DeleteRule="NO ACTION" />
+      <Association Name="FK_ScoreCardMetric_Mc_EntityNode" Member="Mc_EntityNode" Storage="_Mc_EntityNode" ThisKey="OrgLocationID" OtherKey="EntityNodeId" IsForeignKey="true" />
+      <Association Name="FK_ScoreCardMetric_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_ScoreCardMetric_Metric" Member="Metric" Storage="_Metric" ThisKey="InstanceId,MetricID" OtherKey="InstanceId,MetricID" IsForeignKey="true" />
+      <Association Name="FK_ScoreCardMetric_ScoreCard" Member="ScoreCard" Storage="_ScoreCard" ThisKey="InstanceId,ScoreCardID" OtherKey="InstanceId,ScoreCardID" IsForeignKey="true" />
+      <Association Name="FK_ScoreCardMetric_ScoreCardPeriod" Member="ScoreCardPeriod" Storage="_ScoreCardPeriod" ThisKey="ScoreCardPeriodID" OtherKey="ScoreCardPeriodID" IsForeignKey="true" />
+      <Association Name="FK_ScoreCardValue_ScoreCardMetric" Member="ScoreCardValue" Storage="_ScoreCardValue" ThisKey="InstanceId,ScoreCardMetricID" OtherKey="InstanceId,ScoreCardMetricID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ScoreCardPeriod" Member="ScoreCardPeriod">
+    <Type Name="MetricTrac.Bll.ScoreCardPeriod">
+      <Column Name="ScoreCardPeriodID" Member="ScoreCardPeriodID" Storage="_ScoreCardPeriodID" DbType="Int NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_ScoreCardMetric_ScoreCardPeriod" Member="ScoreCardMetric" Storage="_ScoreCardMetric" ThisKey="ScoreCardPeriodID" OtherKey="ScoreCardPeriodID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ScoreCardValue" Member="ScoreCardValue">
+    <Type Name="MetricTrac.Bll.ScoreCardValue">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="ScoreCardValueID" Member="ScoreCardValueID" Storage="_ScoreCardValueID" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" />
+      <Column Name="ScoreCardMetricID" Member="ScoreCardMetricID" Storage="_ScoreCardMetricID" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="CurrentValue" Member="CurrentValue" Storage="_CurrentValue" DbType="Float" />
+      <Column Name="PreviousValue" Member="PreviousValue" Storage="_PreviousValue" DbType="Float" />
+      <Column Name="UnitsOfMeasureId" Member="UnitsOfMeasureId" Storage="_UnitsOfMeasureId" DbType="UniqueIdentifier" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime NOT NULL" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Association Name="FK_ScoreCardValue_Mc_Instance" Member="Mc_Instance" Storage="_Mc_Instance" ThisKey="InstanceId" OtherKey="InstanceId" IsForeignKey="true" />
+      <Association Name="FK_ScoreCardValue_ScoreCardMetric" Member="ScoreCardMetric" Storage="_ScoreCardMetric" ThisKey="InstanceId,ScoreCardMetricID" OtherKey="InstanceId,ScoreCardMetricID" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sector" Member="Sector">
+    <Type Name="MetricTrac.Bll.Sector">
+      <Column Name="SectorID" Member="SectorID" Storage="_SectorID" DbType="Int NOT NULL" IsPrimaryKey="true" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="FK_PerformanceIndicator_Sector" Member="PerformanceIndicator" Storage="_PerformanceIndicator" ThisKey="SectorID" OtherKey="SectorID" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserFullNameView" Member="UserFullNameView">
+    <Type Name="MetricTrac.Bll.UserFullNameView">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="UserId" Member="UserId" Storage="_UserId" DbType="UniqueIdentifier NOT NULL" />
+      <Column Name="FullName" Member="FullName" Storage="_FullName" DbType="NVarChar(767) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Equal" Method="Equal" IsComposable="true">
+    <Parameter Name="ID1" Parameter="iD1" DbType="UniqueIdentifier" />
+    <Parameter Name="ID2" Parameter="iD2" DbType="UniqueIdentifier" />
+    <Return DbType="Bit" />
+  </Function>
+  <Function Name="dbo.fxGetGCAFullName" Method="FxGetGCAFullName" IsComposable="true">
+    <Parameter Name="InstanceId" Parameter="instanceId" DbType="UniqueIdentifier" />
+    <Parameter Name="GCAId" Parameter="gCAId" DbType="UniqueIdentifier" />
+    <Return DbType="NVarChar(300)" />
+  </Function>
+  <Function Name="dbo.fxGetInputMetricList" Method="FxGetInputMetricList" IsComposable="true">
+    <Parameter Name="InstanceId" Parameter="instanceId" DbType="UniqueIdentifier" />
+    <Parameter Name="RefMetricID" Parameter="refMetricID" DbType="UniqueIdentifier" />
+    <ElementType Name="MetricTrac.Bll.FxGetInputMetricListResult">
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="MetricName" Member="MetricName" Storage="_MetricName" DbType="NVarChar(100)" />
+      <Column Name="Generation" Member="Generation" Storage="_Generation" DbType="Int" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.fxGetMetricFormulaID" Method="FxGetMetricFormulaID" IsComposable="true">
+    <Parameter Name="InstanceId" Parameter="instanceId" DbType="UniqueIdentifier" />
+    <Parameter Name="MetricID" Parameter="metricID" DbType="UniqueIdentifier" />
+    <Parameter Name="Date" Parameter="date" DbType="SmallDateTime" />
+    <Return DbType="UniqueIdentifier" />
+  </Function>
+  <Function Name="dbo.fxIsParentGCA" Method="FxIsParentGCA" IsComposable="true">
+    <Parameter Name="InstanceId" Parameter="instanceId" DbType="UniqueIdentifier" />
+    <Parameter Name="ParentGCAId" Parameter="parentGCAId" DbType="UniqueIdentifier" />
+    <Parameter Name="CheckGCAId" Parameter="checkGCAId" DbType="UniqueIdentifier" />
+    <Return DbType="Bit" />
+  </Function>
+  <Function Name="dbo.fxIsParentMetricCategory" Method="FxIsParentMetricCategory" IsComposable="true">
+    <Parameter Name="InstanceId" Parameter="instanceId" DbType="UniqueIdentifier" />
+    <Parameter Name="ParentMCId" Parameter="parentMCId" DbType="UniqueIdentifier" />
+    <Parameter Name="CheckMCId" Parameter="checkMCId" DbType="UniqueIdentifier" />
+    <Return DbType="Bit" />
+  </Function>
+  <Function Name="dbo.fxIsParentOrgLocation" Method="FxIsParentOrgLocation" IsComposable="true">
+    <Parameter Name="ParentLocationId" Parameter="parentLocationId" DbType="UniqueIdentifier" />
+    <Parameter Name="CheckLocationId" Parameter="checkLocationId" DbType="UniqueIdentifier" />
+    <Return DbType="Bit" />
+  </Function>
+  <Function Name="dbo.iter_charlist_to_table" Method="Iter_charlist_to_table" IsComposable="true">
+    <Parameter Name="list" Parameter="list" DbType="NVarChar(MAX)" />
+    <Parameter Name="delimiter" Parameter="delimiter" DbType="NChar(1)" />
+    <ElementType Name="MetricTrac.Bll.Iter_charlist_to_tableResult">
+      <Column Name="id" Member="Id" Storage="_Id" DbType="UniqueIdentifier" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.OrgNodeParent" Method="OrgNodeParent" IsComposable="true">
+    <Parameter Name="ParentID" Parameter="parentID" DbType="UniqueIdentifier" />
+    <Parameter Name="EntityNodeTypeID" Parameter="entityNodeTypeID" DbType="UniqueIdentifier" />
+    <Return DbType="UniqueIdentifier" />
+  </Function>
+  <Function Name="dbo.sp_d_DataRule" Method="Sp_d_DataRule">
+    <Return DbType="Int" />
+  </Function>
+  <Function Name="dbo.sp_d_EntityNode" Method="Sp_d_EntityNode">
+    <Return DbType="Int" />
+  </Function>
+  <Function Name="dbo.sp_d_GroupCategoryAspect" Method="Sp_d_GroupCategoryAspect">
+    <Return DbType="Int" />
+  </Function>
+  <Function Name="dbo.sp_d_MetricCategory" Method="Sp_d_MetricCategory">
+    <Return DbType="Int" />
+  </Function>
+  <Function Name="dbo.sp_d_MetricOrgLocationPath" Method="Sp_d_MetricOrgLocationPath">
+    <Return DbType="Int" />
+  </Function>
+  <Function Name="dbo.sp_d_MetricOrgLocationRule" Method="Sp_d_MetricOrgLocationRule">
+    <Return DbType="Int" />
+  </Function>
+  <Function Name="dbo.sp_d_MetricRelation" Method="Sp_d_MetricRelation">
+    <Return DbType="Int" />
+  </Function>
+  <Function Name="dbo.sp_d_PeriodDate" Method="Sp_d_PeriodDate">
+    <Return DbType="Int" />
+  </Function>
+  <Function Name="dbo.sp_d_UpdateAll" Method="Sp_d_UpdateAll">
+    <Return DbType="Int" />
+  </Function>
+  <Function Name="dbo.sp_SelectApproverWorkList" Method="Sp_SelectApproverWorkList">
+    <Parameter Name="InstanceId" Parameter="instanceId" DbType="UniqueIdentifier" />
+    <Parameter Name="Count" Parameter="count" DbType="Int" />
+    <Parameter Name="SkipCount" Parameter="skipCount" DbType="Int" />
+    <Parameter Name="SelectedID" Parameter="selectedID" DbType="UniqueIdentifier" />
+    <Parameter Name="OrderByMetric" Parameter="orderByMetric" DbType="Bit" />
+    <Parameter Name="ApproverUserId" Parameter="approverUserId" DbType="UniqueIdentifier" />
+    <ElementType Name="MetricTrac.Bll.Sp_SelectApproverWorkListResult">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="MetricName" Member="MetricName" Storage="_MetricName" DbType="NVarChar(100)" />
+      <Column Name="MetricFrequencyID" Member="MetricFrequencyID" Storage="_MetricFrequencyID" DbType="Int" />
+      <Column Name="MetricTypeID" Member="MetricTypeID" Storage="_MetricTypeID" DbType="Int" />
+      <Column Name="MetricDataTypeID" Member="MetricDataTypeID" Storage="_MetricDataTypeID" DbType="Int" />
+      <Column Name="NODecPlaces" Member="NODecPlaces" Storage="_NODecPlaces" DbType="Int" />
+      <Column Name="MetricInputUnitOfMeasureID" Member="MetricInputUnitOfMeasureID" Storage="_MetricInputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricCategoryFullName" Member="MetricCategoryFullName" Storage="_MetricCategoryFullName" DbType="NVarChar(306)" />
+      <Column Name="MetricValueID" Member="MetricValueID" Storage="_MetricValueID" DbType="UniqueIdentifier" />
+      <Column Name="Date" Member="Date" Storage="_Date" DbType="SmallDateTime" />
+      <Column Name="Value" Member="Value" Storage="_Value" DbType="NVarChar(MAX)" />
+      <Column Name="Approved" Member="Approved" Storage="_Approved" DbType="Bit" />
+      <Column Name="FilesAttached" Member="FilesAttached" Storage="_FilesAttached" DbType="Bit" />
+      <Column Name="ReviewUpdated" Member="ReviewUpdated" Storage="_ReviewUpdated" DbType="Bit" />
+      <Column Name="MissedCalc" Member="MissedCalc" Storage="_MissedCalc" DbType="Bit" />
+      <Column Name="Notes" Member="Notes" Storage="_Notes" DbType="NVarChar(MAX)" />
+      <Column Name="ValueFrequencyID" Member="ValueFrequencyID" Storage="_ValueFrequencyID" DbType="Int" />
+      <Column Name="ValueFrequencyName" Member="ValueFrequencyName" Storage="_ValueFrequencyName" DbType="NVarChar(50)" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier" />
+      <Column Name="ValueDataTypeID" Member="ValueDataTypeID" Storage="_ValueDataTypeID" DbType="Int" />
+      <Column Name="ValueInputUnitOfMeasureID" Member="ValueInputUnitOfMeasureID" Storage="_ValueInputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationFullName" Member="OrgLocationFullName" Storage="_OrgLocationFullName" DbType="NVarChar(1545)" />
+      <Column Name="MetricOrgLocationUoMID" Member="MetricOrgLocationUoMID" Storage="_MetricOrgLocationUoMID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationUnitOfMeasureID" Member="OrgLocationUnitOfMeasureID" Storage="_OrgLocationUnitOfMeasureID" DbType="UniqueIdentifier" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SelectFilterMetrics" Method="Sp_SelectFilterMetrics">
+    <Parameter Name="InstanceId" Parameter="instanceId" DbType="UniqueIdentifier" />
+    <Parameter Name="MetricCategoryID" Parameter="metricCategoryID" DbType="UniqueIdentifier" />
+    <Parameter Name="NameDescriptionPattern" Parameter="nameDescriptionPattern" DbType="NVarChar(MAX)" />
+    <ElementType Name="MetricTrac.Bll.Sp_SelectFilterMetricsResult">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(100)" />
+      <Column Name="Notes" Member="Notes" Storage="_Notes" DbType="NVarChar(MAX)" />
+      <Column Name="FrequencyID" Member="FrequencyID" Storage="_FrequencyID" DbType="Int" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="MetricCategoryID" Member="MetricCategoryID" Storage="_MetricCategoryID" DbType="UniqueIdentifier" />
+      <Column Name="UnitOfMeasureID" Member="UnitOfMeasureID" Storage="_UnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricDataTypeID" Member="MetricDataTypeID" Storage="_MetricDataTypeID" DbType="Int" />
+      <Column Name="NODecPlaces" Member="NODecPlaces" Storage="_NODecPlaces" DbType="Int" />
+      <Column Name="NOMinValue" Member="NOMinValue" Storage="_NOMinValue" DbType="Decimal(29,10)" />
+      <Column Name="NOMaxValue" Member="NOMaxValue" Storage="_NOMaxValue" DbType="Decimal(29,10)" />
+      <Column Name="Definition" Member="Definition" Storage="_Definition" DbType="NVarChar(MAX)" />
+      <Column Name="Documentation" Member="Documentation" Storage="_Documentation" DbType="NVarChar(MAX)" />
+      <Column Name="MetricReferences" Member="MetricReferences" Storage="_MetricReferences" DbType="NVarChar(MAX)" />
+      <Column Name="Code" Member="Code" Storage="_Code" DbType="NVarChar(25)" />
+      <Column Name="MetricTypeID" Member="MetricTypeID" Storage="_MetricTypeID" DbType="Int" />
+      <Column Name="Alias" Member="Alias" Storage="_Alias" DbType="NVarChar(50)" />
+      <Column Name="Generation" Member="Generation" Storage="_Generation" DbType="Int" />
+      <Column Name="FormulaCode" Member="FormulaCode" Storage="_FormulaCode" DbType="NVarChar(200)" />
+      <Column Name="InputUnitOfMeasureID" Member="InputUnitOfMeasureID" Storage="_InputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="Variable" Member="Variable" Storage="_Variable" DbType="NVarChar(200)" />
+      <Column Name="GrowUpIsGood" Member="GrowUpIsGood" Storage="_GrowUpIsGood" DbType="Bit" />
+      <Column Name="CollectionStartDate" Member="CollectionStartDate" Storage="_CollectionStartDate" DbType="SmallDateTime" />
+      <Column Name="CollectionEndDate" Member="CollectionEndDate" Storage="_CollectionEndDate" DbType="SmallDateTime" />
+      <Column Name="AllowCustomNames" Member="AllowCustomNames" Storage="_AllowCustomNames" DbType="Bit" />
+      <Column Name="FrequencyName" Member="FrequencyName" Storage="_FrequencyName" DbType="NVarChar(50)" />
+      <Column Name="MetricCategoryName" Member="MetricCategoryName" Storage="_MetricCategoryName" DbType="NVarChar(306)" />
+      <Column Name="MetricDataTypeName" Member="MetricDataTypeName" Storage="_MetricDataTypeName" DbType="NVarChar(50)" />
+      <Column Name="MetricTypeName" Member="MetricTypeName" Storage="_MetricTypeName" DbType="NVarChar(50)" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SelectMetricList" Method="Sp_SelectMetricList">
+    <Parameter Name="InstanceId" Parameter="instanceId" DbType="UniqueIdentifier" />
+    <Parameter Name="CollectorUserId" Parameter="collectorUserId" DbType="UniqueIdentifier" />
+    <Parameter Name="OrgLocationID" Parameter="orgLocationID" DbType="UniqueIdentifier" />
+    <Parameter Name="GroupCategoryAspectID" Parameter="groupCategoryAspectID" DbType="UniqueIdentifier" />
+    <Parameter Name="PerformanceIndicatorID" Parameter="performanceIndicatorID" DbType="UniqueIdentifier" />
+    <Parameter Name="PerformanceIndicatorFormID" Parameter="performanceIndicatorFormID" DbType="UniqueIdentifier" />
+    <ElementType Name="MetricTrac.Bll.Sp_SelectMetricListResult">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(100)" />
+      <Column Name="Notes" Member="Notes" Storage="_Notes" DbType="NVarChar(MAX)" />
+      <Column Name="FrequencyID" Member="FrequencyID" Storage="_FrequencyID" DbType="Int" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="MetricCategoryID" Member="MetricCategoryID" Storage="_MetricCategoryID" DbType="UniqueIdentifier" />
+      <Column Name="UnitOfMeasureID" Member="UnitOfMeasureID" Storage="_UnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricDataTypeID" Member="MetricDataTypeID" Storage="_MetricDataTypeID" DbType="Int" />
+      <Column Name="NODecPlaces" Member="NODecPlaces" Storage="_NODecPlaces" DbType="Int" />
+      <Column Name="NOMinValue" Member="NOMinValue" Storage="_NOMinValue" DbType="Decimal(29,10)" />
+      <Column Name="NOMaxValue" Member="NOMaxValue" Storage="_NOMaxValue" DbType="Decimal(29,10)" />
+      <Column Name="Definition" Member="Definition" Storage="_Definition" DbType="NVarChar(MAX)" />
+      <Column Name="Documentation" Member="Documentation" Storage="_Documentation" DbType="NVarChar(MAX)" />
+      <Column Name="MetricReferences" Member="MetricReferences" Storage="_MetricReferences" DbType="NVarChar(MAX)" />
+      <Column Name="Code" Member="Code" Storage="_Code" DbType="NVarChar(25)" />
+      <Column Name="MetricTypeID" Member="MetricTypeID" Storage="_MetricTypeID" DbType="Int" />
+      <Column Name="Alias" Member="Alias" Storage="_Alias" DbType="NVarChar(50)" />
+      <Column Name="Generation" Member="Generation" Storage="_Generation" DbType="Int" />
+      <Column Name="FormulaCode" Member="FormulaCode" Storage="_FormulaCode" DbType="NVarChar(200)" />
+      <Column Name="InputUnitOfMeasureID" Member="InputUnitOfMeasureID" Storage="_InputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="Variable" Member="Variable" Storage="_Variable" DbType="NVarChar(200)" />
+      <Column Name="GrowUpIsGood" Member="GrowUpIsGood" Storage="_GrowUpIsGood" DbType="Bit" />
+      <Column Name="CollectionStartDate" Member="CollectionStartDate" Storage="_CollectionStartDate" DbType="SmallDateTime" />
+      <Column Name="CollectionEndDate" Member="CollectionEndDate" Storage="_CollectionEndDate" DbType="SmallDateTime" />
+      <Column Name="AllowCustomNames" Member="AllowCustomNames" Storage="_AllowCustomNames" DbType="Bit" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SelectMetricRelatedValues" Method="Sp_SelectMetricRelatedValues">
+    <Parameter Name="InstanceId" Parameter="instanceId" DbType="UniqueIdentifier" />
+    <Parameter Name="FrequencyID" Parameter="frequencyID" DbType="Int" />
+    <Parameter Name="CalcMetricID" Parameter="calcMetricID" DbType="UniqueIdentifier" />
+    <Parameter Name="BeginDate" Parameter="beginDate" DbType="SmallDateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" DbType="SmallDateTime" />
+    <Parameter Name="OrderByMetric" Parameter="orderByMetric" DbType="Bit" />
+    <Parameter Name="ApproverUserId" Parameter="approverUserId" DbType="UniqueIdentifier" />
+    <ElementType Name="MetricTrac.Bll.Sp_SelectMetricRelatedValuesResult">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier" />
+      <Column Name="Date" Member="Date" Storage="_Date" DbType="SmallDateTime" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationFullName" Member="OrgLocationFullName" Storage="_OrgLocationFullName" DbType="NVarChar(1545)" />
+      <Column Name="FrequencyName" Member="FrequencyName" Storage="_FrequencyName" DbType="NVarChar(50)" />
+      <Column Name="MetricFormulaID" Member="MetricFormulaID" Storage="_MetricFormulaID" DbType="UniqueIdentifier" />
+      <Column Name="Formula" Member="Formula" Storage="_Formula" DbType="NVarChar(MAX)" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="MetricName" Member="MetricName" Storage="_MetricName" DbType="NVarChar(100)" />
+      <Column Name="MetricTypeID" Member="MetricTypeID" Storage="_MetricTypeID" DbType="Int" />
+      <Column Name="NODecPlaces" Member="NODecPlaces" Storage="_NODecPlaces" DbType="Int" />
+      <Column Name="MetricInputUnitOfMeasureID" Member="MetricInputUnitOfMeasureID" Storage="_MetricInputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricValueID" Member="MetricValueID" Storage="_MetricValueID" DbType="UniqueIdentifier" />
+      <Column Name="Value" Member="Value" Storage="_Value" DbType="NVarChar(MAX)" />
+      <Column Name="Verified" Member="Verified" Storage="_Verified" DbType="Bit" />
+      <Column Name="Approved" Member="Approved" Storage="_Approved" DbType="Bit" />
+      <Column Name="FilesAttached" Member="FilesAttached" Storage="_FilesAttached" DbType="Bit" />
+      <Column Name="ReviewUpdated" Member="ReviewUpdated" Storage="_ReviewUpdated" DbType="Bit" />
+      <Column Name="MissedCalc" Member="MissedCalc" Storage="_MissedCalc" DbType="Bit" />
+      <Column Name="ValueInputUnitOfMeasureID" Member="ValueInputUnitOfMeasureID" Storage="_ValueInputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricOrgLocationUoMID" Member="MetricOrgLocationUoMID" Storage="_MetricOrgLocationUoMID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationUnitOfMeasureID" Member="OrgLocationUnitOfMeasureID" Storage="_OrgLocationUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="ValueType" Member="ValueType" Storage="_ValueType" DbType="VarChar(50)" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SelectMetricValues" Method="Sp_SelectMetricValues">
+    <Parameter Name="InstanceId" Parameter="instanceId" DbType="UniqueIdentifier" />
+    <Parameter Name="FrequencyID" Parameter="frequencyID" DbType="Int" />
+    <Parameter Name="EndDate" Parameter="endDate" DbType="SmallDateTime" />
+    <Parameter Name="BeginDate" Parameter="beginDate" DbType="SmallDateTime" />
+    <Parameter Name="SelectedMetricID" Parameter="selectedMetricID" DbType="UniqueIdentifier" />
+    <Parameter Name="SelMetricID" Parameter="selMetricID" DbType="UniqueIdentifier" />
+    <Parameter Name="SelOrgLocationID" Parameter="selOrgLocationID" DbType="UniqueIdentifier" />
+    <Parameter Name="SelGcaID" Parameter="selGcaID" DbType="UniqueIdentifier" />
+    <Parameter Name="SelPiID" Parameter="selPiID" DbType="UniqueIdentifier" />
+    <Parameter Name="SelPifID" Parameter="selPifID" DbType="UniqueIdentifier" />
+    <Parameter Name="SelUserId" Parameter="selUserId" DbType="UniqueIdentifier" />
+    <Parameter Name="OrderByMetric" Parameter="orderByMetric" DbType="Bit" />
+    <Parameter Name="ViewMode" Parameter="viewMode" DbType="Bit" />
+    <Parameter Name="ApproverUserId" Parameter="approverUserId" DbType="UniqueIdentifier" />
+    <Parameter Name="OrgLocationsID" Parameter="orgLocationsID" DbType="NVarChar(MAX)" />
+    <Parameter Name="IncludeApprovedValues" Parameter="includeApprovedValues" DbType="Bit" />
+    <ElementType Name="MetricTrac.Bll.Sp_SelectMetricValuesResult">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="MetricName" Member="MetricName" Storage="_MetricName" DbType="NVarChar(100)" />
+      <Column Name="MetricFrequencyID" Member="MetricFrequencyID" Storage="_MetricFrequencyID" DbType="Int" />
+      <Column Name="MetricCategoryID" Member="MetricCategoryID" Storage="_MetricCategoryID" DbType="UniqueIdentifier" />
+      <Column Name="MetricUnitOfMeasureID" Member="MetricUnitOfMeasureID" Storage="_MetricUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricDataTypeID" Member="MetricDataTypeID" Storage="_MetricDataTypeID" DbType="Int" />
+      <Column Name="NODecPlaces" Member="NODecPlaces" Storage="_NODecPlaces" DbType="Int" />
+      <Column Name="NOMinValue" Member="NOMinValue" Storage="_NOMinValue" DbType="Decimal(29,10)" />
+      <Column Name="NOMaxValue" Member="NOMaxValue" Storage="_NOMaxValue" DbType="Decimal(29,10)" />
+      <Column Name="MetricTypeID" Member="MetricTypeID" Storage="_MetricTypeID" DbType="Int" />
+      <Column Name="MetricInputUnitOfMeasureID" Member="MetricInputUnitOfMeasureID" Storage="_MetricInputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="CollectionStartDate" Member="CollectionStartDate" Storage="_CollectionStartDate" DbType="SmallDateTime" />
+      <Column Name="CollectionEndDate" Member="CollectionEndDate" Storage="_CollectionEndDate" DbType="SmallDateTime" />
+      <Column Name="AllowCustomNames" Member="AllowCustomNames" Storage="_AllowCustomNames" DbType="Bit" />
+      <Column Name="MetricValueID" Member="MetricValueID" Storage="_MetricValueID" DbType="UniqueIdentifier" />
+      <Column Name="ValueFrequencyID" Member="ValueFrequencyID" Storage="_ValueFrequencyID" DbType="Int" />
+      <Column Name="Date" Member="Date" Storage="_Date" DbType="SmallDateTime" />
+      <Column Name="Value" Member="Value" Storage="_Value" DbType="NVarChar(MAX)" />
+      <Column Name="Verified" Member="Verified" Storage="_Verified" DbType="Bit" />
+      <Column Name="Approved" Member="Approved" Storage="_Approved" DbType="Bit" />
+      <Column Name="FilesAttached" Member="FilesAttached" Storage="_FilesAttached" DbType="Bit" />
+      <Column Name="InputDate" Member="InputDate" Storage="_InputDate" DbType="SmallDateTime" />
+      <Column Name="ReviewUpdated" Member="ReviewUpdated" Storage="_ReviewUpdated" DbType="Bit" />
+      <Column Name="ValueDataTypeID" Member="ValueDataTypeID" Storage="_ValueDataTypeID" DbType="Int" />
+      <Column Name="ValueUnitOfMeasureID" Member="ValueUnitOfMeasureID" Storage="_ValueUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="ValueInputUnitOfMeasureID" Member="ValueInputUnitOfMeasureID" Storage="_ValueInputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MissedCalc" Member="MissedCalc" Storage="_MissedCalc" DbType="Bit" />
+      <Column Name="Notes" Member="Notes" Storage="_Notes" DbType="NVarChar(MAX)" />
+      <Column Name="FrequencyName" Member="FrequencyName" Storage="_FrequencyName" DbType="NVarChar(50)" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationFullName" Member="OrgLocationFullName" Storage="_OrgLocationFullName" DbType="NVarChar(1545)" />
+      <Column Name="CollectorUserId" Member="CollectorUserId" Storage="_CollectorUserId" DbType="UniqueIdentifier" />
+      <Column Name="MetricOrgLocationUoMID" Member="MetricOrgLocationUoMID" Storage="_MetricOrgLocationUoMID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationUnitOfMeasureID" Member="OrgLocationUnitOfMeasureID" Storage="_OrgLocationUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricOrgLocationNameID" Member="MetricOrgLocationNameID" Storage="_MetricOrgLocationNameID" DbType="UniqueIdentifier" />
+      <Column Name="CustomMetricAlias" Member="CustomMetricAlias" Storage="_CustomMetricAlias" DbType="NVarChar(100)" />
+      <Column Name="CustomMetricCode" Member="CustomMetricCode" Storage="_CustomMetricCode" DbType="NVarChar(100)" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SelectMissedInputMetricValues" Method="Sp_SelectMissedInputMetricValues">
+    <Parameter Name="InstanceId" Parameter="instanceId" DbType="UniqueIdentifier" />
+    <Parameter Name="BaseDate" Parameter="baseDate" DbType="SmallDateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" DbType="SmallDateTime" />
+    <Parameter Name="FrequencyID" Parameter="frequencyID" DbType="Int" />
+    <Parameter Name="MetricID" Parameter="metricID" DbType="UniqueIdentifier" />
+    <Parameter Name="OrgLocationID" Parameter="orgLocationID" DbType="UniqueIdentifier" />
+    <Parameter Name="SelUserId" Parameter="selUserId" DbType="UniqueIdentifier" />
+    <Parameter Name="OrderByMetric" Parameter="orderByMetric" DbType="Bit" />
+    <ElementType Name="MetricTrac.Bll.Sp_SelectMissedInputMetricValuesResult">
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="MetricName" Member="MetricName" Storage="_MetricName" DbType="NVarChar(100)" />
+      <Column Name="NODecPlaces" Member="NODecPlaces" Storage="_NODecPlaces" DbType="Int" />
+      <Column Name="MetricInputUnitOfMeasureID" Member="MetricInputUnitOfMeasureID" Storage="_MetricInputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="CollectionStartDate" Member="CollectionStartDate" Storage="_CollectionStartDate" DbType="SmallDateTime" />
+      <Column Name="CollectionEndDate" Member="CollectionEndDate" Storage="_CollectionEndDate" DbType="SmallDateTime" />
+      <Column Name="AllowCustomNames" Member="AllowCustomNames" Storage="_AllowCustomNames" DbType="Bit" />
+      <Column Name="MetricValueID" Member="MetricValueID" Storage="_MetricValueID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier" />
+      <Column Name="Date" Member="Date" Storage="_Date" DbType="SmallDateTime" />
+      <Column Name="Value" Member="Value" Storage="_Value" DbType="NVarChar(MAX)" />
+      <Column Name="Approved" Member="Approved" Storage="_Approved" DbType="Bit" />
+      <Column Name="FilesAttached" Member="FilesAttached" Storage="_FilesAttached" DbType="Bit" />
+      <Column Name="ReviewUpdated" Member="ReviewUpdated" Storage="_ReviewUpdated" DbType="Bit" />
+      <Column Name="ValueInputUnitOfMeasureID" Member="ValueInputUnitOfMeasureID" Storage="_ValueInputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationFullName" Member="OrgLocationFullName" Storage="_OrgLocationFullName" DbType="NVarChar(MAX)" />
+      <Column Name="MetricOrgLocationUoMID" Member="MetricOrgLocationUoMID" Storage="_MetricOrgLocationUoMID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationUnitOfMeasureID" Member="OrgLocationUnitOfMeasureID" Storage="_OrgLocationUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricOrgLocationNameID" Member="MetricOrgLocationNameID" Storage="_MetricOrgLocationNameID" DbType="UniqueIdentifier" />
+      <Column Name="CustomMetricAlias" Member="CustomMetricAlias" Storage="_CustomMetricAlias" DbType="NVarChar(100)" />
+      <Column Name="CustomMetricCode" Member="CustomMetricCode" Storage="_CustomMetricCode" DbType="NVarChar(100)" />
+      <Column Name="ValuePosType" Member="ValuePosType" Storage="_ValuePosType" DbType="VarChar(1)" />
+      <Column Name="UniName1" Member="UniName1" Storage="_UniName1" DbType="NVarChar(MAX)" />
+      <Column Name="UniID1" Member="UniID1" Storage="_UniID1" DbType="UniqueIdentifier" />
+      <Column Name="UniName2" Member="UniName2" Storage="_UniName2" DbType="NVarChar(MAX)" />
+      <Column Name="UniID2" Member="UniID2" Storage="_UniID2" DbType="UniqueIdentifier" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SelectOutputMetricValues" Method="Sp_SelectOutputMetricValues">
+    <Parameter Name="Generation" Parameter="generation" DbType="Int" />
+    <ElementType Name="MetricTrac.Bll.Sp_SelectOutputMetricValuesResult1">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="FrequencyID" Member="FrequencyID" Storage="_FrequencyID" DbType="Int" />
+      <Column Name="MetricInputUnitOfMeasureID" Member="MetricInputUnitOfMeasureID" Storage="_MetricInputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricUnitOfMeasureID" Member="MetricUnitOfMeasureID" Storage="_MetricUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricFormulaID" Member="MetricFormulaID" Storage="_MetricFormulaID" DbType="UniqueIdentifier" />
+      <Column Name="VariableFormula" Member="VariableFormula" Storage="_VariableFormula" DbType="NVarChar(MAX)" />
+      <Column Name="MetricValueID" Member="MetricValueID" Storage="_MetricValueID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier" />
+      <Column Name="Date" Member="Date" Storage="_Date" DbType="SmallDateTime" />
+    </ElementType>
+    <ElementType Name="MetricTrac.Bll.Sp_SelectOutputMetricValuesResult2">
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="Variable" Member="Variable" Storage="_Variable" DbType="NVarChar(200)" />
+      <Column Name="MetricInputUnitOfMeasureID" Member="MetricInputUnitOfMeasureID" Storage="_MetricInputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricUnitOfMeasureID" Member="MetricUnitOfMeasureID" Storage="_MetricUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricFormulaID" Member="MetricFormulaID" Storage="_MetricFormulaID" DbType="UniqueIdentifier" />
+      <Column Name="MetricValueID" Member="MetricValueID" Storage="_MetricValueID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier" />
+      <Column Name="Date" Member="Date" Storage="_Date" DbType="SmallDateTime" />
+      <Column Name="Value" Member="Value" Storage="_Value" DbType="NVarChar(MAX)" />
+      <Column Name="MissedCalc" Member="MissedCalc" Storage="_MissedCalc" DbType="Bit" />
+      <Column Name="ConvertedValue" Member="ConvertedValue" Storage="_ConvertedValue" DbType="NVarChar(MAX)" />
+      <Column Name="ValueInputUnitOfMeasureID" Member="ValueInputUnitOfMeasureID" Storage="_ValueInputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="ValueUnitOfMeasureID" Member="ValueUnitOfMeasureID" Storage="_ValueUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricOrgLocationUoMID" Member="MetricOrgLocationUoMID" Storage="_MetricOrgLocationUoMID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationUnitOfMeasureID" Member="OrgLocationUnitOfMeasureID" Storage="_OrgLocationUnitOfMeasureID" DbType="UniqueIdentifier" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SelectPIReportValues" Method="Sp_SelectPIReportValues">
+    <Parameter Name="InstanceId" Parameter="instanceId" DbType="UniqueIdentifier" />
+    <Parameter Name="OrgLocationID" Parameter="orgLocationID" DbType="UniqueIdentifier" />
+    <Parameter Name="GroupID" Parameter="groupID" DbType="UniqueIdentifier" />
+    <Parameter Name="FrequencyID" Parameter="frequencyID" DbType="Int" />
+    <Parameter Name="LocationTypeID" Parameter="locationTypeID" DbType="UniqueIdentifier" />
+    <Parameter Name="BeginDate" Parameter="beginDate" DbType="SmallDateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" DbType="SmallDateTime" />
+    <ElementType Name="MetricTrac.Bll.Sp_SelectPIReportValuesResult1">
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="MetricName" Member="MetricName" Storage="_MetricName" DbType="NVarChar(100)" />
+      <Column Name="MetricCode" Member="MetricCode" Storage="_MetricCode" DbType="NVarChar(25)" />
+      <Column Name="InputUnitOfMeasureID" Member="InputUnitOfMeasureID" Storage="_InputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="UnitOfMeasureID" Member="UnitOfMeasureID" Storage="_UnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="FrequencyID" Member="FrequencyID" Storage="_FrequencyID" DbType="Int" />
+      <Column Name="InputUoMName" Member="InputUoMName" Storage="_InputUoMName" DbType="NVarChar(255)" />
+      <Column Name="UoMName" Member="UoMName" Storage="_UoMName" DbType="NVarChar(255)" />
+      <Column Name="PerformanceIndicatorID" Member="PerformanceIndicatorID" Storage="_PerformanceIndicatorID" DbType="UniqueIdentifier" />
+      <Column Name="PIName" Member="PIName" Storage="_PIName" DbType="NVarChar(100)" />
+      <Column Name="PICode" Member="PICode" Storage="_PICode" DbType="NVarChar(25)" />
+      <Column Name="SumValue" Member="SumValue" Storage="_SumValue" DbType="NVarChar(MAX)" />
+      <Column Name="GCAID" Member="GCAID" Storage="_GCAID" DbType="UniqueIdentifier" />
+      <Column Name="GCAName" Member="GCAName" Storage="_GCAName" DbType="NVarChar(100)" />
+      <Column Name="GCA1ID" Member="GCA1ID" Storage="_GCA1ID" DbType="UniqueIdentifier" />
+      <Column Name="GCA1Name" Member="GCA1Name" Storage="_GCA1Name" DbType="NVarChar(100)" />
+      <Column Name="GCA2ID" Member="GCA2ID" Storage="_GCA2ID" DbType="UniqueIdentifier" />
+      <Column Name="GCA2Name" Member="GCA2Name" Storage="_GCA2Name" DbType="NVarChar(100)" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier" />
+      <Column Name="LocationFullName" Member="LocationFullName" Storage="_LocationFullName" DbType="NVarChar(MAX)" />
+      <Column Name="AllowCustomMetricNames" Member="AllowCustomMetricNames" Storage="_AllowCustomMetricNames" DbType="Bit" />
+      <Column Name="RelatedMetricOrgLocationNameID" Member="RelatedMetricOrgLocationNameID" Storage="_RelatedMetricOrgLocationNameID" DbType="UniqueIdentifier" />
+      <Column Name="CustomMetricAlias" Member="CustomMetricAlias" Storage="_CustomMetricAlias" DbType="NVarChar(100)" />
+      <Column Name="CustomMetricCode" Member="CustomMetricCode" Storage="_CustomMetricCode" DbType="NVarChar(100)" />
+    </ElementType>
+    <ElementType Name="MetricTrac.Bll.Sp_SelectPIReportValuesResult2">
+      <Column Name="MetricValueID" Member="MetricValueID" Storage="_MetricValueID" DbType="UniqueIdentifier" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="FrequencyID" Member="FrequencyID" Storage="_FrequencyID" DbType="Int" />
+      <Column Name="Date" Member="Date" Storage="_Date" DbType="SmallDateTime" />
+      <Column Name="UnitOfMeasureID" Member="UnitOfMeasureID" Storage="_UnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="InputUnitOfMeasureID" Member="InputUnitOfMeasureID" Storage="_InputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="ValueMetricDataTypeID" Member="ValueMetricDataTypeID" Storage="_ValueMetricDataTypeID" DbType="Int" />
+      <Column Name="Value" Member="Value" Storage="_Value" DbType="NVarChar(MAX)" />
+      <Column Name="ConvertedValue" Member="ConvertedValue" Storage="_ConvertedValue" DbType="NVarChar(MAX)" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier" />
+      <Column Name="InputDate" Member="InputDate" Storage="_InputDate" DbType="SmallDateTime" />
+      <Column Name="MetricFrequencyID" Member="MetricFrequencyID" Storage="_MetricFrequencyID" DbType="Int" />
+      <Column Name="MetricInputUnitOfMeasureID" Member="MetricInputUnitOfMeasureID" Storage="_MetricInputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricUnitOfMeasureID" Member="MetricUnitOfMeasureID" Storage="_MetricUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricDataTypeID" Member="MetricDataTypeID" Storage="_MetricDataTypeID" DbType="Int" />
+      <Column Name="AllowCustomNames" Member="AllowCustomNames" Storage="_AllowCustomNames" DbType="Bit" />
+      <Column Name="MetricOrgLocationUoMID" Member="MetricOrgLocationUoMID" Storage="_MetricOrgLocationUoMID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationUnitOfMeasureID" Member="OrgLocationUnitOfMeasureID" Storage="_OrgLocationUnitOfMeasureID" DbType="UniqueIdentifier" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SelectUnassignedMetric" Method="Sp_SelectUnassignedMetric">
+    <Parameter Name="InstanceId" Parameter="instanceId" DbType="UniqueIdentifier" />
+    <Parameter Name="PerformanceIndicatorID" Parameter="performanceIndicatorID" DbType="UniqueIdentifier" />
+    <Parameter Name="SelCollectorId" Parameter="selCollectorId" DbType="UniqueIdentifier" />
+    <Parameter Name="SelPiID" Parameter="selPiID" DbType="UniqueIdentifier" />
+    <Parameter Name="SelGcaID" Parameter="selGcaID" DbType="UniqueIdentifier" />
+    <Parameter Name="SelPifID" Parameter="selPifID" DbType="UniqueIdentifier" />
+    <Parameter Name="SelOrgLocationID" Parameter="selOrgLocationID" DbType="UniqueIdentifier" />
+    <Parameter Name="OrgLocationsID" Parameter="orgLocationsID" DbType="NVarChar(MAX)" />
+    <ElementType Name="MetricTrac.Bll.Sp_SelectUnassignedMetricResult">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(100)" />
+      <Column Name="Notes" Member="Notes" Storage="_Notes" DbType="NVarChar(MAX)" />
+      <Column Name="FrequencyID" Member="FrequencyID" Storage="_FrequencyID" DbType="Int" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="MetricCategoryID" Member="MetricCategoryID" Storage="_MetricCategoryID" DbType="UniqueIdentifier" />
+      <Column Name="UnitOfMeasureID" Member="UnitOfMeasureID" Storage="_UnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricDataTypeID" Member="MetricDataTypeID" Storage="_MetricDataTypeID" DbType="Int" />
+      <Column Name="NODecPlaces" Member="NODecPlaces" Storage="_NODecPlaces" DbType="Int" />
+      <Column Name="NOMinValue" Member="NOMinValue" Storage="_NOMinValue" DbType="Decimal(29,10)" />
+      <Column Name="NOMaxValue" Member="NOMaxValue" Storage="_NOMaxValue" DbType="Decimal(29,10)" />
+      <Column Name="Definition" Member="Definition" Storage="_Definition" DbType="NVarChar(MAX)" />
+      <Column Name="Documentation" Member="Documentation" Storage="_Documentation" DbType="NVarChar(MAX)" />
+      <Column Name="MetricReferences" Member="MetricReferences" Storage="_MetricReferences" DbType="NVarChar(MAX)" />
+      <Column Name="Code" Member="Code" Storage="_Code" DbType="NVarChar(25)" />
+      <Column Name="MetricTypeID" Member="MetricTypeID" Storage="_MetricTypeID" DbType="Int" />
+      <Column Name="Alias" Member="Alias" Storage="_Alias" DbType="NVarChar(50)" />
+      <Column Name="Generation" Member="Generation" Storage="_Generation" DbType="Int" />
+      <Column Name="FormulaCode" Member="FormulaCode" Storage="_FormulaCode" DbType="NVarChar(200)" />
+      <Column Name="InputUnitOfMeasureID" Member="InputUnitOfMeasureID" Storage="_InputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="Variable" Member="Variable" Storage="_Variable" DbType="NVarChar(200)" />
+      <Column Name="GrowUpIsGood" Member="GrowUpIsGood" Storage="_GrowUpIsGood" DbType="Bit" />
+      <Column Name="CollectionStartDate" Member="CollectionStartDate" Storage="_CollectionStartDate" DbType="SmallDateTime" />
+      <Column Name="CollectionEndDate" Member="CollectionEndDate" Storage="_CollectionEndDate" DbType="SmallDateTime" />
+      <Column Name="AllowCustomNames" Member="AllowCustomNames" Storage="_AllowCustomNames" DbType="Bit" />
+      <Column Name="FrequencyName" Member="FrequencyName" Storage="_FrequencyName" DbType="NVarChar(50)" />
+      <Column Name="MetricCategoryName" Member="MetricCategoryName" Storage="_MetricCategoryName" DbType="NVarChar(306)" />
+      <Column Name="MetricDataTypeName" Member="MetricDataTypeName" Storage="_MetricDataTypeName" DbType="NVarChar(50)" />
+      <Column Name="MetricTypeName" Member="MetricTypeName" Storage="_MetricTypeName" DbType="NVarChar(50)" />
+      <Column Name="UnitOfMeasureName" Member="UnitOfMeasureName" Storage="_UnitOfMeasureName" DbType="VarChar(1)" />
+      <Column Name="InputUnitOfMeasureName" Member="InputUnitOfMeasureName" Storage="_InputUnitOfMeasureName" DbType="VarChar(1)" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SelectUnassignedPerformanceIndicator" Method="Sp_SelectUnassignedPerformanceIndicator">
+    <Parameter Name="InstanceId" Parameter="instanceId" DbType="UniqueIdentifier" />
+    <Parameter Name="PIFormId" Parameter="pIFormId" DbType="UniqueIdentifier" />
+    <Parameter Name="GCAId" Parameter="gCAId" DbType="UniqueIdentifier" />
+    <ElementType Name="MetricTrac.Bll.Sp_SelectUnassignedPerformanceIndicatorResult">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier" />
+      <Column Name="PerformanceIndicatorID" Member="PerformanceIndicatorID" Storage="_PerformanceIndicatorID" DbType="UniqueIdentifier" />
+      <Column Name="Name" Member="Name" Storage="_Name" DbType="NVarChar(100)" />
+      <Column Name="Description" Member="Description" Storage="_Description" DbType="NVarChar(MAX)" />
+      <Column Name="GroupCategoryAspectID" Member="GroupCategoryAspectID" Storage="_GroupCategoryAspectID" DbType="UniqueIdentifier" />
+      <Column Name="Status" Member="Status" Storage="_Status" DbType="Bit" />
+      <Column Name="Created" Member="Created" Storage="_Created" DbType="SmallDateTime" />
+      <Column Name="Updated" Member="Updated" Storage="_Updated" DbType="SmallDateTime" />
+      <Column Name="SectorID" Member="SectorID" Storage="_SectorID" DbType="Int" />
+      <Column Name="Help" Member="Help" Storage="_Help" DbType="Text" />
+      <Column Name="RequirementID" Member="RequirementID" Storage="_RequirementID" DbType="Int" />
+      <Column Name="Sector" Member="Sector" Storage="_Sector" DbType="NVarChar(50)" />
+      <Column Name="Requirement" Member="Requirement" Storage="_Requirement" DbType="NVarChar(50)" />
+      <Column Name="GCA" Member="GCA" Storage="_GCA" DbType="NVarChar(326)" />
+      <Column Name="Code" Member="Code" Storage="_Code" DbType="NVarChar(25)" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SelectUnderReviewMetricValues" Method="Sp_SelectUnderReviewMetricValues">
+    <Parameter Name="InstanceId" Parameter="instanceId" DbType="UniqueIdentifier" />
+    <Parameter Name="EndDate" Parameter="endDate" DbType="SmallDateTime" />
+    <Parameter Name="ViewMode" Parameter="viewMode" DbType="Bit" />
+    <Parameter Name="FrequencyID" Parameter="frequencyID" DbType="Int" />
+    <Parameter Name="MetricID" Parameter="metricID" DbType="UniqueIdentifier" />
+    <Parameter Name="OrgLocationID" Parameter="orgLocationID" DbType="UniqueIdentifier" />
+    <Parameter Name="SelUserId" Parameter="selUserId" DbType="UniqueIdentifier" />
+    <Parameter Name="ApproverUserId" Parameter="approverUserId" DbType="UniqueIdentifier" />
+    <Parameter Name="OrderByMetric" Parameter="orderByMetric" DbType="Bit" />
+    <ElementType Name="MetricTrac.Bll.Sp_SelectUnderReviewMetricValuesResult">
+      <Column Name="InstanceId" Member="InstanceId" Storage="_InstanceId" DbType="UniqueIdentifier" />
+      <Column Name="MetricID" Member="MetricID" Storage="_MetricID" DbType="UniqueIdentifier" />
+      <Column Name="MetricName" Member="MetricName" Storage="_MetricName" DbType="NVarChar(100)" />
+      <Column Name="MetricFrequencyID" Member="MetricFrequencyID" Storage="_MetricFrequencyID" DbType="Int" />
+      <Column Name="MetricTypeID" Member="MetricTypeID" Storage="_MetricTypeID" DbType="Int" />
+      <Column Name="MetricDataTypeID" Member="MetricDataTypeID" Storage="_MetricDataTypeID" DbType="Int" />
+      <Column Name="NODecPlaces" Member="NODecPlaces" Storage="_NODecPlaces" DbType="Int" />
+      <Column Name="MetricInputUnitOfMeasureID" Member="MetricInputUnitOfMeasureID" Storage="_MetricInputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="AllowCustomNames" Member="AllowCustomNames" Storage="_AllowCustomNames" DbType="Bit" />
+      <Column Name="MetricValueID" Member="MetricValueID" Storage="_MetricValueID" DbType="UniqueIdentifier" />
+      <Column Name="Date" Member="Date" Storage="_Date" DbType="SmallDateTime" />
+      <Column Name="Value" Member="Value" Storage="_Value" DbType="NVarChar(MAX)" />
+      <Column Name="Approved" Member="Approved" Storage="_Approved" DbType="Bit" />
+      <Column Name="FilesAttached" Member="FilesAttached" Storage="_FilesAttached" DbType="Bit" />
+      <Column Name="ReviewUpdated" Member="ReviewUpdated" Storage="_ReviewUpdated" DbType="Bit" />
+      <Column Name="OrgLocationID" Member="OrgLocationID" Storage="_OrgLocationID" DbType="UniqueIdentifier" />
+      <Column Name="ValueDataTypeID" Member="ValueDataTypeID" Storage="_ValueDataTypeID" DbType="Int" />
+      <Column Name="ValueInputUnitOfMeasureID" Member="ValueInputUnitOfMeasureID" Storage="_ValueInputUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationFullName" Member="OrgLocationFullName" Storage="_OrgLocationFullName" DbType="NVarChar(1545)" />
+      <Column Name="MetricOrgLocationUoMID" Member="MetricOrgLocationUoMID" Storage="_MetricOrgLocationUoMID" DbType="UniqueIdentifier" />
+      <Column Name="OrgLocationUnitOfMeasureID" Member="OrgLocationUnitOfMeasureID" Storage="_OrgLocationUnitOfMeasureID" DbType="UniqueIdentifier" />
+      <Column Name="MetricOrgLocationNameID" Member="MetricOrgLocationNameID" Storage="_MetricOrgLocationNameID" DbType="UniqueIdentifier" />
+      <Column Name="CustomMetricAlias" Member="CustomMetricAlias" Storage="_CustomMetricAlias" DbType="NVarChar(100)" />
+      <Column Name="CustomMetricCode" Member="CustomMetricCode" Storage="_CustomMetricCode" DbType="NVarChar(100)" />
+      <Column Name="ValuePosType" Member="ValuePosType" Storage="_ValuePosType" DbType="VarChar(1)" />
+    </ElementType>
+  </Function>
+</Database>

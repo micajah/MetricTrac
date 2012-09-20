@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E646FA64-0C5A-4BE7-A0E4-1EFA187A9A65}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetricTrac</RootNamespace>
+    <AssemblyName>MetricTrac.Bll</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Micajah.Common3, Version=3.0.3803.27055, Culture=neutral, PublicKeyToken=045979187a9f4eec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Micajah.Common3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationLog.cs" />
+    <Compile Include="Classes\DataRule\DataRuleEdit.cs" />
+    <Compile Include="Classes\DataRule\DataRuleList.cs" />
+    <Compile Include="Classes\Mail.cs" />
+    <Compile Include="Classes\MetricValue\MetricValueCalc.cs" />
+    <Compile Include="Classes\MetricValue\MetricValueListApproveWork.cs" />
+    <Compile Include="Classes\MetricValue\MetricValueEditBulk.cs" />
+    <Compile Include="Classes\MetricValue\MetricValueComposite.cs" />
+    <Compile Include="Classes\MetricValue\MetricValueEdit.cs" />
+    <Compile Include="Classes\MetricValue\MetricValueList.cs" />
+    <Compile Include="Classes\MetricValue\MetricValueListDataChart.cs" />
+    <Compile Include="Classes\MetricValue\MetricValueListMissed.cs" />
+    <Compile Include="Classes\MetricValue\MetricValueListRelated.cs" />
+    <Compile Include="Classes\MetricValue\MetricValueListUnderReview.cs" />
+    <Compile Include="Classes\Metric\MetricList.cs" />
+    <Compile Include="Classes\PerformanceIndicator\PerformanceIndicatorList.cs" />
+    <Compile Include="Control\BllDataSource.cs" />
+    <Compile Include="DataRule.cs" />
+    <Compile Include="DataCollectorRuleOut.cs" />
+    <Compile Include="DataContext\LinqDB.cs" />
+    <Compile Include="DataContext\LinqMicajahDataContext.cs" />
+    <Compile Include="DataView.cs" />
+    <Compile Include="DataViewWhere.cs" />
+    <Compile Include="MasterData.cs" />
+    <Compile Include="Mc_EntityNode.cs" />
+    <Compile Include="Mc_Instance.cs" />
+    <Compile Include="Mc_UnitsOfMeasure.cs" />
+    <Compile Include="Mc_User.cs" />
+    <Compile Include="MetricDataType.cs" />
+    <Compile Include="MetricFilter.cs" />
+    <Compile Include="MetricFormula.cs" />
+    <Compile Include="MetricValue.cs" />
+    <Compile Include="MetricValueChangeLog.cs" />
+    <Compile Include="Frequency.cs" />
+    <Compile Include="GroupCategoryAspect.cs" />
+    <Compile Include="Metric.cs" />
+    <Compile Include="MetricCategory.cs" />
+    <Compile Include="PerformanceIndicator.cs" />
+    <Compile Include="PerformanceIndicatorFormula.cs" />
+    <Compile Include="PerformanceIndicatorMetricJunc.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requirement.cs" />
+    <Compile Include="ScoreCard.cs" />
+    <Compile Include="ScoreCardCompPeriod.cs" />
+    <Compile Include="ScoreCardDashboard.cs" />
+    <Compile Include="ScoreCardMetric.cs" />
+    <Compile Include="ScoreCardPeriod.cs" />
+    <Compile Include="ScoreCardValue.cs" />
+    <Compile Include="Sector.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Class Diagrams\Overview.cd" />
+    <None Include="DataContext\Micajah.Linq.Generator.exe.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataContext\LinqDB.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataContext\Micajah.Linq.Generator.exe" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
